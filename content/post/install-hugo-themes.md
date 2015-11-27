@@ -11,8 +11,9 @@ GitHubに[hugoThemes](https://github.com/spf13/hugoThemes) がある。
 
 ただし、すべてのプロジェクトで全テーマをチェックアウトするのはアホらしいので、
 大元を１つ用意し、そこへのシンボリックリンクを張ることにする。
-ディレクトリ名は `/themes` にしないといけない。
+このときのリンク名は `/themes` にしないといけない。
 
+テーマを適用する時には `/themes` 内にあるディレクトリ名を指定しないとエラーになる。
 
 ``` bash
 ## 大元を用意する
@@ -20,7 +21,9 @@ $ cd ~/repos/github/
 $ git clone --recursive https://github.com/spf13/hugoThemes.git
 
 ## プロジェクト内にシンボリックリンクを張る
+$ cd ~/public_html/kumanote/
 $ ln -s ~/repos/github/hugoThemes themes
-```
 
-テーマを適用するには `/themes` 内にあるディレクトリ名を使う必要がある。
+## テーマの適用
+$ hugo server --watch --buidDrafts --theme=hyde
+```
