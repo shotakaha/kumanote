@@ -22,3 +22,5 @@ $ git clone --recursive https://github.com/spf13/hugoThemes.git
 ## プロジェクト内にシンボリックリンクを張る
 $ ln -s ~/repos/github/hugoThemes themes
 ```
+
+テーマを適用するには `/themes` 内にあるディレクトリ名を使う必要がある。
