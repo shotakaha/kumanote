@@ -2,7 +2,7 @@
 date = "2015-11-28T01:31:07+09:00"
 draft = true
 title = "Hugoのテーマを使ってみる"
-
+categories = [ "hugo" ]
 +++
 
 GitHubに[hugoThemes](https://github.com/spf13/hugoThemes) がある。
