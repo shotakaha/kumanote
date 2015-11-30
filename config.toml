@@ -1,4 +1,41 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
-languageCode = "en-us"
+languageCode = "ja"
 title = "My New Hugo Site"
+theme = "startbootstrap-clean-blog"
 
+[permalinks]
+  #post = "/blog/:year/:month/:day/"
+  #post = "/blog/:filename"
+
+[author]
+  name = "Shota Takahashi"
+
+[params]
+  DateForm = "Mon, Jan 2, 2006"
+  Description = "Your site description"
+  Author = "Shota Takahashi"
+  email = "shotakaha@gmail.com"
+  
+[[params.social]]
+  title = "twitter"
+  url = "https://twitter.com/shotakaha"
+[[params.social]]
+  title = "github"
+  url = "https://github.com/shotakaha"
+[[params.social]]
+  title = "facebook"
+  url = "https://www.facebook.com/shotakaha"
+
+                                      
+[[menu.main]]
+  name = "home"
+  url = "/"
+  weight = -200
+[[menu.main]]
+  name = "Archives"
+  url = "/post/"
+  weight = -180
+[[menu.main]]
+  name = "Hoge"
+  url = "/hoge/"
+  weight = -180
