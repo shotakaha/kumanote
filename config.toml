@@ -2,6 +2,7 @@ baseurl = "http://localhost:8888/~shotakaha/kumanote/public/"
 languageCode = "ja"
 title = "KumaNOTE"
 theme = "startbootstrap-clean-blog"
+ignoreFiles = [".#"]
 
 [permalinks]
   #post = "/blog/:year/:month/:day/"
@@ -33,8 +34,4 @@ theme = "startbootstrap-clean-blog"
 [[menu.main]]
   name = "Archives"
   url = "/post/"
-  weight = -180
-[[menu.main]]
-  name = "Hoge"
-  url = "/hoge/"
   weight = -180
