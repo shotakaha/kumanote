@@ -1,8 +1,8 @@
 +++
 categories = ["Development"]
-date = "2015-12-01T16:41:51+09:00"
+date = "2015-12-01T17:15:17+09:00"
 description = ""
-draft = true
+draft = false
 image = "/img/about-bg.jpg"
 tags = ["git", "git-flow"]
 title = "git-flowを使えるようにする"
