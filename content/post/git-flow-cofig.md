@@ -5,16 +5,20 @@ description = ""
 draft = false
 image = "/img/about-bg.jpg"
 tags = ["git", "git-flow"]
-title = "git-flowを使えるようにする"
+title = "git-flowを使ってみる"
 
 +++
 
-バージョン管理にはGitを使っているが、git-flowというwrapperみたいなのがあるらしいので早速使ってみる。
+Gitでバージョン管理をする際に、頻繁に使う操作をまとめた
+`git-flow`というコマンドがあるらしいので、早速使ってみる。
 
-# とりあえず新規Gitリポジトリを作成
 
-`git init`の代わりに`git flow init`を使えばよくて、
-質問はすべて`RET`を押しておけば問題ない。
+# 新規Gitリポジトリの作成
+
+`git init`の代わりに`git flow init`を使えばよい。
+マスターブランチ、開発ブランチの名前はどうする？
+トピックプランチのプリフィックスはどうする？
+とか聞かれるが、`RET`を押しておいて問題ない。
 
 ``` bash
 $ cd ~/repos/git-flow-test
@@ -56,13 +60,13 @@ $ less .git/config
     versiontag =
 ```
 
-新しく`[gitflow]`というセクションが追加されているのが分かる。
-`versiontag`のprefix部分は空欄にしてしまったが、後で`versiontag = v`などに変更してもよい。
+新しく`[gitflow "branch"]`と`[gitflow "prefix"]`というセクションが追加されているのが分かる。
+`versiontag`の部分は空欄になっているが、後で`versiontag = v`などに書き換えてもよい。
 
 
-# 既存のGitリポジトリに適用
+# 既存のGitリポジトリをgit-flow化する
 
-さて`git flow`の初期化方法が分かったので、既存のGitリポジトリに適用してみる。
+さて`git flow init`で`/.git/config`がどう書き換えられるか分かったので、既存のGitリポジトリにも適用してみる。
 以下は僕の`.emacs.d`のリポジトリの設定
 
 ``` bash
@@ -87,7 +91,6 @@ $ less ~/.emacs.d/.git/config
 [branch "trunk"]
     remote = origin
     merge = refs/heads/trunk
-
 ```
 
 これに`[gitflow]`セクションを追記する。
@@ -118,14 +121,15 @@ $ less ~/.emacs.d/.git/config
 
 # magit-gitflowを使う
 
-さてさてEmacs + Gitには欠かせない`Magit`パッケージ。
-実は`magit-gitflow`という`git-flow`用の拡張もある。
+さてさて、Emacs + Gitには欠かせない`Magit`パッケージ。
+実は`magit-gitflow`という`git-flow`用の拡張がある。
+`MELPA`からインストールできる。
 
-`MELPA`からインストールして、GitHubページにあるとおりに設定をしておき、
-上記のようにリポジトリの設定もできていれば、すぐに使うことができる。
+GitHubページにあるとおりにEmacsの設定をし、
+上記のようにリポジトリの設定ができていれば、準備はOK。
 
-`magit-status`の画面で`C-f`するだけで`magit-gitflow`ポップアップが表示される。
-あとは普段の`Magit`のようにキーを入力するだけ。
+`magit-status`の画面で`C-f`すると`magit-gitflow`ポップアップが表示される。
+あとは普段`Magit`を使うときみたいにキーを入力するだけ。
 
 これで`git-flow`のコマンドを知らなくてもなんとなく操作できるようになった。
 あとは`git-flow`のコンセプトを理解すればよい。
