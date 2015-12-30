@@ -1,4 +1,4 @@
-baseurl = "http://localhost:8888/~shotakaha/kumanote/public/"
+baseurl = "http://localhost:8888/~shotakaha/kumanote/"
 languageCode = "ja"
 title = "KumaNOTE"
 theme = "startbootstrap-clean-blog"
@@ -16,7 +16,7 @@ ignoreFiles = [".#"]
   Description = "A Note of Kuma, for Kuma, by Kuma"
   Author = "Shota Takahashi"
   email = "shotakaha@gmail.com"
-  
+
 [[params.social]]
   title = "twitter"
   url = "https://twitter.com/shotakaha"
@@ -26,7 +26,7 @@ ignoreFiles = [".#"]
 [[params.social]]
   title = "facebook"
   url = "https://www.facebook.com/shotakaha"
-                                      
+
 [[menu.main]]
   name = "home"
   url = "/"
