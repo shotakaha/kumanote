@@ -15,7 +15,7 @@ title = "Atomを使い始めてみた"
 
 # Atomのインストール
 
-https://atom.io からダウンロードしたファイル（.app）を`/Applications/`以下に移動するだけ
+[atom.io](https://atom.io) からダウンロードしたファイル（.app）を`/Applications/`以下に移動するだけ
 
 # Core Packages
 
@@ -55,7 +55,7 @@ Emacs同様、いろいろなパッケージがありすぎてどれがいいの
 ## Git Control
 
 ぐぐる先生に伺ったところ、GitHub製のくせにそのままだとGit機能は貧弱らしい。
-なので https://atom.io/packages/git-control を追加した。
+なので [git-control](https://atom.io/packages/git-control) を追加した。
 
 ![Git Control](../../images/atom-git-control.png)
 
