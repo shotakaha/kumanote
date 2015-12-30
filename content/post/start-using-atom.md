@@ -1,5 +1,5 @@
 +++
-categories = ["Development", "golang"]
+categories = ["Development"]
 date = "2015-12-30T20:16:08+09:00"
 description = ""
 draft = true
@@ -11,11 +11,11 @@ title = "Atomを使い始めてみた"
 
 # Atomに浮気
 
-年末休みなのでEmacsからAtomに浮気してみた
+年末休みなので`Emacs`から`Atom`に浮気してみた
 
 # Atomのインストール
 
-https://atom.io からダウンロードしたファイル（.app）を /Applications/ 以下に移動するだけ
+https://atom.io からダウンロードしたファイル（.app）を`/Applications/`以下に移動するだけ
 
 # Core Packages
 
@@ -25,13 +25,13 @@ https://atom.io からダウンロードしたファイル（.app）を /Applica
 
 [環境設定] -> [Setteings] -> [Packages] -> [Core Packages]
 
-の一覧で無効（Disable）にできる。
+の一覧で`無効（Disable）`にできる。
 
 ## TreeView
 
 デフォルト機能TreeView。
 画面の左側に、そのプロジェクトの属するフォルダ／ファイルが一覧表示される機能で、
-Command + \ もしくは Comand + K -> Command + B でON/OFFを切り替えることができる。
+`Command + \` もしくは `Comand + K -> Command + B` でON/OFFを切り替えることができる。
 ファイルをクリックすると新規タブに表示される。
 Emacsもこれと同じ画面構成にすると使いやすくなるかなと思った。
 
@@ -44,7 +44,7 @@ AtomはEmacsの用にパッケージを追加することで使い勝手を良�
 [環境設定] -> [Settings] -> [+ Install] -> パッケージ検索
 
 と辿れば、Atom上でクリックだけでできるので、Emacsでのコマンド入力が苦手な人は楽かもしれない。
-また、[apm install] コマンドを使うとコマンドラインからインストールすることもできる。
+また `apm install` コマンドを使うとコマンドラインからインストールすることもできる。
 
 # 追加したパッケージ
 
@@ -61,10 +61,10 @@ Emacs同様、いろいろなパッケージがありすぎてどれがいいの
 
 ## Project Manager
 
-Emacsのpersp-modeみたいな機能。
+Emacsの`persp-mode`みたいな機能。
 Gitで管理しているプロジェクト毎に登録しておくと、
 それらを簡単に切り替えることができるようになる。
-登録はAtom上からでき、その一覧は$HOME/.atom/projects.csonに保存される。
-（なので、このファイルを直接編集してもOK）
+登録はAtom上からでき、その一覧は`$HOME/.atom/projects.cson`に保存される。
+なので、このファイルを直接編集してもOK。
 
 ![Project Manager](../../images/atom-project-manager.png)
