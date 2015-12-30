@@ -25,3 +25,12 @@ build:
         theme: startbootstrap-clean-blog
         dev_flags: -D -F
         prod_branches: master
+
+deploy:
+  steps:
+    - install-packages:
+        packages: git ssh-client
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: kumanote.ig.nore.me
+        basedir: public
