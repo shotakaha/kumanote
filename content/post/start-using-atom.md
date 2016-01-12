@@ -57,7 +57,7 @@ Emacs同様、いろいろなパッケージがありすぎてどれがいいの
 ぐぐる先生に伺ったところ、GitHub製のくせにそのままだとGit機能は貧弱らしい。
 なので [git-control](https://atom.io/packages/git-control) を追加した。
 
-![Git Control](../../images/atom-git-control.png)
+{{< figure src="../../images/atom-git-control.png" class="img-responsive" title="Git Control" >}}
 
 ## Project Manager
 
