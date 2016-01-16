@@ -15,6 +15,7 @@
    muon
    kaon
    relativity
+   accelerator
    glossary
 
 
