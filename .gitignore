@@ -112,3 +112,4 @@ sympy-plots-for-*.tex/
 
 # Add by myself
 /public
+docs/build
