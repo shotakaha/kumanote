@@ -1,6 +1,6 @@
 +++
-date = "2015-11-29T21:10:49+09:00"
-draft = true
+date = "2015-12-02T20:21:59+09:00"
+draft = false
 title = "Hugoドキュメントの基本"
 categories = ["hugo"]
 +++

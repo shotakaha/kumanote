@@ -1,7 +1,9 @@
-baseurl = "http://localhost:8888/~shotakaha/kumanote/public/"
+baseurl = "http://localhost:8888/~shotakaha/kumanote/"
 languageCode = "ja"
 title = "KumaNOTE"
 theme = "startbootstrap-clean-blog"
+#theme = "creative"
+ignoreFiles = [".#"]
 
 [permalinks]
   #post = "/blog/:year/:month/:day/"
@@ -15,7 +17,7 @@ theme = "startbootstrap-clean-blog"
   Description = "A Note of Kuma, for Kuma, by Kuma"
   Author = "Shota Takahashi"
   email = "shotakaha@gmail.com"
-  
+
 [[params.social]]
   title = "twitter"
   url = "https://twitter.com/shotakaha"
@@ -25,7 +27,7 @@ theme = "startbootstrap-clean-blog"
 [[params.social]]
   title = "facebook"
   url = "https://www.facebook.com/shotakaha"
-                                      
+
 [[menu.main]]
   name = "home"
   url = "/"
@@ -33,8 +35,4 @@ theme = "startbootstrap-clean-blog"
 [[menu.main]]
   name = "Archives"
   url = "/post/"
-  weight = -180
-[[menu.main]]
-  name = "Hoge"
-  url = "/hoge/"
   weight = -180
