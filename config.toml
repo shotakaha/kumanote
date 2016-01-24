@@ -2,6 +2,7 @@ baseurl = "http://localhost:8888/~shotakaha/kumanote/"
 languageCode = "ja"
 title = "KumaNOTE"
 theme = "startbootstrap-clean-blog"
+#theme = "creative"
 ignoreFiles = [".#"]
 
 [permalinks]
