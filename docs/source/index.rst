@@ -16,6 +16,7 @@
    kaon
    relativity
    accelerator
+   detector
    glossary
 
 
