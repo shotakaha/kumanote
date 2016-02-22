@@ -18,6 +18,7 @@
    accelerator
    detector
    glossary
+   beast
 
 
 
