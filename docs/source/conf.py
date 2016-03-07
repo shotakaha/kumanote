@@ -216,17 +216,26 @@ htmlhelp_basename = 'KumaNotedoc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    'pointsize': '12pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    'preamble': '',
 
 # Latex figure (float) alignment
-#'figure_align': 'htbp',
+    'figure_align': 'htbp',
 }
+
+latex_elements['preamble'] += '\\usepackage{amsmath, amssymb}\n'
+latex_elements['preamble'] += '\\usepackage{pxjahyper}\n'
+latex_elements['preamble'] += '\\usepackage{graphicx}\n'
+latex_elements['preamble'] += '\\hypersetup{bookmarksnumbered=true}\n'
+latex_elements['preamble'] += '\\hypersetup{bookmarksopen=true}\n'
+latex_elements['preamble'] += '\\hypersetup{bookmarksopenlevel=2}\n'
+latex_elements['preamble'] += '\\hypersetup{colorlinks=true}\n'
+latex_elements['preamble'] += '\\hypersetup{pdfpagemode=UseOutlines}\n'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
