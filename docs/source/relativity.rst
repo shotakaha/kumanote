@@ -21,3 +21,4 @@
    general-general
    covariance
    contravariance
+   einstein-equation
