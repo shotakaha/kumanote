@@ -19,6 +19,7 @@
    detector
    glossary
    beast
+   dailynote/index
 
 
 
