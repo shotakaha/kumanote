@@ -173,18 +173,31 @@
 :math:`\mathrm{d}x', c\mathrm{d}t'` の計算は全微分しなきゃいけないことに気をつける。
 
 
+全微分は以下の式で計算できる。
+
 .. math::
    :nowrap:
 
    \begin{align}
-   \begin{cases}
-   \quad \mathrm{d}x'
+   \mathrm{d}x'
    & = \frac{\partial x'}{\partial x} \mathrm{d}x + \frac{\partial x'}{\partial t} \mathrm{d}t
    = \gamma \mathrm{d}x - \gamma \beta c \mathrm{d}t\\
    \quad c\mathrm{d}t'
    & = c \left( \frac{\partial t'}{\partial x} \mathrm{d}x + \frac{\partial t'}{\partial t} \mathrm{d}t \right)
    = c \left( \frac{- \gamma \beta }{c} \mathrm{d}x + \gamma \mathrm{d}t \right)
    = - \gamma \beta \mathrm{d}x + \gamma c \mathrm{d}t\\
+   \end{align}
+
+
+よってまとめると、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \begin{cases}
+   \quad \mathrm{d}x' &= \gamma \mathrm{d}x - \gamma \beta c \mathrm{d}t\\
+   \quad c\mathrm{d}t' &= - \gamma \beta \mathrm{d}x + \gamma c \mathrm{d}t\\
    \quad \mathrm{d}y' & = \mathrm{d}y\\
    \quad \mathrm{d}z' & = \mathrm{d}z\\
    \end{cases}
@@ -198,16 +211,16 @@
    \mathrm{d}s'^{2}
    & = -c^{2}\mathrm{d}t'^{2} + \mathrm{d}x'^{2} + \mathrm{d}y'^{2} + \mathrm{d}z'^{2}\\
    & = - (- \gamma \beta \mathrm{d}x + \gamma c \mathrm{d}t)^{2}\\
-   & \quad + (\gamma \mathrm{d}x - \gamma \beta c \mathrm{d}t)^{2} + y^{2} + z^{2}\\
+   & \quad + (\gamma \mathrm{d}x - \gamma \beta c \mathrm{d}t)^{2} + \mathrm{d}y^{2} + \mathrm{d}z^{2}\\
    & = - (\gamma^{2} \beta^{2} \mathrm{d}^{2}x + \gamma^{2} c^{2} \mathrm{d}^{2}t - \gamma^{2} \beta c \mathrm{d}x \mathrm{d}t)\\
    & \quad + (\gamma^{2} \mathrm{d}^{2}x + \gamma^{2} \beta^{2} c^{2} \mathrm{d}^{2}t - \gamma^{2} \beta c \mathrm{d}x \mathrm{d}t)
-      + y^{2} + z^{2}\\
-   & = - \gamma^{2} \beta^{2} \mathrm{d}^{2}x - \gamma^{2} c^{2} \mathrm{d}^{2}t + \gamma^{2} \beta c \mathrm{d}x \mathrm{d}t)\\
+      + \mathrm{d}y^{2} + \mathrm{d}z^{2}\\
+   & = - \gamma^{2} \beta^{2} \mathrm{d}^{2}x - \gamma^{2} c^{2} \mathrm{d}^{2}t + \gamma^{2} \beta c \mathrm{d}x \mathrm{d}t\\
    & \quad + \gamma^{2} \mathrm{d}^{2}x + \gamma^{2} \beta^{2} c^{2} \mathrm{d}^{2}t - \gamma^{2} \beta c \mathrm{d}x \mathrm{d}t
-      + y^{2} + z^{2}\\
+      + \mathrm{d}y^{2} + \mathrm{d}z^{2}\\
    & = \gamma^{2} (1-\beta^{2}) \mathrm{d}^{2}x - \gamma^{2} (1-\beta^{2}) c^{2} \mathrm{d}^{2}t
-      + y^{2} + z^{2}\\
-   & = \mathrm{d}^{2}x - c^{2} \mathrm{d}^{2}t + y^{2} + z^{2}\\
+      + \mathrm{d}y^{2} + \mathrm{d}z^{2}\\
+   & = \mathrm{d}x^{2} - c^{2} \mathrm{d}t^{2} + \mathrm{d}y^{2} + \mathrm{d}z^{2}\\
    \therefore
    \mathrm{d}s'^{2}
    & = \mathrm{d}s^{2}
@@ -240,6 +253,7 @@
    (x^{0}, x^{1}, x^{2}, x^{3}) & \equiv (ct, x, y, z)
    \end{align}
 
+
 これまで使っていた座標を **上付き添字の変数** で表すことにするだけ。
 で、これからはこの４元位置ベクトルを :math:`x^{\mu}` で表すことにする。
 :math:`\mu` は０〜３までの値を取る添字で、０は時間成分、１〜３は空間成分を表すことになる。
@@ -248,6 +262,7 @@
 書いたりすることもある。
 **時空** の概念によって、時間と空間が対等に扱えるようになったとはいえ、
 やっぱり時間は特別だったりする。
+
 
 ４元位置ベクトルと不変距離とメトリック
 ==================================================
@@ -261,7 +276,7 @@
 
    \begin{align}
    x^{\mu} & \rightarrow x^{\mu} + \mathrm{d}x^{\mu}\\
-   (x^{0}, x^{1}, x^{2}, x^{3}) & \rightarrow (x^{0}+\mathrm{d}x^{0}, x^{1}+\mathrm{d}x^{1}, x^{2}+\mathrm{d}x^{2}, x^{3}+\mathrm{d}x^{3})\\
+   (x^{0}, x^{1}, x^{2}, x^{3}) & \rightarrow (x^{0}+\mathrm{d}x^{0}, x^{1}+\mathrm{d}x^{1}, x^{2}+\mathrm{d}x^{2}, x^{3}+\mathrm{d}x^{3})
    \end{align}
 
 この時の不変距離を定義にしたがって計算すると、
