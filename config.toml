@@ -1,4 +1,4 @@
-baseurl = "http://localhost:8888/~shotakaha/kumanote/"
+baseurl = "http://kuma.kek.jp/~shotakaha/kumanote/"
 title = "KumaNOTE"
 canonifyurls = true
 theme = "startbootstrap-clean-blog"
