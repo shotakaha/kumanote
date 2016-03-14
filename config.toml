@@ -1,8 +1,8 @@
 baseurl = "http://localhost:8888/~shotakaha/kumanote/"
-languageCode = "ja"
 title = "KumaNOTE"
+canonifyurls = true
 theme = "startbootstrap-clean-blog"
-#theme = "creative"
+languageCode = "ja"
 ignoreFiles = [".#"]
 
 [permalinks]
@@ -16,7 +16,7 @@ ignoreFiles = [".#"]
   DateForm = "Mon, Jan 2, 2006"
   Description = "A Note of Kuma, for Kuma, by Kuma"
   Author = "Shota Takahashi"
-  email = "shotakaha@gmail.com"
+  email = "shotakaha+kumanote@gmail.com"
 
 [[params.social]]
   title = "twitter"
