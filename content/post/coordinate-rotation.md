@@ -1,7 +1,7 @@
 +++
 categories = ["ノート"]
 date = "2016-03-14T19:08:50+09:00"
-description = ""
+description = "座標回転を使ったベクトル定義"
 image = "/img/about-bg.jpg"
 tags = ["物理"]
 title = "座標回転とベクトル"
