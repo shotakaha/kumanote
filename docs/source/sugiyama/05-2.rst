@@ -1,0 +1,195 @@
+==================================================
+ミンコフスキー時空と４元ベクトル、スカラー
+==================================================
+
+
+４元位置ベクトルの定義
+==================================================
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x^{0} & = ct\\
+   x^{1} & = x\\
+   x^{2} & = y\\
+   x^{3} & = z\\
+   \end{align}
+
+３次元のベクトルに、時間成分を加えたもの。
+次元を合わせるために :math:`x^{0} = ct` で定義されている。
+
+
+４元位置ベクトルとローレンツ変換
+==================================================
+
+p.56 のローレンツ変換の式を４元位置ベクトルを使って表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{0} & = \gamma \left( x^{0} - \frac{ v }{ c } x^{1} \right) = \gamma x^{0} - \gamma \beta x^{1}\\
+   x'^{1} & = \gamma \left( x^{1} - \frac{ v }{ c } x^{0} \right) = -\gamma \beta x^{0} + \gamma x^{1}\\
+   \end{align}
+
+行列で表すと、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \begin{pmatrix}
+   x'^{0}\\
+   x'^{1}
+   \end{pmatrix}
+   & =
+   \begin{pmatrix}
+   \gamma & - \gamma \beta\\
+   - \gamma \beta & \gamma\\
+   \end{pmatrix}
+   \begin{pmatrix}
+   x^{0}\\
+   x^{1}
+   \end{pmatrix}
+   \end{align}
+
+４成分全部をアインシュタインの規約を使って表すと、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{\mu} & = \sum_{\nu=0}^{3} L^{\mu}_{\nu} x^{\nu} \equiv L^{\mu}_{\nu} x^{\nu}\\
+   L^{\mu}_{\nu} & \equiv
+   \begin{pmatrix}
+   \gamma & -\gamma \beta & 0 & 0\\
+   -\gamma \beta & -\gamma & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+
+４元位置ベクトルの不変間隔とミンコフスキー計量
+==================================================
+
+４元位置ベクトルの微小変分を :math:`\mathrm{d}x^{\mu}` を使って
+不変間隔 :math:`\mathrm{d}s^{2}` を表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = - (\mathrm{d}x^{0})^{2} + (\mathrm{d}x^{1})^{2} + (\mathrm{d}x^{2})^{2} + (\mathrm{d}x^{3})^{2}
+   \end{align}
+
+
+**ミンコフスキー計量** という行列を定義する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} \equiv
+   \begin{pmatrix}
+   -1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+ミンコフスキー計量を使って不変間隔を表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = \eta_{\mu \nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}
+   \end{align}
+
+これはアインシュタインの規約を使って書かれているので、きちんと書くと
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = \sum_{\mu=0}^{3} \sum_{\nu=0}^{3} \eta_{\mu \nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}\\
+   & = \eta_{0 0} \mathrm{d}x^{0} \mathrm{d}x^{0}
+     + \eta_{0 1} \mathrm{d}x^{0} \mathrm{d}x^{1}
+     + \eta_{0 2} \mathrm{d}x^{0} \mathrm{d}x^{2}
+     + \eta_{0 3} \mathrm{d}x^{0} \mathrm{d}x^{3}\\
+   & + \eta_{1 0} \mathrm{d}x^{1} \mathrm{d}x^{0}
+     + \eta_{1 1} \mathrm{d}x^{1} \mathrm{d}x^{1}
+     + \eta_{1 2} \mathrm{d}x^{1} \mathrm{d}x^{2}
+     + \eta_{1 3} \mathrm{d}x^{1} \mathrm{d}x^{3}\\
+   & + \eta_{2 0} \mathrm{d}x^{2} \mathrm{d}x^{0}
+     + \eta_{2 1} \mathrm{d}x^{2} \mathrm{d}x^{1}
+     + \eta_{2 2} \mathrm{d}x^{2} \mathrm{d}x^{2}
+     + \eta_{2 3} \mathrm{d}x^{2} \mathrm{d}x^{3}\\
+   & + \eta_{3 0} \mathrm{d}x^{3} \mathrm{d}x^{0}
+     + \eta_{3 1} \mathrm{d}x^{3} \mathrm{d}x^{1}
+     + \eta_{3 2} \mathrm{d}x^{3} \mathrm{d}x^{2}
+     + \eta_{3 3} \mathrm{d}x^{3} \mathrm{d}x^{3}\\
+   \end{align}
+
+となっていて、
+ミンコフスキー計量の中身を使って計算すると、
+最初に書いた不変間隔の形に戻る。
+（というか、そうなるように定義したので当たり前）
+
+
+
+ローレンツ変換とミンコフスキー計量の関係式
+==================================================
+
+不変間隔がローレンツ不変であることを使って
+ミンコフスキー計量とローレンツ変換の関係式を求める。
+
+４元位置ベクトル :math:`x^{\mu}` のローレンツ変換と
+微小変分 :math:`\mathrm{d}x^{\mu}` のローレンツ変換
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{\mu} & = L^{\mu}_{\nu} x^{\nu}\\
+   \mathrm{d}x'^{\mu} & = L^{\mu}_{\nu} \mathrm{d}x^{\nu}
+   \end{align}
+
+
+不変間隔はローレンツ不変なので、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s'^{2} & = \mathrm{d}s^{2}
+   \end{align}
+
+が恒等的に成り立つ。
+なので、左辺と右辺をそれぞれ定義にしたがって計算し、
+両辺の係数を比較する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{the\ left\ side} = \mathrm{d}s'^{2}
+   & = \eta_{\mu \nu} \mathrm{d}x'^{\mu} \mathrm{d}x'^{\nu}\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} \mathrm{d}x^{\kappa} L^{\nu}_{\lambda} \mathrm{d}x^{\lambda}\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} \mathrm{d}x^{\kappa} \mathrm{d}x^{\lambda}\\
+   \mathrm{the\ right\ side} = \mathrm{d}s^{2}
+   & = \eta_{\kappa \lambda} \mathrm{d}x^{\kappa} \mathrm{d}x^{\lambda}\\
+   \end{align}
+
+
+係数を比較すると、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} & = \eta_{\kappa \lambda}
+   \end{align}

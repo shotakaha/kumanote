@@ -19,6 +19,7 @@
    detector
    glossary
    beast
+   sugiyama/index
    dailynote/index
 
 
