@@ -228,14 +228,16 @@ latex_elements = {
     'figure_align': 'htbp',
 }
 
-latex_elements['preamble'] += '\\usepackage{amsmath, amssymb}\n'
+latex_elements['preamble'] += '\\usepackage{amsmath,amssymb}\n'
 latex_elements['preamble'] += '\\usepackage{pxjahyper}\n'
 latex_elements['preamble'] += '\\usepackage{graphicx}\n'
+# latex_elements['preamble'] += '\\usepackage[usenames]{color}\n'
 latex_elements['preamble'] += '\\hypersetup{bookmarksnumbered=true}\n'
 latex_elements['preamble'] += '\\hypersetup{bookmarksopen=true}\n'
 latex_elements['preamble'] += '\\hypersetup{bookmarksopenlevel=2}\n'
 latex_elements['preamble'] += '\\hypersetup{colorlinks=true}\n'
 latex_elements['preamble'] += '\\hypersetup{pdfpagemode=UseOutlines}\n'
+
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
