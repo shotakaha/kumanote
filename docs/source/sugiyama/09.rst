@@ -6,5 +6,6 @@
 .. toctree::
    :maxdepth: 2
 
+   09-1
    09-2
    09-5

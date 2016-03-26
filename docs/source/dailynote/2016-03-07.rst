@@ -109,58 +109,8 @@
 一般座標変換とローレンツ変換
 ==================================================
 
-一般座標変換を数式で表すと以下のようになる。
+:2016-03-26: :doc:`第９章１節 <../sugiyama/09-1>` に移動
 
-.. math::
-   \begin{align}
-   \tilde{x}^{\mu} & = f^{\mu} (x^{0}, x^{1}, x^{2}, x^{3})
-   \end{align}
-
-
-ここで、ローレンツ変換を思い出してみる。
-
-.. note::
-   ここに ローレンツ変換の式を挿入したいのだけど、
-   LaTeXのコンパイルでエラーがでてしまうので、後回しにした
-
-つまり「似ている！」ってことを書きたかっただけ。
-知っててよかったローレンツ変換。
-一般座標変換の数式はこうです！と **ぽんって** 出されてもよく分からないけれど、
-ローレンツ変換をイメージするとついていけそうな気がする。
-
-
-全微分
---------------------------------------------------
-
-今後のために :math:`\tilde{x}^{\mu}` の **全微分** :math:`\mathrm{d} \tilde{x}^{\mu}` を求めておく。
-どうでもいいことだけど、数式中の **微分（differential）のd** はローマン体で書く人が多い気がする。
-決まりなのかな？（LaTeXだとすごくめんどくさい・・・）
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   \mathrm{d} \tilde{x}^{\mu}
-   & = \frac{\partial f^{\mu}}{\partial x^{0}} \mathrm{d} x^{0}
-   + \frac{\partial f^{\mu}}{\partial x^{1}} \mathrm{d} x^{1}
-   + \frac{\partial f^{\mu}}{\partial x^{2}} \mathrm{d} x^{2}
-   + \frac{\partial f^{\mu}}{\partial x^{3}} \mathrm{d} x^{3}
-   \quad \left( = \sum^{3}_{\nu = 0} \frac{\partial f^{\mu}}{\partial x^{\nu}} \mathrm{d} x^{\nu} \right)\\
-   & = \frac{\partial \tilde{x}^{\mu}}{\partial x^{0}} \mathrm{d} x^{0}
-   + \frac{\partial \tilde{x}^{\mu}}{\partial x^{1}} \mathrm{d} x^{1}
-   + \frac{\partial \tilde{x}^{\mu}}{\partial x^{2}} \mathrm{d} x^{2}
-   + \frac{\partial \tilde{x}^{\mu}}{\partial x^{3}} \mathrm{d} x^{3}
-   \quad \left( = \sum^{3}_{\nu = 0} \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \mathrm{d} x^{\nu} \right)
-   \end{align}
-
-つまり、これを **アインシュタインの規約** を使って、以下のように書いてよいということ。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   \mathrm{d} \tilde{x}^{\mu} & \equiv \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \mathrm{d} x^{\nu}
-   \end{align}
 
 
 一般座標変換とスカラー
