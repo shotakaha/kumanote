@@ -20,6 +20,7 @@
    glossary
    beast
    sugiyama/index
+   susyprimer/index
    dailynote/index
 
 
