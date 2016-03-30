@@ -2,9 +2,11 @@
 tags = [
     "hugo",
     "atom",
+    "susy",
 ]
 categories = [
-    "dev",
+    "physics",
+    "web"
 ]
 image = "/img/about-bg.jpg" #optional image - "/img/about-bg.jpg" is the default
 description = ""
