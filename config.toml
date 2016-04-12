@@ -36,3 +36,7 @@ ignoreFiles = [".#"]
   name = "Archives"
   url = "/post/"
   weight = -180
+[[menu.main]]
+  name = "Docs"
+  url = "/docs/"
+  weight = -170
