@@ -1,0 +1,65 @@
+==================================================
+（共変）微分
+==================================================
+
+節タイトルを勝手に補ってみた。
+この節は通常の微分が適用できない **ベクトル場の微分** をするため、
+**共変微分** という新しい微分を定義する話
+
+
+微分記号の表し方
+==================================================
+
+:doc:`第5.2節 <../sugiyama/05-2>` のローレンツ変換のところ（教科書 p.68）で、スカラー場の微分は共変ベクトルであることを示した。
+その微分記号を以下のように簡略化して書くことにする。
+
+記号の添字の位置に注目すると、微分自体は反変ベクトル（＝上付き添字）で行っているが、簡略化した記号は共変ベクトル（＝下付き添字）であることを表している。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial \phi }{ \partial x^{\mu} } & \equiv \partial_{\mu} \phi \equiv \phi_{, \mu}
+   \end{align}
+
+ベクトル場
+==================================================
+
+ベクトル場 :math:`V^{\mu}` の微分を計算する。
+上で定義した簡略記号を早速使ってみる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial V^{\mu} }{ \partial x^{\nu} } & \equiv \partial_{\nu} V^{\mu}
+   \end{align}
+
+変換性を見るために一般座標変換してみる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}\tilde{x^{\mu}} & = \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\nu} } \mathrm{d} x^{\nu}\\
+   \tilde{V^{\mu}} & = \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\nu} } V^{\nu}\\
+   \end{align}
+
+上の式を代入して :math:`\tilde{\partial_{\nu}} \tilde{V^{\mu}}` を計算する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{\partial_{\nu}} \tilde{V^{\mu}} & \equiv \frac{ \partial \tilde{V^{\mu}} }{ \partial \tilde{x^{\nu}} }\\
+   & = \frac{ \partial }{ \partial \tilde{x^{\nu}} } \left( \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\lambda} } V^{\lambda} \right)\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x^{\nu}} } \frac{ \partial }{ \partial x^{\kappa} } \left( \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\lambda} } V^{\lambda} \right)\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x^{\nu}} } \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\lambda} } \frac{ \partial V^{\lambda} }{ \partial x^{\kappa} }
+   + \frac{ \partial x^{\kappa} }{ \partial \tilde{x^{\nu}} } \frac{ \partial^{2} \tilde{x^{\mu}} }{ \partial x^{\kappa} \partial x^{\lambda} } V^{\lambda}\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x^{\nu}} } \frac{ \partial \tilde{x^{\mu}} }{ \partial x^{\lambda} } \partial_{\kappa} V^{\lambda}
+   + \frac{ \partial x^{\kappa} }{ \partial \tilde{x^{\nu}} } \frac{ \partial^{2} \tilde{x^{\mu}} }{ \partial x^{\kappa} \partial x^{\lambda} } V^{\lambda}
+   \end{align}
+
+* ２行目から３行目で、微分係数を引き出しているのがよく分からない
+* ３行目から４行目は、積の微分をしている（順番を入れ替えている）
+* ４行目から５行目は、第１項の微分記号を簡略化している
