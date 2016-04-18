@@ -12,11 +12,14 @@
    :nowrap:
 
    \begin{align}
-   \tilde{x}^{\mu} & = f^{\mu} (x^{0}, x^{1}, x^{2}, x^{3})\\
-   & = f^{\mu} (x^{\nu})
+   x^{\mu} \longrightarrow
+   \tilde{x}^{\mu}
+   & = f^{\mu} (x^{0}, x^{1}, x^{2}, x^{3})\\
+   & = \tilde{x}^{\mu} (x^{0}, x^{1}, x^{2}, x^{3})\\
+   & = \tilde{x}^{\mu} (x^{\nu})
    \end{align}
 
-:math:`\tilde{x}^{\mu}` が一般座標変換した後の座標値を表していて、それは最初の座標 :math:`x^{\mu}` の関数になっている。
+:math:`f^{\mu}` は、なんだか分かりにくい気がする。
 
 ここで、ローレンツ変換を思い出してみる。
 
@@ -24,22 +27,25 @@
    :nowrap:
 
    \begin{align}
-   x'^{\mu} & = L^{\mu}_{\nu} x^{\nu}
+   x^{\mu} \longrightarrow x'^{\mu}
+   & = L^{\mu}_{\nu} x^{\nu}
    \end{align}
 
 
 遠目に眺めると、形がとても似ているのが分かる。
-「 :math:`'` （ダッシュ／プライム）」が「 :math:`\tilde{ }` （チルダ）」になって、「 :math:`L` 」が「 :math:`f` 」になってるだけ。
+「 :math:`'` （ダッシュ／プライム）」が「 :math:`\tilde{ }` （チルダ）」になって、「 :math:`L` 」が「 :math:`\tilde{x}` 」になってるだけ。
 なので、以降もローレンツ変換でやったことを思い出しながら読み進めればよい。
 
 ただし、ローレンツ変換の成分はとても簡単な形をしていたのに対し、一般座標変換の成分はもっと難しい形をしているので、たまーにそれも思い出すこと。
 
 
-全微分
+微小変分
 ==================================================
 
-今後のために :math:`\tilde{x}^{\mu}` の **全微分** :math:`\mathrm{d} \tilde{x}^{\mu}` を求めておく。
-余談だけど、数式中の **微分（differential）のd** はローマン体で書く人が多い（決まりなのかな？LaTeXだとすごくめんどくさい・・・）。
+一般座標変換した時の微小変分がどうなるかを求める。
+ローレンツ変換の時と違って、座標変換が時空の関数になっていることに気をつけると、 **全微分** を計算することになる。
+
+数式中の **微分（differential）のd** はローマン体で書くことが多い（決まりなのかな？LaTeXだとすごくめんどくさい・・・）。
 
 全微分のルールにしたがって書き下すと次のようになる。
 
@@ -66,7 +72,8 @@
    :nowrap:
 
    \begin{align}
-   \mathrm{d} \tilde{x}^{\mu} & \equiv \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \mathrm{d} x^{\nu}
+   \mathrm{d} x^{\mu} \longrightarrow \mathrm{d} \tilde{x}^{\mu}
+   & = \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \mathrm{d} x^{\nu}
    \end{align}
 
 
@@ -76,5 +83,22 @@
    :nowrap:
 
    \begin{align}
+   \mathrm{d} x^{\mu} \longrightarrow
    \mathrm{d} x'^{\mu} & = L^{\mu}_{\nu} \mathrm{d} x^{\nu}
+   \end{align}
+
+
+
+微分演算子
+==================================================
+
+ついでに、微分演算子の変換も書いておく。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial }{ \partial x^{\mu} } \longrightarrow
+   \frac{ \partial }{ \partial \tilde{x}^{\mu} }
+   & = \frac{ \partial x^{\nu} }{ \partial \tilde{x}^{\mu} } \frac{ \partial }{ \partial x^{\nu} }
    \end{align}

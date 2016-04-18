@@ -37,6 +37,10 @@ ignoreFiles = [".#"]
   url = "/post/"
   weight = -180
 [[menu.main]]
-  name = "Docs"
-  url = "/docs/"
+  name = "HTML"
+  url = "/docs/html/"
+  weight = -170
+[[menu.main]]
+  name = "PDF"
+  url = "/docs/latex/KumaNote.pdf"
   weight = -170
