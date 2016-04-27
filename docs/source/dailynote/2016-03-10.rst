@@ -23,214 +23,45 @@
 リッチ・テンソル
 ==================================================
 
-リッチ・テンソルはランク２のリーマン曲率テンソル。
-（なので、リッチ・テンソルの :math:`R` は リーマン（Riemann）の :math:`R` だと思われる）
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R_{\mu \nu} & \equiv R ^{k} _{\mu \kappa \nu} = g^{\kappa \eta} R_{\eta \mu \kappa \nu}
-   \end{align}
-
-上の式は、たぶん、右から読むと、きちんと読める。
-
-まず、リーマン曲率テンソル :math:`R_{\eta \mu \kappa \nu}` の **縮約をとる** という計算式が、
-右辺のように計量テンソル :math:`g^{\kappa \eta}` を掛けるという形になっている。
-なぜ、この形になのかは、いま読んだところでは理解できてないので置いておく。
-とりあえずこうなる！
-
-計量テンソルは **添字の文字を置き換えて、更に上下を入れ替える** 性質を持っているので、
-:math:`R_{\eta \mu \kappa \nu}` に付いている :math:`\eta` が :math:`\kappa` に置き換わったのち
-（ :math:`R_{\eta \mu \kappa \nu} \rightarrow R_{\kappa \mu \kappa \nu}`）、
-その :math:`\kappa` が上に移動してる（ :math:`R_{\kappa \mu \kappa \nu} \rightarrow R^{\kappa}_{\mu \kappa \nu}` ）。
-このとき、計量 :math:`g^{\kappa \eta}` は役目を終えたので消えている。
-
-さらに :math:`R^{\kappa}_{\mu \kappa \nu}` の添字をみると :math:`\kappa` が上下に存在するので、
-（これを毎回書くのがめんどくさいから） :math:`R_{\mu \nu}` と定義して
-**リッチ・テンソル** と呼ぶことにしまーす、と言っている。
 
 
 リーマン曲率テンソル
 ==================================================
 
-リーマン曲率テンソルは **空間（時空）の曲がり具合を表す指標** となる値である。
-これはベクトルを平行移動させたときに、空間が曲がっていると移動の順番によって差が生じるよ、ということ。
-どうしてこで生じるかのイメージは 杉山本 p.123 図9.2 を見ながら考えるとよい。
-空間が平坦であれば、差は生じないので、リーマン曲率テンソルは常に０である。
+:2016-04-27: :doc:`第9.4節 <../sugiyama/09-4>` に移動
 
-ランク４のテンソルで、上付き添字が１つ、下付き添字が３つである。
-３階共変・１階反変テンソル、というらしい。
-**クリストッフェル記号** を使って以下のように表すことができる。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R^{\mu}_{\nu \lambda \kappa}
-   & = \partial_{\lambda} \Gamma^{\mu}_{\nu \kappa}
-     - \partial_{\kappa}  \Gamma^{\mu}_{\nu \lambda}
-     + \Gamma^{\mu}_{\eta \lambda} \Gamma^{\eta}_{\nu \kappa}
-     - \Gamma^{\mu}_{\eta \kappa} \Gamma^{\eta}_{\nu \lambda}
-   \end{align}
-
-:math:`\mu, \nu, \lambda, \kappa` = ０〜３（＝４成分）なので、
-単純に考えると、リーマン曲率テンソルの成分は :math:`4 \times 4 \times 4 \times 4 = 246` 個ある。
-ただし、以下の対称性とかを考慮することで **独立な成分は20個** まで減少する。
 
 
 リーマン曲率テンソルの式からの対称性
 --------------------------------------------------
 
-:math:`\kappa \leftrightarrow \lambda` を入れ替えた成分は **符号が反対** になってる。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R^{\mu}_{\nu \lambda \kappa} &= - R^{\mu}_{\nu \kappa \lambda}
-   \end{align}
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
 
 クリストッフェル記号の対称性からくる対称性
 --------------------------------------------------
 
-ぱっと見ると違いが分からないが、上の添字 :math:`\mu` はそのままで、
-下の添字の :math:`\nu, \lambda, \kappa` が順番に入れ替わっている
-（たしか、これを巡回置換と言ったような）。
-これらを足し合わせると０なる。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R^{\mu}_{\nu \lambda \kappa} + R^{\mu}_{\kappa \nu \lambda } + R^{\mu}_{\lambda \kappa \nu} &= 0
-   \end{align}
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
 
 ４階共変テンソル
 --------------------------------------------------
 
-反変成分（上付き添字１個）を、計量テンソルをつかって下に降ろして、４階共変テンソルを計算してみる。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R_{\mu \nu \lambda \kappa}
-   &= g_{\mu \tau}R^{\tau}_{\nu \lambda \kappa}\\
-   &= \frac{1}{2} (
-   \partial_{\nu}\partial_{\lambda} g_{\mu \kappa}
-   + \partial_{\mu}\partial_{\kappa} g_{\nu \lambda}
-   - \partial_{\mu}\partial_{\lambda} g_{\nu \kappa}
-   - \partial_{\nu}\partial_{\kappa} g_{\mu \lambda} )
-   + g_{\eta \tau} (\Gamma^{\eta}_{\mu \kappa} \Gamma^{\tau}_{\nu \lambda} - \Gamma^{\eta}_{\mu \lambda} \Gamma^{\tau}_{\nu \kappa})
-   \end{align}
-
-
-上の式から、以下のような関係式が得られるらしい。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   R_{\mu \nu \lambda \kappa} &= R_{\lambda \kappa \mu \nu}\\
-   R_{\mu \nu \lambda \kappa} &= - R_{\nu \mu \lambda \kappa}\\
-   R_{\mu \nu \lambda \kappa} &= - R_{\mu \nu \kappa \lambda}\\
-   R_{\mu \nu \lambda \kappa} +
-   R_{\mu \kappa \lambda \nu} +
-   R_{\mu \lambda \kappa \nu} &= 0
-   \end{align}
-
-上の３つの式に関しては、下添字の移動に注目して眺める。
-左辺の添字の中身を何回移動させれば、右辺の添字と同じ順番になるかを考える。
-移動回数が偶数回であればプラス、奇数回であればマイナスになる。
-
-計算はめんどくさそうなので、後回しにする（もしくはやらない）けど、
-関係式として大事なのはそこ。
-
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
 
 クリストッフェル記号
 ==================================================
 
-テンソルの微分＝ **共変微分** を計算するときに出てくる **接続** という係数。
-接続自身はテンソルではない。
-
-
-この接続を **計量（メトリック）テンソル** を使って表したものを **クリストッフェル記号** と呼ぶ。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   \Gamma^{\mu}_{\nu \lambda}
-   &= \frac{1}{2} (
-   \partial_{\lambda} g_{\kappa \lambda}
-   + \partial_{\nu} g_{\kappa \nu}
-   - \partial_{\kappa} g_{\lambda \nu}
-   )
-   \end{align}
-
-
-メトリックが具体的に与えられれば、クリストッフェル記号は、
-メトリックの一階微分（:math:`\partial_{\mu}` ）から求めることができる。
-
-
-.. note::
-   メトリックはテンソルなのに、クリストッフェル記号がテンソルでないのはなんで？
-   微分してるから？？？
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
 
 メトリック
 ==================================================
 
-**メトリック（計量）** は
-２点間の距離やベクトルの長さを定義するために導入する
-**ランク２の対称共変テンソル** のこと。
-:math:`g_{\mu \nu}(x)` と表記する。
-:math:`(x)` と付けてあるのは、計量が時空（の点）の関数であることを意味していて、
-つまり場所場所でぐにゃぐにゃしてるということ。
-計算の際、毎回書くと煩雑なので省略して書かれることが多く、
-気がついた時に思い出す程度で良い。
-
-**対称テンソル** とは添字の入れ替え :math:`\mu \leftrightarrow \nu` をしても、
-テンソルの成分が同じということ。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   g_{\mu \nu}(x) & = g_{\nu \mu}(x)
-   \end{align}
-
-
-上の式だけみても、全然分からないので、とりあえず知ってるメトリックを書いてみる。
-たとえば、ミンコフスキー・メトリックの場合。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   g_{\mu \nu} &=
-      \begin{pmatrix}
-      g_{00} & g_{01} & g_{02} & g_{03}\\
-      g_{10} & g_{11} & g_{12} & g_{13}\\
-      g_{20} & g_{21} & g_{22} & g_{23}\\
-      g_{30} & g_{31} & g_{32} & g_{33}\\
-      \end{pmatrix}
-      =
-      \begin{pmatrix}
-      -1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 0 & 0 & 1\\
-      \end{pmatrix}
-   \end{align}
-
-簡単すぎて、あんまりいい例ではないかもだけど、確かに対称テンソルになってる。
-
-
+:2016-04-27: :doc:`第9.5節 <../sugiyama/09-5>` に移動
 
 スカラー・ベクトル・テンソル
 ==================================================
