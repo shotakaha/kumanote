@@ -1,7 +1,7 @@
 baseurl = "http://kuma.kek.jp/~shotakaha/kumanote/"
 title = "KumaNOTE"
 canonifyurls = true
-theme = "startbootstrap-clean-blog"
+theme = "hugo-future-imperfect"
 languageCode = "ja"
 ignoreFiles = [".#"]
 
