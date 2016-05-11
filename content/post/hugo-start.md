@@ -5,6 +5,7 @@ title = "Hugoを使い始めてみた感想"
 categories = [ "hugo" ]
 +++
 [Hugo](http://hugo.spf13.com/ ) のことは３ヶ月くらい前に一度調べたことがあった。
+
 全く記憶にないけれど、その時に `hugo` コマンドはインストールしていたみたいなので、[Quickstart](http://gohugo.io/overview/quickstart/) にしたがってとりあえず入力。
 
 あっさりと、それっぽい感じのウェブページが作成できてしまった。
