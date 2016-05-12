@@ -1,5 +1,5 @@
 +++
-author = ""
+author = "Shota"
 categories = ["hugo"]
 date = "2016-05-10T22:05:32+09:00"
 description = "いい感じのHugo Theme"
