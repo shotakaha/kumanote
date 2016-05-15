@@ -21,7 +21,7 @@ email = "shotakaha+kumanote@gmail.com"
 # Sets the meta tag description, usually reserved for the main page
 description = "A note of Kuma, for Kuma, by Kuma"
 # This will appear on the top left of the navigation bar
-navbarTitle          = "Future Imperfect"
+navbarTitle = "KumaNOTE"
 # Social media buttons that appear on the sidebar
 socialAppearAtTop    = true
 socialAppearAtBottom = true
@@ -53,7 +53,7 @@ viewMorePostLink     = "post/"
 [params.intro]
     header    = "KumaNOTE"
     paragraph = "A Note of Kuma, for Kuma, by Kuma"
-    about     = "Hi, my name is Kuma"
+    about     = "Welcome to KumaNOTE"
 
 # This will also appear on the sidebar.
 # A width of less than 100px is recommended
