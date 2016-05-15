@@ -1,6 +1,6 @@
 +++
-author = "Shota"
-categories = ["hugo"]
+author = "Kuma"
+categories = ["hugo future imperfect"]
 date = "2016-05-12T10:11:28+09:00"
 description = ""
 featured = ""
