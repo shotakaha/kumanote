@@ -107,10 +107,9 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
-/themes
-
 
 # Add by myself
 /public
 docs/build
 .DS_Store
+/themes
