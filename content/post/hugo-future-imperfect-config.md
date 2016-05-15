@@ -13,10 +13,13 @@ title = "Hugo Future Imperfect の設定"
 テーマのディレクトリにある``exampleSite``にある``config.toml``を読んで、必要な箇所をコピーしてくる。
 （既に自分の``config.toml``があるのでこうしたけど、新規作成するなら丸々コピーでOK）
 
-
-設定項目には以下のセクションがある。
+<!--more-->
 
 # いろいろな設定
+
+設定する項目ごとに、（主に``[params]``を）プチプチ分けて書いてみた。
+実際の``config.toml``ではひと纏まりにしておく。
+
 
 * メタデータなど
 
@@ -26,9 +29,9 @@ title = "Hugo Future Imperfect の設定"
 ``` toml
 [params]
 # Sets the meta tag description, usually reserved for the main page
-description = "A NOTE OF KUMA, FOR KUMA, BY KUMA"
+description = "A Note Of Kuma, For Kuma, By Kuma"
 # This will appear on the top left of the navigation bar
-navbarTitle          = "KumaNOTE"
+navbarTitle = "KumaNOTE"
 ...
 ```
 
@@ -89,7 +92,6 @@ faviconVersion       = ""
 ```
 
 
-
 # サイドバーの設定
 
 * サイドバーのテキスト情報
@@ -98,7 +100,7 @@ faviconVersion       = ""
 [params.intro]
 header    = "KumaNOTE"
 paragraph = "A Note of Kuma, for Kuma, by Kuma"
-about     = "Hi, my name is Kuma"
+about     = "Welcome to KumaNOTE"
 ```
 
 * サイドバーに使う画像アイコンの設定
