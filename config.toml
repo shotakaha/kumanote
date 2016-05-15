@@ -26,7 +26,7 @@ navbarTitle = "KumaNOTE"
 socialAppearAtTop    = true
 socialAppearAtBottom = true
 # set this to the section name if section is not post
-viewMorePostLink     = "post/"
+viewMorePostLink     = "/~shotakaha/kumanote/post/"
 
 # Optional Params
     categoriesByCount    = true
@@ -107,18 +107,23 @@ email           = ""
 
 
 [[menu.main]]
-  name = "home"
-  url = "/"
-  weight = -200
-[[menu.main]]
   name = "Archives"
-  url = "/post/"
-  weight = -180
+  url = "/post"
+  identifier = "fa fa-newspaper-o"
+  weight = 1
+[[menu.main]]
+  name = "Categories"
+  url = "/categories"
+  weight = 2
+[[menu.main]]
+  name = "About"
+  url = "/about"
+  weight = 3
 [[menu.main]]
   name = "HTML"
   url = "/docs/html/"
-  weight = -170
+  weight = 4
 [[menu.main]]
   name = "PDF"
   url = "/docs/latex/KumaNote.pdf"
-  weight = -170
+  weight = 5

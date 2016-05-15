@@ -1,3 +1,20 @@
++++
+author = "Kuma"
+categories = ["hugo future imperfect"]
+date = "2016-05-15T21:58:03+09:00"
+description = ""
+featured = ""
+featuredalt = ""
+featuredpath = ""
+linktitle = ""
+title = "navbarの部分テンプレート"
+
++++
+
+``/layouts/partials/navbar.html`` を見てみる
+<!--more-->
+
+``` html
 <!-- Header -->
 <header id="header">
   {{ if and (.IsNode) (or (.IsHome) (eq .Title "Posts")) }}
@@ -5,7 +22,17 @@
   {{ else }}
   <h2><a href="/">{{ .Site.Params.navbarTitle }}</i></a></h2>
   {{ end }}
+```
 
+``` go
+  {{ if and (.IsNode) (or (.IsHome) (eq .Title "Posts")) }}
+```
+（の部分がよく分からないけれど）に応じて ``<h1>`` か ``<h2>`` に変わるようになっている
+
+
+---
+
+``` html
   <nav class="links">
     <ul>
       {{ range .Site.Menus.main }}
@@ -18,6 +45,23 @@
       {{ end }}
     </ul>
   </nav>
+```
+
+``.Identifier`` にはfont-awsomeのクラスを指定しておけばよい。
+
+``` toml
+[[menu.main]]
+  name = "Archives"
+  url = "/post"
+  identifier = "fa fa-newspaper-o"
+  weight = 1
+```
+
+上の ``navbarTitle`` の部分でホームに``/``を割り当てているので、``[menu.main]]``に``/``をいれなくてもよい。
+
+---
+
+``` html
   <nav class="main">
     <ul>
       {{ if $.Scratch.Get "shareNav" }}
@@ -38,7 +82,15 @@
     </ul>
   </nav>
 </header>
+```
 
+右上に表示される「シェア」ボタン。
+これはこのままでOK。たぶん。
+
+
+---
+
+``` html
 <!-- Menu -->
 <section id="menu">
 
@@ -49,7 +101,15 @@
       <input type="hidden" name="q" value="site:{{ .Site.BaseURL }}">
     </form>
   </section>
+```
 
+右上のGoogle検索ボックスだけど、このサイト自体をGoogle検索できるようにしてないので、オフにしたほうがいいのかもしれない。
+
+
+---
+
+
+``` html
   <!-- Links -->
   <section>
     <ul class="links">
@@ -67,7 +127,15 @@
       {{ end }}
     </ul>
   </section>
+```
 
+これも右上のコンテンツ一覧のボタン。なんて呼ぶのだろう？コンパクトにするボタン。
+
+
+---
+
+
+``` html
   <!-- Recent Posts -->
   <section>
     <ul class="links">
@@ -87,7 +155,16 @@
       {{ end }}
     </ul>
   </section>
+```
 
+左サイドバーに表示される「最新ポスト」の部分。
+
+この部分って、部分テンプレートになってるかと思ったらベタ書きなんだ。
+
+---
+
+
+``` html
   <!-- Actions -->
   <!--
        <section>
@@ -97,3 +174,8 @@
        </section>
      -->
 </section>
+```
+
+これはなんだろう？よく分からない。
+
+「Log In」関係なのかな。よく分からない。

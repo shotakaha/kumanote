@@ -1,17 +1,20 @@
 +++
-author = ""
-categories = []
+author = "Kuma"
+categories = ["hugo future imperfect"]
 date = "2016-05-15T18:37:07+09:00"
 description = ""
 featured = ""
 featuredalt = ""
 featuredpath = ""
 linktitle = ""
-title = "Hugo Future Imperfect のトップページ"
+title = "トップページのテンプレート"
 
 +++
 [前回のポスト]({{< relref "hugo-future-imperfect.md" >}} )の「よくないところ」で「index.htmlがない」ことを挙げたが、実は ``layouts/index.html`` は存在してた。
 
+１番最近のポストを１つ、表示するようになっている。
+具体的に何をしているのか、上から順に確認していく。
+<!--more-->
 
 ``` html
 {{ partial "header" . }}
@@ -29,140 +32,39 @@ title = "Hugo Future Imperfect のトップページ"
 {{ partial "footer" . }}
 ```
 
-１番最近のポストを１つ、表示するようになっている。
-具体的に何をしているのか、上から順に見ていく。
 
-
-# header部分
-
-``layouts/partial/header.html``を見てみる
+# 上から順に
 
 ``` go
 {{ partial "header" . }}
 ```
+[header部分]({{< relref "post/hugo-future-imperfect-partials-header.md" >}} )
 
-``` html
-<!DOCTYPE HTML>
-<!--
-    Future Imperfect by HTML5 UP
-    html5up.net | @n33co
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-    <head>
-        {{ with $.Scratch.Get "generalTitle" }}
-            <title>{{ . }}</title>
-        {{ else }}
-            {{ with .Title }}
-                <title>{{ . }}</title>
-            {{ else }}
-                <title>{{ .Site.Title }}</title>
-            {{ end }}
-        {{ end }}
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {{ .Hugo.Generator }}
-        {{ partial "favicon" . }}
-
-        {{ with .Params.author }}
-            <meta name="author" content="{{ . }}">
-        {{ end }}
-        {{ with .Description }}
-            <meta name="description" content="{{ . }}">
-        {{ else }}
-            {{ with .Site.Params.description }}
-                <meta name="description" content="{{ . }}">
-            {{ end }}
-        {{ end }}
-
-        {{ template "_internal/twitter_cards.html" . }}
-        {{ template "_internal/opengraph.html" . }}
-        {{ template "_internal/schema.html" . }}
-        {{ template "_internal/google_news.html" . }}
-
-        <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
-
-        <!-- Keeping the deprecated param, minifiedFilesCSS, for now. The new param
-             that replaces this is customCSS. Utilizing a scratch variable cssFiles
-             to keep the deprecated param. -->
-        {{ if isset .Site.Params "minifiedFilesCSS" }}
-            {{ $.Scratch.Set "cssFiles" .Site.Params.minifiedFilesCSS }}
-        {{ else if isset .Site.Params "customCSS" }}
-            {{ $.Scratch.Set "cssFiles" .Site.Params.customCSS }}
-        {{ else }}
-            {{ $.Scratch.Set "cssFiles" false }}
-        {{ end }}
-
-        <!-- If the value "default" is passed into the param then we will first
-             load the standard css files associated with the theme -->
-        {{ if or (in ($.Scratch.Get "cssFiles") "default") (eq ($.Scratch.Get "cssFiles") false) }}
-            <link rel="stylesheet" href="/css/google-font.css" />
-            <link rel="stylesheet" href="/css/font-awesome.min.css" />
-            <link rel="stylesheet" href="/css/main.css" />
-            <link rel="stylesheet" href="/css/add-on.css" />
-            <link rel="stylesheet" href="/css/monokai-sublime.css">
-        {{ end }}
-
-        {{ if ne ($.Scratch.Get "cssFiles") false }}
-            {{ range $.Scratch.Get "cssFiles" }}
-                {{ if ne . "default" }}
-                    <link rel="stylesheet" href="{{ . }}" />
-                {{ end }}
-            {{ end }}
-        {{ end }}
-
-        <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
-        <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
-        {{ if not (in (printf "%#v" .Site.BaseURL) "localhost") }}
-            {{ template "_internal/google_analytics.html" . }}
-        {{ end }}
-    </head>
-    <body>
-
-        <!-- Wrapper -->
-        <div id="wrapper">
-
-```
-
-## タイトルの適用順
-
-1. generalTitle
-2. Title
-3. Site.Title
-
-## authorの適用順
-
-1. Params.author
-
-## descriptionの適用順
-
-1. Description
-2. Site.Params.description
-
-
-## socialアイコンの設定
-
-Hugoにテンプレートがあるらしい
 
 ``` go
-{{ template "_internal/twitter_cards.html" . }}
-{{ template "_internal/opengraph.html" . }}
-{{ template "_internal/schema.html" . }}
-{{ template "_internal/google_news.html" . }}
+{{ partial "navbar" . }}
 ```
+[navbar部分]({{< relref "post/hugo-future-imperfect-partials-navbar.md" >}} )
 
-
-## デフォルトCSSの読み込み
 
 ``` go
-<!-- If the value "default" is passed into the param then we will first
-     load the standard css files associated with the theme -->
-    {{ if or (in ($.Scratch.Get "cssFiles") "default") (eq ($.Scratch.Get "cssFiles") false) }}
-        <link rel="stylesheet" href="/css/google-font.css" />
-        <link rel="stylesheet" href="/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/css/main.css" />
-        <link rel="stylesheet" href="/css/add-on.css" />
-        <link rel="stylesheet" href="/css/monokai-sublime.css">
-    {{ end }}
+{{ .Render "content-single" }}
 ```
+
+
+``` go
+{{ partial "share-menu" . }}
+```
+[share-menu部分]({{< relref "post/hugo-future-imperfect-partials-share-menu.md" >}} )
+
+
+``` go
+{{ partial "sidebar" . }}
+```
+[sidebar部分]({{< relref "post/hugo-future-imperfect-partials-sidebar.md" >}} )
+
+
+``` go
+{{ partial "footer" . }}
+```
+[footer部分]({{< relref "post/hugo-future-imperfect-partials-footer.md" >}} )
