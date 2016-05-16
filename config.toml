@@ -125,5 +125,5 @@ email           = ""
   weight = 4
 [[menu.main]]
   name = "PDF"
-  url = "/docs/latex/KumaNote.pdf"
+  url = "/docs/latex/"
   weight = 5
