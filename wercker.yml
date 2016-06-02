@@ -23,8 +23,7 @@ build:
     - arjen/hugo-build:
         version: "HEAD"
         theme: hugo-future-imperfect
-        dev_flags: -D -F
-        prod_branches: master
+        prod_branches: develop
 
 deploy:
   steps:
