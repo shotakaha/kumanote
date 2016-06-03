@@ -1,10 +1,8 @@
 +++
-categories = ["Development"]
+categories = ["git", "git-flow"]
 date = "2015-12-01T17:15:17+09:00"
 description = ""
-draft = false
 image = "/img/about-bg.jpg"
-tags = ["git", "git-flow"]
 title = "git-flowを使ってみる"
 
 +++
@@ -119,17 +117,6 @@ $ less ~/.emacs.d/.git/config
 とても簡単。
 
 
-# magit-gitflowを使う
+# チートシート
 
-さてさて、Emacs + Gitには欠かせない`Magit`パッケージ。
-実は`magit-gitflow`という`git-flow`用の拡張がある。
-`MELPA`からインストールできる。
-
-GitHubページにあるとおりにEmacsの設定をし、
-上記のようにリポジトリの設定ができていれば、準備はOK。
-
-`magit-status`の画面で`C-f`すると`magit-gitflow`ポップアップが表示される。
-あとは普段`Magit`を使うときみたいにキーを入力するだけ。
-
-これで`git-flow`のコマンドを知らなくてもなんとなく操作できるようになった。
-あとは`git-flow`のコンセプトを理解すればよい。
+`Git-Flow`のコマンドが、どんなことをするのか・しているのかは、[git-flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html ) を読むとよい。
