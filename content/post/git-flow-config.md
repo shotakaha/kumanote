@@ -115,3 +115,8 @@ $ less ~/.emacs.d/.git/config
 
 これで既存のリポジトリでも`git-flow`が使えるようになった。
 とても簡単。
+
+
+# チートシート
+
+`Git-Flow`のコマンドが、どんなことをするのか・しているのかは、[git-flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html ) を読むとよい。
