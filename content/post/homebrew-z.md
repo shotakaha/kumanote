@@ -10,7 +10,7 @@ linktitle = ""
 title = "zを再インストール"
 
 +++
-[z](https://github.com/rupa/z)というディレクトリ移動の補助コマンドを、MacPortsからHomebrewに変えます。
+[z - jump around](https://github.com/rupa/z)というディレクトリ移動の補助コマンドを、MacPortsからHomebrewに変えます。
 
 # 現状確認とdeactivate
 
