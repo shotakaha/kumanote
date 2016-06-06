@@ -1,173 +1,112 @@
 ==================================================
-メトリック
+メトリック (計量)
 ==================================================
 
-**メトリック** は **距離を決める基本要素** のことで、
-数学的に書くと **２点間の距離** や **ベクトルの長さ** を定義するために
-導入する **ランク２** の対称共変テンソルのこと。
-・・・まぁ、なにやら **距離** を定義するのに必要なテンソルってことらしい。
+**メトリック (計量)** は **距離を決める基本要素** のこと。
 
-**メトリック（計量）** は
-２点間の距離やベクトルの長さを定義するために導入する
-**ランク２の対称共変テンソル** のこと。
+数学的に書くと **２点間の距離** や **ベクトルの長さ** を定義するために導入する **ランク２** の **対称共変テンソル** 。
+
+つまり **距離や長さを定義するのに必要なテンソル** ってことらしい。
+
 :math:`g_{\mu \nu}(x)` と表記する。
-:math:`(x)` と付けてあるのは、計量が時空（の点）の関数であることを意味していて、
-つまり場所場所でぐにゃぐにゃしてるということ。
-計算の際、毎回書くと煩雑なので省略して書かれることが多く、
-気がついた時に思い出す程度で良い。
+:math:`(x)` と付けてあるのは、計量が時空（の点）の関数であることを意味していて、つまり場所場所で異なった値になってるということ。
+つまり、平坦ではなく、ぐにゃぐにゃしている面を想像すればよい。
 
+計算の際は、毎回書くと煩雑なので省略して書かれることが多く、気がついた時に思い出す程度で良い。
 
-通常の空間（＝３次元空間）の場合は、対角化された３ｘ３行列（の単位行列）を考えればよい。さらにいうと、
-４次元空間の場合は４ｘ４の単位行列、
-５次元空間の場合は５ｘ５の単位行列、そして
-ｎ次元空間の場合はｎｘｎの単位行列を考えればよいはず。
-
-特殊相対性理論で使う４次元時空、つまりミンコフスキー時空の場合、
-形は４次元空間と同じで **00成分が-1** であることを覚えておけばよい。
-
-これが一般相対性理論になると、メトリックの各成分が場所や時間の関数になるため、
-とてーも複雑な形になる。
-ただし **対称行列** でなければいけないので、
-パラメータ（＝変数）としては 4x4=16個ではなく **10個** になる。
-
-**対称テンソル** とは添字の入れ替え :math:`\mu \leftrightarrow \nu` をしても、
-テンソルの成分が同じということ。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   g_{\mu \nu}(x) & = g_{\nu \mu}(x)
-   \end{align}
-
-
-上の式だけみても、全然分からないので、とりあえず知ってるメトリックを書いてみる。
-たとえば、ミンコフスキー・メトリックの場合。
-
-.. math::
-   :nowrap:
-
-   \begin{align}
-   g_{\mu \nu} &=
-      \begin{pmatrix}
-      g_{00} & g_{01} & g_{02} & g_{03}\\
-      g_{10} & g_{11} & g_{12} & g_{13}\\
-      g_{20} & g_{21} & g_{22} & g_{23}\\
-      g_{30} & g_{31} & g_{32} & g_{33}\\
-      \end{pmatrix}
-      =
-      \begin{pmatrix}
-      -1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 0 & 0 & 1\\
-      \end{pmatrix}
-   \end{align}
-
-簡単すぎて、あんまりいい例ではないかもだけど、確かに対称テンソルになってる。
-
-
-
-メトリックの例
+ランク２の対称共変テンソル
 ==================================================
 
-以下に、３次元空間、４次元空間、４次元時空の
-それぞれの空間でのメトリックの成分を書いておいた。
+この言葉から分かること：
+
+#. **ランク２** なので、添字は :math:`\mu, \nu` の２つ
+#. **共変** なので添字は下につける。
+#. **対称テンソル** なので :math:`g_{\mu \nu} = g_{\nu \mu}`
+#. :math:`\mu=0-3, \nu=0-3` なので、成分の数としては4×4＝16個だが、対称テンソルなので、変数 (パラメータ) としては10個
 
 
-３次元空間
---------------------------------------------------
+メトリックと不変距離
+==================================================
 
-.. math::
-   :nowrap:
-
-   \begin{align}
-   g^{i j} & =
-      \begin{pmatrix}
-      1 & 0 & 0 \\
-      0 & 1 & 0 \\
-      0 & 0 & 1
-      \end{pmatrix}
-   \end{align}
-
-
-４次元空間
---------------------------------------------------
+:math:`x^{\mu}` と :math:`x^{\mu} + \mathrm{d}x^{\mu}` の距離 :math:`\mathrm{d}s`
 
 .. math::
    :nowrap:
 
    \begin{align}
-      g^{i j} & =
-      \begin{pmatrix}
-      1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 0 & 0 & 1\\
-      \end{pmatrix}
+   \mathrm{d}s^{2} & = g_{\mu \nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}
    \end{align}
 
 
-４次元時空：特殊相対性理論
---------------------------------------------------
+反変ベクトルの長さ
+==================================================
+
+反変ベクトル :math:`V^{\mu}` の長さ :math:`V`
 
 .. math::
    :nowrap:
 
    \begin{align}
-   g^{\mu \nu} & =
-      \begin{pmatrix}
-      -1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 0 & 0 & 1\\
-      \end{pmatrix}
+   V^{2} & = g_{\mu \nu} V^{\mu} V^{\nu}
    \end{align}
 
+反変ベクトルの内積
+==================================================
 
-４次元時空：一般相対性理論
---------------------------------------------------
+２つの反変ベクトル :math:`V^{\mu}, W^{\nu}` の内積 :math:`V \cdot W` (教科書に特に記号がないので、ベクトルの内積の書き方で書いておく)。
+内積の値が０であれば、２つのベクトルは直交している。
 
 .. math::
    :nowrap:
 
    \begin{align}
-   g^{\mu \nu} & =
-      \begin{pmatrix}
-      g^{0 0} & g^{0 1} & g^{0 2} & g^{0 3}\\
-      g^{1 0} & g^{1 1} & g^{1 2} & g^{1 3}\\
-      g^{2 0} & g^{2 1} & g^{2 2} & g^{2 3}\\
-      g^{3 0} & g^{3 1} & g^{3 2} & g^{3 3}\\
-      \end{pmatrix}
+   V \cdot W & = g_{\mu \nu} V^{\mu} W^{\nu}
    \end{align}
 
-ただし、対称行列なので
+反変ベクトルと共変ベクトルへの変換
+==================================================
+
+添字を、上付きから下付きに変換する
 
 .. math::
    :nowrap:
 
    \begin{align}
-   \begin{cases}
-   \quad g^{0 1} = g^{1 0}\\
-   \quad g^{0 2} = g^{2 0}\\
-   \quad g^{0 3} = g^{3 0}\\
-   \quad g^{2 1} = g^{1 2}\\
-   \quad g^{3 1} = g^{1 3}\\
-   \quad g^{3 2} = g^{2 3}\\
-   \end{cases}
+   V^{\mu} \rightarrow V_{\mu} & = g_{\mu \nu} V^{\nu}
+   \end{align}
+
+添字を、下付きから上付きに変換する
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V_{\mu} \rightarrow V^{\mu} & = g^{\mu \nu} V_{\nu}
    \end{align}
 
 
-である。
+計量 (=共変テンソル) とその反変テンソルの関係
+==================================================
+
+計量 :math:`g_{\mu \nu}` は **共変テンソル (下付き)** だった。
+その **反変テンソル (上付き)** :math:`g^{\mu \nu}` とは、逆行列みたいな関係がある
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   g_{\mu \nu} g^{\nu \lambda} & = \delta_{\mu}^{\lambda}
+   \end{align}
+
 
 
 メトリックと接続の関係式（クリストッフェル記号）
 ==================================================
 
 平行移動してもベクトルの長さは変わらないことから、メトリックを使って接続を表すことができる。
-（平行移動＝接続が関係してくる。ベクトルの長さ＝メトリックが関係してくる。）
+上に書いたように、ベクトルの長さにはメトリックが関係していて、前節で書いたように接続には平行移動が関係しているため。
 
-結論を先に書いておくと
+結論を先に書いておくと、
 
 .. math::
    :nowrap:
@@ -177,6 +116,304 @@
    \end{align}
 
 上記のようにメトリックから導かれる接続のことを **クリストッフェル記号** と呼ぶ。具体的なメトリックが分かれば、接続はメトリックの１階微分から求めることができる。
+
+
+上の関係式の計算
+==================================================
+
+ちょっと長くなるけれど、頑張ればできるはず。
+
+前節で、ベクトル場の平行移動は :math:`\overline{V}` で書くことにしたことを思い出しながら、平行移動の前後でベクトルの長さが変わらないことを数式で表す。
+
+:math:`x^{\mu} \rightarrow x^{\mu} + \mathrm{d}x^{\mu}` への平行移動であることが分かるように書いておく。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   | V(x) |^{2} & = | \overline{V}(x + \mathrm{d}x) |^{2}\\
+   g_{\mu \nu}(x) V^{\mu}(x) V^{\nu}(x) & = g_{\mu \nu}(x + \mathrm{d}x) \overline{V}^{\mu}(x+\mathrm{d}x) \overline{V}^{\nu}(x+\mathrm{d}x)
+   \end{align}
+
+
+以下の関係式を使って、右辺を計算する。
+４番目は、教科書に明記されてないけれど、使ってるはず。
+
+#. :math:`g_{\mu \nu}(x + \mathrm{d}x) = g_{\mu \nu}(x) + \partial_{\lambda} g_{\mu \nu}(x) \mathrm{d}x^{\lambda}`
+#. :math:`\overline{V}^{\mu} (x+\mathrm{d}x) = V^{\mu}(x) - \Gamma^{\mu}_{\kappa \lambda} V^{\kappa}(x) \mathrm{d}x^{\lambda}`
+#. :math:`\overline{V}^{\nu} (x+\mathrm{d}x) = V^{\nu}(x) - \Gamma^{\nu}_{\kappa \lambda} V^{\kappa}(x) \mathrm{d}x^{\lambda}`
+#. :math:`(\mathrm{d}x^{\lambda})^{2}` 以上は、微小量なので無視する
+
+
+まず、２と３の掛け算から計算する。
+:math:`(x)` は省略してる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   & \overline{V}^{\mu} (x+\mathrm{d}x) \overline{V}^{\nu} (x+\mathrm{d}x)\\
+   & = \left( V^{\mu} - \Gamma^{\mu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda} \right) \left( V^{\nu} - \Gamma^{\nu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda} \right)\\
+   & = V^{\mu} V^{\nu}\\
+   & \quad - V^{\mu} \left( \Gamma^{\nu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda} \right)\\
+   & \quad - V^{\nu} \left( \Gamma^{\mu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda} \right)\\
+   & \quad + \Gamma^{\mu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda} \Gamma^{\nu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda}\\
+   & \sim V^{\mu} V^{\nu}
+      - \left( V^{\mu} \Gamma^{\nu}_{\kappa \lambda} \right) V^{\kappa} \mathrm{d}x^{\lambda}
+      - \left( V^{\nu}  \Gamma^{\mu}_{\kappa \lambda} \right) V^{\kappa} \mathrm{d}x^{\lambda}
+      + \mathrm{ignored}\\
+   & = V^{\mu} V^{\nu}
+   - \left( V^{\mu} \Gamma^{\nu}_{\kappa \lambda} + V^{\nu} \Gamma^{\mu}_{\kappa \lambda} \right) V^{\kappa} \mathrm{d}x^{\lambda}\\
+   & = V^{\mu} V^{\nu}
+   - \left( \text{イ} \right) V^{\kappa} \mathrm{d}x^{\lambda}
+   \end{align}
+
+次の計算をするために括弧の中を適当に (イ) と置き換えた。
+
+
+１との掛け算をする。
+ここも :math:`(x)` は省略した。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   &
+   g_{\mu \nu}(x + \mathrm{d}x)
+   \overline{V}^{\mu}(x+\mathrm{d}x)
+   \overline{V}^{\nu}(x+\mathrm{d}x)\\
+   & =
+   g_{\mu \nu} (x+\mathrm{d}x)
+   \left( V^{\mu} V^{\nu} - ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda} \right)\\
+   & =
+   \left( g_{\mu \nu} + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} \right)
+   \left( V^{\mu} V^{\nu} - ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda} \right)\\
+   & =
+   g_{\mu \nu} V^{\mu} V^{\nu}\\
+   & \quad
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}\\
+   & \quad
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   V^{\mu} V^{\nu}\\
+   & \quad
+   - \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}\\
+   & \sim
+   g_{\mu \nu} V^{\mu} V^{\nu}
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   V^{\mu} V^{\nu}
+   + \mathrm{ignored}\\
+   & =
+     g_{\mu \nu} V^{\mu} V^{\nu}
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   V^{\mu} V^{\nu}
+   \end{align}
+
+
+さて、ここで最初の **ベクトルの長さは平行移動しても変わらない** という条件に戻って、左辺＝右辺、の形を整理していく。
+すると、条件式の新しい形を得ることができる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   g_{\mu \nu} V^{\mu} V^{\nu} &
+   = g_{\mu \nu}(x + \mathrm{d}x) \overline{V}^{\mu}(x+\mathrm{d}x) \overline{V}^{\nu}(x+\mathrm{d}x)\\
+   & = \left( \text{上でやってきた右辺の計算} \right)\\
+   & =
+   g_{\mu \nu} V^{\mu} V^{\nu}
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   V^{\mu} V^{\nu}\\
+   \Rightarrow 0 & =
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda}
+   V^{\mu} V^{\nu}
+   \end{align}
+
+
+(イ) を代入して、 :math:`V^{\mu} V^{\nu} \mathrm{d}x^{\lambda}` の形になるように整理する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   - g_{\mu \nu}
+   ( \text{イ} ) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   - g_{\mu \nu}
+   \left( V^{\mu} \Gamma^{\nu}_{\kappa \lambda} + V^{\nu} \Gamma^{\mu}_{\kappa \lambda} \right) V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   - g_{\mu \nu} V^{\mu} \Gamma^{\nu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda}
+   - g_{\mu \nu} V^{\nu} \Gamma^{\mu}_{\kappa \lambda} V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   - g_{\mu \nu} \Gamma^{\nu}_{\kappa \lambda} V^{\mu} V^{\kappa} \mathrm{d}x^{\lambda}
+   - g_{\mu \nu} \Gamma^{\mu}_{\kappa \lambda} V^{\nu} V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0
+   \end{align}
+
+
+ここで、第１項では :math:`\kappa \leftrightarrow \nu` の入れ替え、第２項では :math:`\kappa \leftrightarrow \mu` の入れ替え、を行う。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   - g_{\mu \nu} \Gamma^{\nu}_{\kappa \lambda} V^{\mu} V^{\kappa} \mathrm{d}x^{\lambda}
+   - g_{\mu \nu} \Gamma^{\mu}_{\kappa \lambda} V^{\nu} V^{\kappa} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda} V^{\mu} V^{\nu} \mathrm{d}x^{\lambda}
+   - g_{\kappa \nu} \Gamma^{\kappa}_{\mu \lambda} V^{\nu} V^{\mu} \mathrm{d}x^{\lambda}
+   + \partial_{\lambda} g_{\mu \nu} \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   \left(
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   - g_{\kappa \nu} \Gamma^{\kappa}_{\mu \lambda}
+   + \partial_{\lambda} g_{\mu \nu}
+   \right)
+   \mathrm{d}x^{\lambda} V^{\mu} V^{\nu} & = 0\\
+   \therefore \quad
+   \partial_{\lambda} g_{\mu \nu}
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   - g_{\kappa \nu} \Gamma^{\kappa}_{\mu \lambda} & = 0
+   \end{align}
+
+
+こうして、やっと教科書p.125の式(9.29)が得られた。
+ちなみに、ここまでで、目的の３分の２くらい。
+あともう少し。
+
+接続 :math:`\Gamma` をメトリック :math:`g_{\mu \nu}` を使って表したいので、上で求めた式を以下のように工夫して組み合わせる。
+
+(この式) + (:math:`\nu \leftrightarrow \lambda` した式) - (:math:`\mu \leftrightarrow \lambda` した式) の計算をする。
+
+
+
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \partial_{\lambda} g_{\mu \nu}
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   - g_{\kappa \nu} \Gamma^{\kappa}_{\mu \lambda}
+   & = 0\\
+   (\nu \leftrightarrow \lambda) \qquad
+   + ( \quad
+     \partial_{\nu} g_{\mu \lambda}
+     - g_{\mu \kappa} \Gamma^{\kappa}_{\lambda \nu}
+     - g_{\kappa \lambda} \Gamma^{\kappa}_{\mu \nu}
+   & = 0 \quad )\\
+   (\mu \leftrightarrow \lambda) \qquad
+   - ( \quad
+     \partial_{\mu} g_{\lambda \nu}
+     - g_{\lambda \kappa} \Gamma^{\kappa}_{\nu \mu}
+     - g_{\kappa \nu} \Gamma^{\kappa}_{\lambda \mu}
+   & = 0 \quad )
+   \end{align}
+
+
+各式の第１項はそのまま計算するしかない。
+第２項と第３項は、同じ添字のメトリックで括るようにする。
+
+このとき、接続が :math:`\nu \leftrightarrow \lambda` に対して対称 (:math:`\Gamma^{\mu}_{\nu \lambda} = \Gamma^{\mu}_{\lambda \nu}`) であることを利用する。
+メトリックが対称であることも利用する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \partial_{\lambda} g_{\mu \nu}
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}
+   & \quad
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   - g_{\mu \kappa} \Gamma^{\kappa}_{\lambda \nu}\\
+   & \quad
+   - g_{\kappa \nu} \Gamma^{\kappa}_{\mu \lambda}
+   + g_{\kappa \nu} \Gamma^{\kappa}_{\lambda \mu}\\
+   & \quad
+   - g_{\kappa \lambda} \Gamma^{\kappa}_{\mu \nu}
+   + g_{\lambda \kappa} \Gamma^{\kappa}_{\nu \mu}
+   = 0\\
+   \partial_{\lambda} g_{\mu \nu}
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}
+   & \quad
+   - g_{\mu \kappa} \left( \Gamma^{\kappa}_{\nu \lambda} + \Gamma^{\kappa}_{\lambda \nu} \right) \\
+   & \quad
+   - g_{\kappa \nu} \left( \Gamma^{\kappa}_{\mu \lambda} - \Gamma^{\kappa}_{\lambda \mu} \right)\\
+   & \quad
+   - g_{\kappa \lambda} \left( \Gamma^{\kappa}_{\mu \nu} - \Gamma^{\kappa}_{\nu \mu} \right)
+   = 0\\
+   \partial_{\lambda} g_{\mu \nu}
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}
+   & \quad
+   - g_{\mu \kappa} \left( \Gamma^{\kappa}_{\nu \lambda} + \Gamma^{\kappa}_{\nu \lambda} \right) \\
+   & \quad
+   - g_{\kappa \nu} \left( \Gamma^{\kappa}_{\mu \lambda} - \Gamma^{\kappa}_{\mu \lambda} \right)\\
+   & \quad
+   - g_{\kappa \lambda} \left( \Gamma^{\kappa}_{\mu \nu} - \Gamma^{\kappa}_{\mu \nu} \right)
+   = 0\\
+   \partial_{\lambda} g_{\mu \nu}
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}
+   & \quad
+   - 2 g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   = 0
+   \end{align}
+
+いよいよ、最後。
+:math:`\Gamma =` の形に整理する。
+メトリックで割る時は、その逆テンソルをかければよい。
+最後は、教科書に合わせるために :math:`\mu \leftrightarrow \kappa` を入れ替えた。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \partial_{\lambda} g_{\mu \nu}
+   &
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}
+   - 2 g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   = 0\\
+   2 g_{\mu \kappa} \Gamma^{\kappa}_{\nu \lambda}
+   & =
+   \partial_{\lambda} g_{\mu \nu}
+   + \partial_{\nu} g_{\mu \lambda}
+   - \partial_{\mu} g_{\lambda \nu}\\
+   \Gamma^{\kappa}_{\nu \lambda}
+   & =
+   \frac{1}{2} g^{\mu \kappa}
+   \left(
+     \partial_{\lambda} g_{\mu \nu}
+     + \partial_{\nu} g_{\mu \lambda}
+     - \partial_{\mu} g_{\lambda \nu}
+   \right)\\
+   (\mu \leftrightarrow \kappa) \qquad
+   \Gamma^{\mu}_{\nu \lambda}
+   & =
+   \frac{1}{2} g^{\mu \kappa}
+   \left(
+     \partial_{\lambda} g_{\kappa \nu}
+     + \partial_{\nu} g_{\kappa \lambda}
+     - \partial_{\kappa} g_{\lambda \nu}
+   \right)
+   \end{align}
+
+これで、目的である教科書p.126の式(9.33)が計算できた。
+
+
 
 
 メトリックとリーマン曲率テンソル
