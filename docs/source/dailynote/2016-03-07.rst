@@ -1,0 +1,977 @@
+==================================================
+2016-03-07
+==================================================
+
+杉山本 p.116 ９章「テンソル解析」を読み進めてる段階でのメモ書き。
+といっても 9.2節「スカラー・ベクトル・テンソル」の部分で、
+早々に5.2節「ミンコフスキー時空と４元ベクトル、スカラー」でやったよね？
+あれと同じ感じだよ、と言われるので、５章に戻って読み進めたメモになってる。
+
+あと、最初の６節くらいは、テンソル解析を学ぶための動機を知るために、
+杉山本 p.148 11章「球対称時空」をななめ読みしたときの拾いメモ。
+ここも早々に **クリストッフェル記号** などの暗号が出てくるので、
+読み進めるにはもう少し下準備が必要。
+
+
+
+３種類の座標系
+==================================================
+
+1. 直交座標系 :math:`(x, y, z)`
+2. 極座標系 :math:`(r, \theta, \phi)`
+3. 円柱座標系 :matH:`(r, \theta, z)`
+
+それぞれの図はあとで追加する予定
+
+
+非相対論と相対論のアナロジー（みたいなの）
+==================================================
+
+アインシュタイン方程式を理解する上で、
+頭に入れておくとよいアナロジー。
+
+
+.. list-table::
+   :header-rows: 1
+
+   * - 非相対論
+     - 相対論
+   * - ３次元空間
+     - ４次元時空
+   * - 座標回転、ガリレイ変換
+     - ローレンツ変換、一般座標変換
+   * - ニュートンの運動方程式
+     - 測地線方程式
+   * - ポアソン方程式
+     - アインシュタイン方程式
+
+特にニュートン方程式（＝運動方程式）が質点の運動を表すように、
+測地線方程式が **重力場中のテスト粒子の運動** を表すものだったり、
+**電磁場の存在を表すポアソン方程式** と
+**重力場を表すアインシュタイン方程式** が対応しているらしい。
+
+
+３次元空間と４次元時空の座標
+--------------------------------------------------
+
+それぞれの空間での座標は
+３次元空間の場合は３つの空間座標、
+４次元時空の場合は１つの時間座標と
+３つの空間座標で表すことにする。
+
+ただし、時間座標には光速 :math:`c` を掛けて距離に変換することで、
+次元を合わせて、空間と等しくに扱えるようにしている。
+
+.. list-table::
+   :header-rows: 1
+
+   * - 座標成分
+     - :math:`x^{0}`
+     - :math:`x^{1}`
+     - :math:`x^{2}`
+     - :math:`x^{3}`
+   * - ３次元空間
+     - なし
+     - :math:`x`
+     - :math:`y`
+     - :math:`z`
+   * - ４次元空間
+     - :math:`ct`
+     - :math:`x`
+     - :math:`y`
+     - :math:`z`
+
+アインシュタイン方程式の解き方
+==================================================
+
+:2016-03-25: :doc:`第11章１節 <../sugiyama/11-1>` に移動
+
+
+メトリック（計量）
+==================================================
+
+:2016-03-25: :doc:`第９章５節 <../sugiyama/09-5>` に移動
+
+
+行列の成分の書き方
+==================================================
+
+
+すぐに忘れてしまうのでメモ： :math:`g^{\left( \mbox{行} \ \mbox{列} \right) }`
+
+
+スカラー・ベクトル・テンソル
+==================================================
+
+:2016-03-25: :doc:`第９章２節 <../sugiyama/09-2>` に移動
+
+
+一般座標変換とローレンツ変換
+==================================================
+
+:2016-03-26: :doc:`第９章１節 <../sugiyama/09-1>` に移動
+
+
+
+一般座標変換とスカラー
+==================================================
+
+**スカラー量** とは一般座標変換によって値が変化しない量のこと。
+Ｐ点の座標が２つの座標系によって :math:`x^{\mu}, \tilde{x}^{\mu}` と書けるとき、
+以下の関係を満たす :math:`\phi` を **スカラー** という。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{\phi} ( \tilde{x}^{\mu}) & = \phi (x^{\mu})
+   \end{align}
+
+
+数式だけ見るとなんのこっちゃ？という感じだけど、
+ある座標を :math:`x^{\mu} \rightarrow \tilde{x}^{\mu}` に一般座標変換しても、
+ある物理量 :math:`\phi` は :math:`\phi` のそのままですよ。
+その物理量は **スカラーに分類** しましょう、ということ。
+
+単純に考えると :math:`x^{\mu} \rightarrow \tilde{x}^{\mu}` すれば
+:math:`\phi \rightarrow \tilde{\phi}` 、つまり :math:`\phi` も何か違う値になるはず、
+というか同じになる理由なんてないはず。
+その中で、たまたま同じになるような量をスカラーと呼ぶことにしました、
+みたいな捉え方で良いと思う。
+
+
+スカラーの例：内積
+--------------------------------------------------
+
+.. todo::
+
+   内積 :math:`V^{\mu} W_{\mu}` がスカラーであることを示せ。
+
+   （杉山本 p120 例題9.1）
+
+反変ベクトル :math:`V^{\mu}` と共変ベクトル :math:`W_{\mu}` をそれぞれ一般座標変換する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{V}^{\mu} & = \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\nu} } V^{\nu}\\
+   \tilde{W}_{\mu} & = \frac{ \partial x^{\nu} }{ \partial \tilde{x}^{\mu} } W_{\nu}
+   \end{align}
+
+同じように見えるけれど、ちゃんと見ると、係数（？）の分子・分母が入れ替わっている。
+
+
+で、変換後の内積 :math:`\tilde{V}^{\mu} \tilde{W}_{\mu}` を計算してみる。
+その際、上で使っている :math:`\nu` の添字はダミー、つまり、あとで消えてしまうどうでもいい文字なので、
+どの文字を使ってもよく、かつ同じにする理由がないので、
+それぞれ :math:`\nu, \lambda` に置き換えて計算する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{V}^{\mu} \tilde{W}_{\mu} & =
+   \left( \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\nu} } V^{\nu} \right)
+   \left( \frac{ \partial x^{\lambda} }{ \partial \tilde{x}^{\mu} } W_{\lambda} \right)\\
+   & =
+   \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\nu} }
+   \frac{ \partial x^{\lambda} }{ \partial \tilde{x}^{\mu} }
+   V^{\nu} W_{\lambda}\\
+   & =
+   \frac{ \partial x^{\nu} }{ \partial x^{\lambda} }
+   V^{\nu} W_{\lambda}\\
+   & =
+   \delta^{\lambda}_{\nu}
+   V^{\nu} W_{\lambda}\\
+   & =
+   V^{\lambda} W_{\lambda}\\
+   \therefore
+   \tilde{V}^{\mu} \tilde{W}_{\mu}
+   & =
+   V^{\mu} W_{\mu}\\
+   \end{align}
+
+
+最後の１行で、帳尻合わせのようにしれーっと :math:`\lambda \rightarrow \nu` に置き換えたけど、
+以下の様な関係なので問題ない。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V^{\lambda}W_{\lambda} & = \sum^{3}_{\lambda = 0} V^{\lambda}W_{\lambda} = V^{0}W_{0} + V^{1}W_{1} + V^{2}W_{2} + V^{3}W_{3}\\
+   & = \sum^{3}_{\mu = 0} V^{\mu}W_{\mu}\\
+   & = V^{\mu}W_{\mu}\\
+   \end{align}
+
+
+
+一般座標変換とベクトル
+==================================================
+
+ベクトル量は、点Ｐでの一般座標変換によって以下の変換を満たす量のこと。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{V}^{\mu} & = \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\nu}} V^{\nu}
+   \end{align}
+
+
+これもなんのことかよく分からないので、杉山本５章（p.61）まで戻ってみる。
+この章は「４元ベクトルと特殊相対論的運動論」と題していて、
+特殊相対論、つまりローレンツ変換に対する変換性を使って、
+どのようにスカラー・ベクトル・テンソルが定義されるのか（したらいいか）が書いてある。
+やっぱり、知っててよかったローレンツ変換。
+
+
+３次元の座標回転とベクトル
+==================================================
+
+杉山本 p.61 5.1「ニュートン力学とベクトル、スカラー」のまとめ。
+３次元空間でのベクトル量は、座標回転に対して、以下の変換を満たす量のこと。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{i} & = \sum_{j=1}^{3} a^{i}_{j} x^{j} \quad (\equiv a^{i}_{j} x^{j})\\
+   A'^{i} (x', y', z') & = a^{i}_{j} A^{j} (x, y, z)
+   \end{align}
+
+
+なんかやっぱりよく分からないけれど、この :math:`a^{i}_{j}` は
+以下のような中身を持つ行列である。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   (a^{i}_{j}) & =
+      \begin{pmatrix}
+      \cos \theta & \sin \theta & 0\\
+      - \sin \theta & \cos \theta & 0\\
+      0 & 0 & 1\\
+      \end{pmatrix}
+   \end{align}
+
+
+この行列は、元々、３次元空間での座標回転から来ている。
+
+直交座標系でz軸を軸にして座標系を :math:`\theta` 回転させる。
+回転前の座標 :math:`P(x, y, z)` と回転後の座標 :math:`P(x', y', z')` は
+以下の様な関係になる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+     \begin{cases}
+     \quad x' & = x \cos \theta + y \sin \theta\\
+     \quad y' & = -x \sin \theta + y \cos \theta\\
+     \quad z' & = z
+     \end{cases}
+   \end{align}
+
+
+これを行列表示で書くと以下のようになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+     \begin{pmatrix}
+     x'\\
+     y'\\
+     z'\\
+     \end{pmatrix}
+     & =
+     \begin{pmatrix}
+     \cos \theta & \sin \theta & 0\\
+     - \sin \theta & \cos \theta & 0\\
+     0 & 0 & 1
+     \end{pmatrix}
+     \begin{pmatrix}
+     x\\
+     y\\
+     z\\
+     \end{pmatrix}
+   \end{align}
+
+
+.. todo::
+
+   位置ベクトル :math:`(x, y, z)` の大きさ（＝ :math:`\sqrt{x^{2} + y^{2} + z^{2}}` ）が
+   スカラーであることを確かめる
+
+   （杉山本 p.63 例5.1）
+
+
+以下の関係式を使って :math:`x'^{2} + y'^{2} + z'^{2} = ... = x^{2} + y^{2} + z^{2}`
+になることを計算するだけ。
+（大きさの計算には平方根が必要だけど、スカラーがどうかを確かめるときは、
+その中身だけ計算すればOK。）
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+     \begin{cases}
+     \quad x' & = x \cos \theta + y \sin \theta\\
+     \quad y' & = -x \sin \theta + y \cos \theta\\
+     \quad z' & = z
+     \end{cases}
+   \end{align}
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{2} + y'^{2} + z'^{2}
+   & = (x \cos \theta + y \sin \theta)^{2}
+   + (-x \sin \theta + y \cos \theta)^{2}
+   + z^{2}\\
+   & = x^{2} \cos^{2} \theta + 2xy \cos \theta \sin \theta + y^{2} \sin^{2} \theta\\
+   & \quad + x^{2} \sin^{2} \theta -2xy \sin \theta \cos \theta + y^{2} \cos^{2} \theta\\
+   & \quad + z^{2}\\
+   & = x^{2} (\cos^{2} \theta + \sin^{2} \theta) + y^{2} (\sin^{2} \theta + \cos^{2} \theta) + z^{2}\\
+   \therefore
+   x'^{2} + y'^{2} + z'^{2}
+   & = x^{2} + y^{2} + z^{2}
+   \end{align}
+
+よって **位置ベクトルの大きさ** は **スカラーである** ことを確かめることができた。
+
+
+
+.. todo::
+
+   速度がベクトルであることを示せ。
+   また、２つの速度の内積がスカラーであることを示せ。
+
+   （杉山本 p.63 例題5.1）
+
+
+速度は位置ベクトルの時間微分なので、以下のように表すことができる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   v^{i} & = \frac{\mathrm{d} x^{i}}{\mathrm{d} t}
+   \end{align}
+
+速度が **ベクトル量** であることを確かめるには、以下のゴールに辿りつけばよい。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{when} \quad x'^{i} & = a^{i}_{j} x^{j}\\
+   \Rightarrow v'^{i} & = a^{i}_{j} v^{j}
+   \end{align}
+
+
+さて、計算。 :math:`a^{i}_{j}` の成分を考えると時間に依らないので、
+時間微分するとそのまま前にでてくる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   v'^{i}
+   & = \frac{\mathrm{d} x'^{i}}{\mathrm{d} t}\\
+   & = \frac{\mathrm{d} (a^{i}_{j} x^{j})}{\mathrm{d} t}\\
+   & = a^{i}_{j} \frac{\mathrm{d} x^{j}}{\mathrm{d} t}\\
+   & = a^{i}_{j} v^{i}\\
+   \therefore
+   v'^{i}
+   & =
+   a^{i}_{j} v^{i}
+   \end{align}
+
+
+さて、次。２つの速度の内積を考える。
+教科書と表式が違うが、２つの速度を :math:`\vec{v}, \vec{w}` とする。
+:math:`\vec{v} \cdot \vec{w} = \sum_{i=1}^{3} v^{i} w^{i}` は内積の定義。
+
+速度がベクトル量であることは、上で確認済みなので、それを利用して、
+:math:`\vec{v}, \vec{w}` をそれぞれ座標回転させた :math:`\vec{v'}, \vec{w'}` を考えて、
+:math:`v'^{i}w'^{i} = ... = v^{i}w^{i}` になることを確かめれば良い。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+      \begin{cases}
+      \quad v'^{i} & = a^{i}_{j} v^{j}\\
+      \quad w'^{i} & = a^{i}_{j} w^{j} \quad ( = a^{i}_{k} w^{k} )
+      \end{cases}
+   \end{align}
+
+
+**アインシュタインの規約** にも慣れるため、積極的に使っていく。
+（単に :math:`\sum` を打つのがするのがめんどくさいわけじゃないよ）
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   v'^{i}w'^{i} & = a^{i}_{j} v^{j} \cdot a^{i}_{k} w^{k}\\
+   & = a^{i}_{j} a^{i}_{k} v^{j} w^{k}\\
+   & = a^{i}_{j} (a^{T})^{k}_{i} v^{j} w^{k}\\
+   & = \delta^{k}_{j} v^{j} w^{k}\\
+   & = v^{j} w^{j}
+   \end{align}
+
+最後の１行は :math:`j, k` のどちらに合わせても大丈夫。
+
+２行目と３行目の間で以下の関係を使っている。
+行列を **転置** すると :math:`i, k` が入れ替わる。
+で、その転置行列の :math:`k,i` 成分を見ているので、
+元の :math:`i,k` 成分と同じになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   a^{i}_{k} & = (a^{T})^{k}_{i}
+   \end{align}
+
+
+なんというか、まず、行列全体をひっくり返して、
+次にその成分をひっくり返して見比べてる感じ。
+結局同じになる。
+（線型代数とかの授業だと、証明せよ、みたいな問題が出てくる気がするが、
+これは物理なのでそこまで気にしない）
+
+３行目から４行目の変換で出てくる :math:`\delta^{i}_{j}` は
+**クロネッカーのデルタ** 呼ばれる代物。
+単位行列みたいなものだと思ってよい。
+この変換が成り立つのは **座標回転の性質** 、
+つまり全ての行列で成り立つ関係ではない。
+
+
+クロネッカーのデルタ
+--------------------------------------------------
+
+クロネッカーのデルタは以下のように表記されることが多い。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \delta^{i}_{j} &=
+      \begin{cases}
+      \quad 1 \quad (i = j)\\
+      \quad 0 \quad (i \neq j)
+      \end{cases}
+   \end{align}
+
+上のように書くとなんだか難しくみえるが、成分を書いてみるととても単純。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \delta^{i}_{j} & =
+      \begin{pmatrix}
+      1 & 0 & 0 & 0\\
+      0 & 1 & 0 & 0\\
+      0 & 0 & 1 & 0\\
+      0 & 0 & 0 & 1\\
+      \end{pmatrix}
+      \quad \mathrm{(cf)} \quad
+      \begin{pmatrix}
+      \delta^{0}_{0} & \delta^{0}_{1} & \delta^{0}_{2} & \delta^{0}_{3}\\
+      \delta^{1}_{0} & \delta^{1}_{1} & \delta^{1}_{2} & \delta^{1}_{3}\\
+      \delta^{2}_{0} & \delta^{2}_{1} & \delta^{2}_{2} & \delta^{2}_{3}\\
+      \delta^{3}_{0} & \delta^{3}_{1} & \delta^{3}_{2} & \delta^{3}_{3}\\
+      \end{pmatrix}
+   \end{align}
+
+相対論の教科書で出てきたので :math:`i,j = 0 \sim 3` で書いてしまったが、
+普通は :math:`i,j = 1 \sim n` だと思う。
+
+
+ニュートン力学の共変性
+==================================================
+
+さてさて、物理法則は共変性が大事だった。
+共変性とは、ある座標変換に対して、物理法則が形を変えないこと。
+
+ニュートン力学の場合は運動方程式 :math:`\vec{F} = m\vec{a}` がその物理法則。
+これは **座標回転** と **ガリレイ変換** に対して共変である。
+
+
+
+ミンコフスキー時空と４元ベクトル、スカラー
+==================================================
+
+杉山本 p.64 5.2節 のあたり。
+
+ミンコフスキー時空での座標の書き方
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x^{\mu} & =
+     \begin{cases}
+     \quad x^{0} = ct\\
+     \quad x^{1} = x\\
+     \quad x^{2} = y\\
+     \quad x^{3} = z\\
+     \end{cases}
+   \end{align}
+
+
+これを使うと、ローレンツ変換は以下のようにまとめることができる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{0} & = \gamma ( x^{0} - \beta x^{1} )\\
+   x'^{1} & = \gamma ( -\beta x^{0} + x^{1} )\\
+   \end{align}
+
+さらに、行列を使ってまとめると、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+      \begin{pmatrix}
+      x'^{0}\\
+      x'^{1}\\
+      \end{pmatrix}
+      & =
+      \begin{pmatrix}
+      \gamma & -\gamma \beta\\
+      -\gamma \beta & \gamma\\
+      \end{pmatrix}
+      \begin{pmatrix}
+      x^{0}\\
+      x^{1}\\
+      \end{pmatrix}
+   \end{align}
+
+
+（ちなみに、y方向とz方向もきちんと書くとこうなってる）
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+      \begin{pmatrix}
+      x'^{0}\\
+      x'^{1}\\
+      x'^{2}\\
+      x'^{3}\\
+      \end{pmatrix}
+      & =
+      \begin{pmatrix}
+      \gamma & -\gamma \beta & 0 & 0\\
+      -\gamma \beta & \gamma & 0 & 0\\
+      0 & 0 & 1 & 0\\
+      0 & 0 & 0 & 1\\
+      \end{pmatrix}
+      \begin{pmatrix}
+      x^{0}\\
+      x^{1}\\
+      x^{2}\\
+      x^{3}\\
+      \end{pmatrix}
+   \end{align}
+
+
+
+ローレンツ変換とベクトル
+==================================================
+
+前述したように、ミンコフスキー時空での座標を使うと、
+ローレンツ変換をきれいな形で行列表示できる。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   (L^{\mu}_{\nu}) & =
+      \begin{pmatrix}
+      \gamma & -\gamma \beta & 0 & 0\\
+      -\gamma \beta & \gamma & 0 & 0\\
+      0 & 0 & 1 & 0\\
+      0 & 0 & 0 & 1\\
+      \end{pmatrix}
+   \end{align}
+
+座標回転のときと同じ感じで、ローレンツ変換を使って
+ベクトルを定義すると以下のように書くことができる。
+もちろん、アインシュタインの規約を使って書く。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{\mu} & = L^{\mu}_{\nu} x^{\nu} \quad \left(= \sum_{\nu=0}^{3} L^{\mu}_{\nu} x^{\nu} \right)
+   \end{align}
+
+
+ローレンツ変換と不変間隔
+==================================================
+
+４元位置ベクトルをほんの少しだけ動かしてみる :math:`x^{\mu} \rightarrow x^{\mu} + \mathrm{d} x^{\mu}` 。
+この :math:`\mathrm{d} x^{\mu}` を **微小変分** ということにする。
+
+不変間隔は p.48 の(4.5)式から、ミンコフスキー座標に置き換えてみると、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d} s^{2}
+   & = -c^{2} \mathrm{d} t^{2}
+   + \mathrm{d} x^{2}
+     + \mathrm{d} y^{2}
+       + \mathrm{d} z^{2}\\
+   & = - (\mathrm{d} x^{0})^{2}
+   + (\mathrm{d} x^{1})^{2}
+     + (\mathrm{d} x^{2})^{2}
+       + (\mathrm{d} x^{3})^{2}
+   \end{align}
+
+もう少し簡単に書けそうなんだけど、なんか惜しい！
+どこが惜しいかというと :math:`(\mathrm{d} x^{0})^{2}` についてるマイナスが邪魔。
+これさえなければ :math:`\sum` を使って書けるのに
+（ということはアインシュタインの規約で書けてインクが節約できる）
+
+で、ここで次のような行列をしれ～っと導入する。
+実はこれが **ミンコフスキー時空のメトリック** 。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   g_{\mu \nu}  =
+   \eta_{\mu \nu} & =
+      \begin{pmatrix}
+      -1 & 0 & 0 & 0\\
+      0 & 1 & 0 & 0\\
+      0 & 0 & 1 & 0\\
+      0 & 0 & 0 & 1\\
+      \end{pmatrix}
+   \end{align}
+
+
+そうすると、不変間隔は以下のように書くことができる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d} s^{2} & = \eta_{\mu \nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu}
+   \end{align}
+
+
+ちょっと検算してみる。
+:math:`\eta_{\mu \nu}` の成分をみると :math:`\mu \neq \nu \rightarrow 0` なので、
+残るのは :math:`\mu = \nu` の成分のみ。つまり、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu}
+   & = \eta_{0 0} \mathrm{d} x^{0} \mathrm{d} x^{0}
+   + \eta_{1 1} \mathrm{d} x^{1} \mathrm{d} x^{1}
+   + \eta_{2 2} \mathrm{d} x^{2} \mathrm{d} x^{2}
+   + \eta_{3 3} \mathrm{d} x^{3} \mathrm{d} x^{3}\\
+   & = (-1) \mathrm{d} x^{0} \mathrm{d} x^{0}
+   + (1) \mathrm{d} x^{1} \mathrm{d} x^{1}
+   + (1) \mathrm{d} x^{2} \mathrm{d} x^{2}
+   + (1) \mathrm{d} x^{3} \mathrm{d} x^{3}\\
+   & = \mathrm{d} s^{2}
+   \end{align}
+
+
+さてさて、不変間隔はローレンツ変換に対して不変な物理量であるので、
+この条件から **ローレンツ変換を表す行列の性質** を導いてみる。
+
+まず、微小変分 :math:`\mathrm{d} x^{\mu}` をローレンツ変換すると以下のようになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d} x'^{\mu} & = L^{\mu}_{\nu} \mathrm{d} x^{\nu}
+   \end{align}
+
+条件は :math:`\mathrm{d} s'^{2} = \mathrm{d} s^{2}` の恒等式なので、
+この左辺と右辺をそれぞれ計算して比較する。右辺は計算しなくても定義通りだけど。
+また、上の式で :math:`\nu` はダミーであることに留意して、
+以下では :math:`\kappa, \lambda` に置き換えている。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{(the~left~side)}
+   & = \mathrm{d} s'^{2}\\
+   & = \eta_{\mu \nu} \mathrm{d} x'^{\mu} \mathrm{d} x'^{\nu}\\
+   & = \eta_{\mu \nu} (L^{\mu}_{\kappa} \mathrm{d} x^{\kappa}) (L^{\nu}_{\lambda} \mathrm{d} x^{\lambda})\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} \mathrm{d} x^{\kappa} \mathrm{d} x^{\lambda}\\
+   (\mu \leftrightarrow \kappa, \nu \leftrightarrow \lambda)
+   & = \eta_{\kappa \lambda} L^{\kappa}_{\mu} L^{\lambda}_{\nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu}\\
+   \end{align}
+
+
+ここで左辺と右辺の係数を比較する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\kappa \lambda} L^{\kappa}_{\mu} L^{\lambda}_{\nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu}
+   & = \eta_{\mu \nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu}\\
+   \therefore
+   \eta_{\kappa \lambda} L^{\kappa}_{\mu} L^{\lambda}_{\nu}
+   & = \eta_{\mu \nu}\\
+   (\mu \leftrightarrow \kappa, \nu \leftrightarrow \lambda)
+   \quad \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda}
+   & = \eta_{\kappa \lambda}\\
+   \end{align}
+
+
+.. todo::
+   ４元ベクトル :math:`V^{\mu}, W^{\mu}` の内積がスカラーであることを示せ。
+
+   （杉山本 p.67 例題5.2）
+
+
+:math:`V^{\mu}, W^{\mu}` をローレンツ変換し、内積を取る。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\kappa} V^{\kappa}\\
+   W'^{\nu} & = L^{\nu}_{\lambda} W^{\lambda}\\
+   \end{align}
+
+   \begin{align}
+   \mathrm{(dot~product)}
+   & = \eta_{\mu \nu} V'^{\mu} W'^{\nu}\\
+   & = \eta_{\mu \nu} (L^{\mu}_{\kappa} V^{\kappa}) (L^{\nu}_{\lambda} W^{\lambda})\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} V^{\kappa} W^{\lambda}\\
+   & = \eta_{\kappa \lambda} V^{\kappa} W^{\lambda}\\
+   \therefore
+   \eta_{\mu \nu} V'^{\mu} W'^{\nu}
+   & = \eta_{\mu \nu} V^{\mu} W^{\nu}\\
+   \end{align}
+
+.. todo::
+   ローレンツ変換によって、２つのベクトル :math:`V^{\mu}, W^{\mu}` の内積が
+   不変に保たれることを、ローレンツ変換の成分を具体的に用いて示せ。
+
+   （杉山本 p.79 章末問題5.1）
+
+
+
+反変ベクトルと共変ベクトルの導入
+==================================================
+
+例題5.2で確かめたように **内積はローレンツ不変** な物理量なので、
+いろいろと便利な指標になる予感がする。
+ただし、計算するたびにメトリックを書くのは煩わしいので、
+**反変ベクトル** と **共変ベクトル** を定義することにする。
+
+杉山本 p.67 の２段落目くらいに、要約すると上のような内容が書いてあってかなり衝撃である。
+反変ベクトル、共変ベクトルは、標準理論関係の教科書を開くと、
+さも当たり前のように出てくるんだけど、その由来や導入の効用が
+まったく分からないので、読み進める上で大きな壁のひとつなのに・・・。
+こんな理由だったなんて・・・。
+
+
+ということで **反変ベクトル** はこれまで使ってたベクトルのことで、
+上付きの添字で表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+      V^{\mu} & = (V^{0}, V^{1}, V^{2}, V^{3})
+   \end{align}
+
+
+共変ベクトルは下付きの添字で表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V_{\mu} & = (V_{0}, V_{1}, V_{2}, V_{3})
+   \end{align}
+
+んで、反変ベクトルと共変ベクトルは次の関係で結ばれている。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   (V_{0}, V_{1}, V_{2}, V_{3})
+   & = (- V^{0}, V^{1}, V^{2}, V^{3})\\
+   \therefore
+   V_{\mu}
+   & = \eta_{\mu \nu} V^{\nu}
+   \end{align}
+
+
+これで **反変ベクトルから共変ベクトルを作る** ことができるようになった。
+また、メトリックは **添字の上げ下げを手伝う効果** を得た。
+さらに :math:`\eta_{\mu \nu}` の逆行列を持ってくると、
+**共変ベクトルから反変ベクトルを作る** こともできるようになった。
+
+
+ミンコフスキー・メトリックの逆行列
+==================================================
+
+**逆行列** は 行列×逆行列＝単位行列となる行列のこと。
+文章で書くと分かりづらいけれど、この行列は逆行列のことをを指している。
+
+つまり、ミンコフスキー・メトリックの逆行列を :math:`\eta^{\mu \nu}` と表すと、
+以下の関係を満たすことになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta^{\mu \nu} \eta_{\nu \lambda} & = \delta^{\mu}_{\lambda}\\
+   \eta^{\mu \nu}
+   \begin{pmatrix}
+   -1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   & =
+   \begin{pmatrix}
+   1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}\\
+   \end{align}
+
+この関係を満たす :math:`\eta^{\mu \nu}` の成分は次のようになって、
+これは :math:`\eta_{\mu \nu}` と同じ。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta^{\mu \nu}
+   & =
+   \begin{pmatrix}
+   -1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+
+共変ベクトルとローレンツ変換
+==================================================
+
+これまでのベクトルは反変ベクトルのことなので、
+そのローレンツ変換は以下のように書ける。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\nu} V^{\nu}
+   \end{align}
+
+
+共変ベクトルのローレンツ変換を確かめるために、
+まず反変ベクトルに変換してから上のローレンツ変換を代入し、
+また共変ベクトルに戻す、という手順で計算してみる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'_{\mu} & = \eta_{\mu \nu} V'^{\nu}\\
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} V^{\lambda}\\
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa} V_{\kappa}\\
+   \end{align}
+
+ここで出てくる :math:`V_{\kappa}` の係数が、
+共変ベクトルに対するローレンツ変換の行列であるとみなせるので、
+これを :math:`\overline{L}` とおく。
+この記号で表すのは、これが反変ベクトルに対するローレンツ変換 :math:`L` の
+逆行列であることを見越しているため。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \overline{L}^{\kappa}_{\mu} & \equiv \eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa}
+   \end{align}
+
+
+.. todo::
+   1. ローレンツ変換を表す行列は :math:`(L^{\mu}_{\nu})` である。
+      これを用いて、ローレンツ変換の逆変換を与える行列を表せ。
+   2. ローレンツ変換が :math:`x^{1}` 方向のブーストで与えられるとき、
+      逆変換を具体的に行列で書きあらわせ。
+
+
+
+
+ここまでのまとめ
+--------------------------------------------------
+
+共変ベクトルのローレンツ変換
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'_{\mu} & = \overline{L}_{\mu}^{\nu} V_{\nu}
+   \end{align}
+
+反変ベクトルのローレンツ変換
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\nu} V^{\nu}
+   \end{align}
+
+この２つのローレンツ変換は互いに逆行列の関係にある
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \overline{L}_{\mu}^{\nu} & = (L^{\mu}_{\nu})^{-1}\\
+   (\overline{L}_{\mu}^{\nu})^{-1} & = L^{\mu}_{\nu}\\
+   \end{align}
+
+なので、次のように書くこともできる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \end{align}

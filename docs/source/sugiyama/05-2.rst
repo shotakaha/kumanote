@@ -1,0 +1,1007 @@
+==================================================
+ミンコフスキー時空と４元ベクトル、スカラー
+==================================================
+
+* ローレンツ変換を使ったベクトル・スカラーの定義
+* その過程で **ミンコフスキー計量** を導入
+
+４元位置ベクトルの定義
+==================================================
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x^{0} & = ct\\
+   x^{1} & = x\\
+   x^{2} & = y\\
+   x^{3} & = z
+   \end{align}
+
+３次元のベクトルに、時間成分を加えたもの。
+次元を合わせるために :math:`x^{0} = ct` で定義されている。
+
+
+４元位置ベクトルとローレンツ変換
+==================================================
+
+教科書 p.56 のローレンツ変換の式を４元位置ベクトルを使って表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{0} & = \gamma \left( x^{0} - \frac{ v }{ c } x^{1} \right) = \gamma x^{0} - \gamma \beta x^{1}\\
+   x'^{1} & = \gamma \left( x^{1} - \frac{ v }{ c } x^{0} \right) = -\gamma \beta x^{0} + \gamma x^{1}
+   \end{align}
+
+
+これを行列で表すと、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \begin{pmatrix}
+   x'^{0}\\
+   x'^{1}
+   \end{pmatrix}
+   & =
+   \begin{pmatrix}
+   \gamma & - \gamma \beta\\
+   - \gamma \beta & \gamma\\
+   \end{pmatrix}
+   \begin{pmatrix}
+   x^{0}\\
+   x^{1}
+   \end{pmatrix}
+   \end{align}
+
+
+また、最初の式をアインシュタインの規約を使って１行で表すと、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{\mu} & = \sum_{\nu=0}^{3} L^{\mu}_{\nu} x^{\nu} \equiv L^{\mu}_{\nu} x^{\nu}
+   \end{align}
+
+この時、ローレンツ変換を表す行列 :math:`L^{\mu}_{\nu}` は次のようになっている
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{\mu}_{\nu} & \equiv
+   \begin{pmatrix}
+   \gamma & -\gamma \beta & 0 & 0\\
+   -\gamma \beta & -\gamma & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+
+４元位置ベクトルの不変間隔とミンコフスキー計量
+==================================================
+
+４元位置ベクトルの微小変分を :math:`\mathrm{d}x^{\mu}` を使って
+不変間隔 :math:`\mathrm{d}s^{2}` を表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = - (\mathrm{d}x^{0})^{2} + (\mathrm{d}x^{1})^{2} + (\mathrm{d}x^{2})^{2} + (\mathrm{d}x^{3})^{2}
+   \end{align}
+
+不変間隔をもっと簡潔に書くために **ミンコフスキー計量** という行列を定義する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = \eta_{\mu \nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}
+   \end{align}
+
+
+ミンコフスキー計量の中身は次のように定義している。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} \equiv
+   \begin{pmatrix}
+   -1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+
+上の書き方もアインシュタインの規約を使って書かれているので、きちんと書くと
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s^{2} & = \sum_{\mu=0}^{3} \sum_{\nu=0}^{3} \eta_{\mu \nu} \mathrm{d}x^{\mu} \mathrm{d}x^{\nu}\\
+   & = \eta_{0 0} \mathrm{d}x^{0} \mathrm{d}x^{0}
+     + \eta_{0 1} \mathrm{d}x^{0} \mathrm{d}x^{1}
+     + \eta_{0 2} \mathrm{d}x^{0} \mathrm{d}x^{2}
+     + \eta_{0 3} \mathrm{d}x^{0} \mathrm{d}x^{3}\\
+   & + \eta_{1 0} \mathrm{d}x^{1} \mathrm{d}x^{0}
+     + \eta_{1 1} \mathrm{d}x^{1} \mathrm{d}x^{1}
+     + \eta_{1 2} \mathrm{d}x^{1} \mathrm{d}x^{2}
+     + \eta_{1 3} \mathrm{d}x^{1} \mathrm{d}x^{3}\\
+   & + \eta_{2 0} \mathrm{d}x^{2} \mathrm{d}x^{0}
+     + \eta_{2 1} \mathrm{d}x^{2} \mathrm{d}x^{1}
+     + \eta_{2 2} \mathrm{d}x^{2} \mathrm{d}x^{2}
+     + \eta_{2 3} \mathrm{d}x^{2} \mathrm{d}x^{3}\\
+   & + \eta_{3 0} \mathrm{d}x^{3} \mathrm{d}x^{0}
+     + \eta_{3 1} \mathrm{d}x^{3} \mathrm{d}x^{1}
+     + \eta_{3 2} \mathrm{d}x^{3} \mathrm{d}x^{2}
+     + \eta_{3 3} \mathrm{d}x^{3} \mathrm{d}x^{3}
+   \end{align}
+
+の形をしていてミンコフスキー計量の成分を代入すると、最初に書いた不変間隔の表式に戻る。
+（というか、そうなるように定義したので当たり前）
+
+
+
+ローレンツ変換とミンコフスキー計量の関係式
+==================================================
+
+**不変間隔** が **ローレンツ不変** であることを使って
+**ミンコフスキー計量とローレンツ変換の関係式** を求める。
+
+４元位置ベクトル :math:`x^{\mu}` のローレンツ変換は次の形をしていた。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x'^{\mu} & = L^{\mu}_{\nu} x^{\nu}
+   \end{align}
+
+
+その微小変分 :math:`\mathrm{d}x^{\mu}` も同じ形でローレンツ変換するので、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}x'^{\mu} & = L^{\mu}_{\nu} \mathrm{d}x^{\nu}
+   \end{align}
+
+のように書くことができる。
+
+**不変間隔がローレンツ不変** ということは、次の式が常に成り立つということ、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{d}s'^{2} & = \mathrm{d}s^{2}
+   \end{align}
+
+なので、左辺と右辺をそれぞれ定義にしたがって計算し、
+両辺の係数を比較することで、目的の関係式を求めることができる。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \mathrm{the\ left\ side} = \mathrm{d}s'^{2}
+   & = \eta_{\mu \nu} \mathrm{d}x'^{\mu} \mathrm{d}x'^{\nu}\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} \mathrm{d}x^{\kappa} L^{\nu}_{\lambda} \mathrm{d}x^{\lambda}\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} \mathrm{d}x^{\kappa} \mathrm{d}x^{\lambda}\\
+   \mathrm{the\ right\ side} = \mathrm{d}s^{2}
+   & = \eta_{\kappa \lambda} \mathrm{d}x^{\kappa} \mathrm{d}x^{\lambda}
+   \end{align}
+
+両辺の係数を比較すると、次の関係式が得られる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} & = \eta_{\kappa \lambda}
+   \end{align}
+
+
+
+ローレンツ変換と４元ベクトル・スカラー
+==================================================
+
+ここまで ４元位置ベクトルや不変間隔のローレンツ変換に対する変換性 を読んできた。
+
+これを一般化して、以下のように呼ぶことにする。
+
+:４元（ローレンツ）ベクトル: ローレンツ変換に対して４元位置ベクトルと同じ変換性を持つ物理量
+:（４元ローレンツ）スカラー: ローレンツ変換に対して不変な物理量
+
+
+相対論の話をしているとき **ローレンツ変換** は暗黙の了解的な部分があるので、
+**（ローレンツ）** の部分は省略することが多い。
+また、スカラーにはバランスを取るために **（４元ローレンツ）** と付けてみたが、
+実際に聞いたことがなく、単にスカラーと呼ぶ。
+
+
+まとめると、４元ベクトルを :math:`V^{\mu}` と書くことにして、次のように表す。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\nu} V^{\nu}
+   \end{align}
+
+
+これを行列の形に展開して書くと次のようになっている
+（教科書 p.66 の（5.22）〜（5.25）式をまとめて書いたもの）。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \begin{pmatrix}
+   V'^{0}\\ V'^{1}\\ V'^{1}\\ V'^{3}\\
+   \end{pmatrix}
+   & =
+   \begin{pmatrix}
+   \gamma & - \gamma \beta & 0 & 0\\
+   - \gamma \beta & \gamma & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \begin{pmatrix}
+   V^{0}\\ V^{1}\\ V^{1}\\ V^{3}\\
+   \end{pmatrix}
+   \end{align}
+
+
+【例題5.2】４元ベクトルの内積（教科書 p.67）
+==================================================
+
+.. todo::
+
+   ４元ベクトル :math:`V^{\mu}` と :math:`W^{\mu}` の内積がスカラーであることを示せ。
+
+
+.. note::
+
+   つまり、
+
+   .. math::
+      :nowrap:
+
+      \begin{align}
+      V'^{\mu} \cdot W'^{\mu} & = V^{\mu} \cdot W^{\mu}
+      \end{align}
+
+   となるかどうかを確かめる。
+
+
+まず、左辺を計算するために :math:`V^{\mu}` と :math:`W^{\mu}` をローレンツ変換する
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\nu} V^{\nu}\\
+   W'^{\mu} & = L^{\mu}_{\nu} W^{\nu}
+   \end{align}
+
+上の変換式を内積の定義に代入すればいいのだが :math:`\nu` が **ダミー添字** であることに気をつける。
+具体的には次のように書きなおして、代入に使うとよい。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\kappa} V^{\kappa}\\
+   W'^{\nu} & = L^{\nu}_{\lambda} W^{\lambda}
+   \end{align}
+
+内積の定義は :math:`V^{\mu} \cdot W^{\mu} \equiv \eta_{\mu \nu} V^{\mu} W^{\nu}` なので、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} \cdot W'^{\mu}
+   \equiv \eta_{\mu \nu} V'^{\mu} W'^{\nu}
+   & = \eta_{\mu \nu} ( L^{\mu}_{\kappa} V^{\kappa} ) ( L^{\nu}_{\lambda} W^{\lambda} )\\
+   & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} V^{\kappa} W^{\lambda}\\
+   & = \eta_{\kappa \lambda} V^{\kappa} W^{\lambda}\\
+   & \equiv V^{\kappa} \cdot W^{\lambda} = V^{\mu} \cdot W^{\nu}\\
+   \therefore \quad
+   V'^{\mu} \cdot W'^{\mu}
+   & =
+   V^{\mu} \cdot W^{\mu}
+   \end{align}
+
+ということで、内積はスカラーであることが分かった。
+
+最後の行の１つ前で :math:`\kappa \rightarrow \mu, \lambda \rightarrow \nu` という
+添字の置き換えを行っているが :math:`V^{\kappa} \cdot W^{\lambda}` が表す内容は変わらないのでOKである。
+
+どういうことかというと、アインシュタインの規約を展開して、次の計算をしているということ。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V^{\kappa} \cdot W^{\lambda}
+   & = \eta_{\kappa \lambda} V^{\kappa} W^{\lambda}
+   = \sum_{\kappa,\lambda=0}^{3} \left( \eta_{\kappa \lambda} V^{\kappa} W^{\lambda} \right)\\
+   & = - V^{0} W^{0} + V^{1} W^{1} + V^{2} W^{2} + V^{3} W^{3}\\
+   V^{\mu} \cdot W^{\nu}
+   & = \eta_{\mu \nu} V^{\mu} W^{\nu}
+   = \sum_{\mu,\nu=0}^{3} \left( \eta_{\mu \nu} V^{\mu} W^{\nu} \right)\\
+   & = - V^{0} W^{0} + V^{1} W^{1} + V^{2} W^{2} + V^{3} W^{3}\\
+   \therefore \quad
+   V^{\kappa} \cdot W^{\lambda} & = V^{\mu} \cdot W^{\nu}
+   \end{align}
+
+
+【章末問題5.1】（教科書 p.79）
+==================================================
+
+.. todo::
+   ローレンツ変換によって、２つのベクトル :math:`V^{\mu}, W^{\mu}`
+   の内積が不変に保たれることを、ローレンツ変換の成分を具体的に用いて示せ。
+
+
+.. note::
+
+   上の例題5.2の計算の途中に出てくる以下の式に、
+   ローレンツ変換の成分を具体的に代入して計算する。
+
+   .. math::
+      :nowrap:
+
+      \begin{align}
+      \eta_{\mu \nu} V'^{\mu} W'^{\nu}
+      & = \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} V^{\kappa} W^{\lambda}\\
+      \end{align}
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta_{\mu \nu} L^{\mu}_{\kappa} L^{\nu}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \eta_{0 0} L^{0}_{\kappa} L^{0}_{\lambda} V^{\kappa} W^{\lambda}
+   + \eta_{1 1} L^{1}_{\kappa} L^{1}_{\lambda} V^{\kappa} W^{\lambda}
+   + \eta_{2 2} L^{2}_{\kappa} L^{2}_{\lambda} V^{\kappa} W^{\lambda}
+   + \eta_{3 3} L^{3}_{\kappa} L^{3}_{\lambda} V^{\kappa} W^{\lambda}\\
+   & = - L^{0}_{\kappa} L^{0}_{\lambda} V^{\kappa} W^{\lambda}
+   + L^{1}_{\kappa} L^{1}_{\lambda} V^{\kappa} W^{\lambda}
+   + L^{2}_{\kappa} L^{2}_{\lambda} V^{\kappa} W^{\lambda}
+   + L^{3}_{\kappa} L^{3}_{\lambda} V^{\kappa} W^{\lambda}
+   \end{align}
+
+
+ローレンツ変換 :math:`L^{\mu \nu}` の行列の成分は、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{\mu}_{\nu} &=
+   \begin{pmatrix}
+   L^{0}_{0} & L^{0}_{1} & L^{0}_{2} & L^{0}_{3} \\
+   L^{1}_{0} & L^{1}_{1} & L^{1}_{2} & L^{1}_{3} \\
+   L^{2}_{0} & L^{2}_{1} & L^{2}_{2} & L^{2}_{3} \\
+   L^{3}_{0} & L^{3}_{1} & L^{3}_{2} & L^{3}_{3} \\
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   \gamma  & - \gamma \beta  & 0 & 0 \\
+   - \gamma \beta & \gamma & 0 & 0 \\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \end{align}
+
+
+第１項の計算
+--------------------------------------------------
+
+とりあえず、マイナスを取った部分を計算する。
+
+:math:`\textcolor{blue}{L^{0}_{2} = 0}, \textcolor{blue}{L^{0}_{3} =0 }` なので、
+それを含む項はなくなることを考えると、
+左上の４つの項だけが残る。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{0}_{\kappa} L^{0}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{red}{L^{0}_{0} L^{0}_{0}} V^{0} W^{0}
+   + \textcolor{red}{L^{0}_{0} L^{0}_{1}} V^{0} W^{1}
+   + L^{0}_{0} \textcolor{blue}{L^{0}_{2}} V^{0} W^{2}
+   + L^{0}_{0} \textcolor{blue}{L^{0}_{3}} V^{0} W^{3}\\
+   & \quad
+   + \textcolor{red}{L^{0}_{1} L^{0}_{0}} V^{1} W^{0}
+   + \textcolor{red}{L^{0}_{1} L^{0}_{1}} V^{1} W^{1}
+   + L^{0}_{1} \textcolor{blue}{L^{0}_{2}} V^{1} W^{2}
+   + L^{0}_{1} \textcolor{blue}{L^{0}_{3}} V^{1} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{0}_{2}} L^{0}_{0} V^{2} W^{0}
+   + \textcolor{blue}{L^{0}_{2}} L^{0}_{1} V^{2} W^{1}
+   + \textcolor{blue}{L^{0}_{2}} L^{0}_{2} V^{2} W^{2}
+   + \textcolor{blue}{L^{0}_{2}} L^{0}_{3} V^{2} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{0}_{3}} L^{0}_{0} V^{3} W^{0}
+   + \textcolor{blue}{L^{0}_{3}} L^{0}_{1} V^{3} W^{1}
+   + \textcolor{blue}{L^{0}_{3}} L^{0}_{2} V^{3} W^{2}
+   + \textcolor{blue}{L^{0}_{3}} L^{0}_{3} V^{3} W^{3}\\
+   & = \quad
+     \textcolor{red}{ (\gamma) (\gamma) } V^{0} W^{0}
+   + \textcolor{red}{ (\gamma) ( -\gamma \beta) } V^{0} W^{1}\\
+   & \quad
+   + \textcolor{red}{ ( -\gamma \beta) (\gamma) } V^{1} W^{0}
+   + \textcolor{red}{ ( -\gamma \beta) ( -\gamma \beta) } V^{1} W^{1}\\
+   & = \quad
+     \textcolor{red}{ \gamma^{2} } V^{0} W^{0}
+   + \textcolor{red}{ - \gamma^{2} \beta } V^{0} W^{1}
+   + \textcolor{red}{ - \gamma^{2} \beta } V^{1} W^{0}
+   + \textcolor{red}{ \gamma^{2} \beta^{2} } V^{1} W^{1}
+   \end{align}
+
+
+忘れないうちに、マイナスを付けておく、
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   - L^{0}_{\kappa} L^{0}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{red}{ - \gamma^{2} } V^{0} W^{0}
+   + \textcolor{red}{ \gamma^{2} \beta } V^{0} W^{1}
+   + \textcolor{red}{ \gamma^{2} \beta } V^{1} W^{0}
+   + \textcolor{red}{ - \gamma^{2} \beta^{2} } V^{1} W^{1}
+   \end{align}
+
+
+第２項
+--------------------------------------------------
+
+同様に :math:`\textcolor{blue}{L^{1}_{2} = 0}, \textcolor{blue}{L^{1}_{3} = 0}` なので、
+それを含む項はなくなることを考えると、４つの項だけが残る。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{1}_{\kappa} L^{1}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{red}{L^{1}_{0} L^{1}_{0}} V^{0} W^{0}
+   + \textcolor{red}{L^{1}_{0} L^{1}_{1}} V^{0} W^{1}
+   + L^{1}_{0} \textcolor{blue}{L^{1}_{2}} V^{0} W^{2}
+   + L^{1}_{0} \textcolor{blue}{L^{1}_{3}} V^{0} W^{3}\\
+   & \quad
+   + \textcolor{red}{L^{1}_{1} L^{1}_{0}} V^{1} W^{0}
+   + \textcolor{red}{L^{1}_{1} L^{1}_{1}} V^{1} W^{1}
+   + L^{1}_{1} \textcolor{blue}{L^{1}_{2}} V^{1} W^{2}
+   + L^{1}_{1} \textcolor{blue}{L^{1}_{3}} V^{1} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{1}_{2}} L^{1}_{0} V^{2} W^{0}
+   + \textcolor{blue}{L^{1}_{2}} L^{1}_{1} V^{2} W^{1}
+   + \textcolor{blue}{L^{1}_{2}} L^{1}_{2} V^{2} W^{2}
+   + \textcolor{blue}{L^{1}_{2}} L^{1}_{3} V^{2} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{1}_{3}} L^{1}_{0} V^{3} W^{0}
+   + \textcolor{blue}{L^{1}_{3}} L^{1}_{1} V^{3} W^{1}
+   + \textcolor{blue}{L^{1}_{3}} L^{1}_{2} V^{3} W^{2}
+   + \textcolor{blue}{L^{1}_{3}} L^{1}_{3} V^{3} W^{3}\\
+   & = \quad
+     \textcolor{red}{ (-\gamma \beta) (-\gamma \beta) } V^{0} W^{0}
+   + \textcolor{red}{ (-\gamma \beta) (\gamma) V^{0} } W^{1}\\
+   & \quad
+   + \textcolor{red}{ (\gamma) (-\gamma \beta) } V^{1} W^{0}
+   + \textcolor{red}{ (\gamma) (\gamma) V^{1} } W^{1}\\
+   & = \quad
+     \textcolor{red}{ \gamma^{2} \beta^{2} } V^{0} W^{0}
+   + \textcolor{red}{ -\gamma^{2} \beta } V^{0} W^{1}
+   + \textcolor{red}{ -\gamma^{2} \beta } V^{1} W^{0}
+   + \textcolor{red}{ \gamma^{2} } V^{1} W^{1}
+   \end{align}
+
+第３項
+--------------------------------------------------
+
+:math:`\textcolor{blue}{L^{2}_{0} = 0}, \textcolor{blue}{L^{2}_{1} = 0}, \textcolor{blue}{L^{2}_{3} = 0}` なので、
+:math:`L^{2}_{2}` だけの項が残る
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{2}_{\kappa} L^{2}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{blue}{L^{2}_{0}} L^{2}_{0} V^{0} W^{0}
+   + \textcolor{blue}{L^{2}_{0}} L^{2}_{1} V^{0} W^{1}
+   + \textcolor{blue}{L^{2}_{0}} L^{2}_{2} V^{0} W^{2}
+   + \textcolor{blue}{L^{2}_{0}} L^{2}_{3} V^{0} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{2}_{1}} L^{2}_{0} V^{1} W^{0}
+   + \textcolor{blue}{L^{2}_{1}} L^{2}_{1} V^{1} W^{1}
+   + \textcolor{blue}{L^{2}_{1}} L^{2}_{2} V^{1} W^{2}
+   + \textcolor{blue}{L^{2}_{1}} L^{2}_{3} V^{1} W^{3}\\
+   & \quad
+   + L^{2}_{2} \textcolor{blue}{L^{2}_{0}} V^{2} W^{0}
+   + L^{2}_{2} \textcolor{blue}{L^{2}_{1}} V^{2} W^{1}
+   + \textcolor{red}{L^{2}_{2} L^{2}_{2} V^{2} W^{2}}
+   + L^{2}_{2} \textcolor{blue}{L^{2}_{3}} V^{2} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{2}_{3}} L^{2}_{0} V^{3} W^{0}
+   + \textcolor{blue}{L^{2}_{3}} L^{2}_{1} V^{3} W^{1}
+   + \textcolor{blue}{L^{2}_{3}} L^{2}_{2} V^{3} W^{2}
+   + \textcolor{blue}{L^{2}_{3}} L^{2}_{3} V^{3} W^{3}\\
+   & = \quad
+   \textcolor{red}{V^{2} W^{2}}
+   \end{align}
+
+第４項
+--------------------------------------------------
+
+第３項と同様に
+:math:`\textcolor{blue}{L^{3}_{0} = 0}, \textcolor{blue}{L^{3}_{1} = 0}, \textcolor{blue}{L^{3}_{2} = 0}` なので、
+:math:`L^{3}_{3}` だけの項が残る
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   L^{3}_{\kappa} L^{3}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{blue}{L^{3}_{0}} L^{3}_{0} V^{0} W^{0}
+   + \textcolor{blue}{L^{3}_{0}} L^{3}_{1} V^{0} W^{1}
+   + \textcolor{blue}{L^{3}_{0}} L^{3}_{2} V^{0} W^{2}
+   + \textcolor{blue}{L^{3}_{0}} L^{3}_{3} V^{0} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{3}_{1}} L^{3}_{0} V^{1} W^{0}
+   + \textcolor{blue}{L^{3}_{1}} L^{3}_{1} V^{1} W^{1}
+   + \textcolor{blue}{L^{3}_{1}} L^{3}_{2} V^{1} W^{2}
+   + \textcolor{blue}{L^{3}_{1}} L^{3}_{3} V^{1} W^{3}\\
+   & \quad
+   + \textcolor{blue}{L^{3}_{2}} L^{3}_{0} V^{2} W^{0}
+   + \textcolor{blue}{L^{3}_{2}} L^{3}_{1} V^{2} W^{1}
+   + \textcolor{blue}{L^{3}_{2}} L^{3}_{2} V^{2} W^{2}
+   + \textcolor{blue}{L^{3}_{2}} L^{3}_{3} V^{2} W^{3}\\
+   & \quad
+   + L^{3}_{3} \textcolor{blue}{L^{3}_{0}} V^{3} W^{0}
+   + L^{3}_{3} \textcolor{blue}{L^{3}_{1}} V^{3} W^{1}
+   + L^{3}_{3} \textcolor{blue}{L^{3}_{2}} V^{3} W^{2}
+   + \textcolor{red}{L^{3}_{3} L^{3}_{3} V^{3} W^{3}}\\
+   & = \quad
+   \textcolor{red}{V^{3} W^{3}}
+   \end{align}
+
+
+全部足し合わせる
+--------------------------------------------------
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   - L^{0}_{\kappa} L^{0}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{red}{ - \gamma^{2} } V^{0} W^{0}
+   + \textcolor{blue}{ \gamma^{2} \beta } V^{0} W^{1}
+   + \textcolor{blue}{ \gamma^{2} \beta } V^{1} W^{0}
+   + \textcolor{red}{ - \gamma^{2} \beta^{2} } V^{1} W^{1}
+   \\
+   L^{1}_{\kappa} L^{1}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+     \textcolor{red}{ \gamma^{2} \beta^{2} } V^{0} W^{0}
+   + \textcolor{blue}{ -\gamma^{2} \beta } V^{0} W^{1}
+   + \textcolor{blue}{ -\gamma^{2} \beta } V^{1} W^{0}
+   + \textcolor{red}{ \gamma^{2} } V^{1} W^{1}
+   \\
+   L^{2}_{\kappa} L^{2}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+   V^{2} W^{2}
+   \\
+   L^{3}_{\kappa} L^{3}_{\lambda} V^{\kappa} W^{\lambda}
+   & = \quad
+   V^{3} W^{3}
+   \\
+   & = (- \gamma^{2} + \gamma^{2} \beta^{2} ) V^{0} W^{0}
+   + ( - \gamma^{2} \beta^{2} + \gamma^{2} ) V^{1} W^{1}
+   + V^{2} W^{2}
+   + V^{3} W^{3}
+   \\
+   & = - \gamma^{2} ( 1 - \beta^{2} ) V^{0} W^{0}
+   + \gamma^{2} ( 1 - \beta^{2} ) V^{1} W^{1}
+   + V^{2} W^{2}
+   + V^{3} W^{3}
+   \\
+   &
+   = - V^{0} W^{0}
+   + V^{1} W^{1}
+   + V^{2} W^{2}
+   + V^{3} W^{3}
+   \\
+   & = \eta_{\mu \nu} V^{\mu} W^{\nu}
+   \\
+   \therefore \quad
+   \eta_{\mu \nu} V'^{\mu} W'^{\nu} & = \eta_{\mu \nu} V^{\mu} W^{\nu}
+   \end{align}
+
+
+ということで、ローレンツ変換の成分を使った具体的な計算で、
+内積がローレンツ不変であることを確認できた。
+（労力に見合う計算だったかはともかく）
+
+
+
+
+共変ベクトルの導入
+==================================================
+
+**共変ベクトル** を :math:`V_{\mu}` のように **下付き添え字のベクトル** で書くことにして、
+これまで使ってきた **上付き添字のベクトル** と **ミンコフスキー計量** を使って、
+次のように定義する。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V_{\mu} & \equiv \eta_{\mu \nu} V^{\nu}
+   \end{align}
+
+これからは、添字の上下で、反変ベクトルと共変ベクトルを区別して書くことにする。
+
+:反変ベクトル: 上付き添字
+:共変ベクトル: 下付き添字
+
+上下の添字で区別するのは慣習なので **習うより慣れろ** としか言えない。
+**反変／共変** には物理学的・数学的な意味がもちろんあるのだけど、
+現段階では「そいういう区別があるのかぁ」という認識で特に問題ない。
+
+
+反変ベクトルと共変ベクトルの関係
+==================================================
+
+共変ベクトルの定義を行列で表してみる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \begin{pmatrix}
+   V_{0}\\ V_{1}\\ V_{2}\\ V_{3}\\
+   \end{pmatrix}
+   & \equiv
+   \begin{pmatrix}
+   -1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+   \end{pmatrix}
+   \begin{pmatrix}
+   V^{0}\\ V^{1}\\ V^{2}\\ V^{3}\\
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   - V^{0}\\ V^{1}\\ V^{2}\\ V^{3}\\
+   \end{pmatrix}
+   \end{align}
+
+よって、共変ベクトルは反変ベクトルの時間成分をマイナスにしたもの。
+
+また、前の段落では
+**ミンコフスキー計量の行列** を使って **反変ベクトルを共変ベクトルに変換** したが、
+**ミンコフスキー計量の逆行列** を使って **共変ベクトルを反変ベクトルに変換** することもできる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V_{\mu} & = \eta_{\mu \nu} V^{\nu}\\
+   V^{\mu} & = \eta^{\mu \nu} V_{\nu}
+   \end{align}
+
+上付きの :math:`\eta^{\mu \nu}` は、下付きの :math:`\eta_{\mu \nu}` の
+逆行列を表していて、以下の関係がある（＝逆行列の定義）
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta^{\mu \nu} \eta_{\nu \lambda} & = \delta^{\mu}_{\lambda}
+   \end{align}
+
+
+これの成分を計算すると、実は逆行列は、元の行列と同じ形になっている。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \eta^{\mu \nu} & = \eta_{\mu \nu}
+   \end{align}
+
+
+共変ベクトルを使った内積の定義
+==================================================
+
+共変ベクトルを使うと、内積の定義をより簡潔に書くことができる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V^{\mu} \cdot W^{\mu}
+   & \equiv \eta_{\mu \nu} V^{\mu} W^{\nu}\\
+   & \Rightarrow V^{\mu} W_{\mu}
+   \end{align}
+
+なので、これからは内積を :math:`V^{\mu} W_{\mu}` で表すことにする。
+
+ちなみに :math:`V^{\mu} W_{\mu} = V_{\mu} W^{\mu}` なので、
+反変ベクトル、共変ベクトルをどの順番で書いても問題ないが、
+**内積は反変ベクトルと共変ベクトルの組である** ことは覚えておく。
+
+
+
+
+
+
+共変ベクトルのローレンツ変換に対する変換性
+==================================================
+
+ここまでで、反変ベクトルの変換性は習ったので、
+それを元に共変ベクトルの変換性を確認してみる。
+
+反変ベクトルの変換性
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{\mu}_{\nu} V^{\nu}
+   \end{align}
+
+共変ベクトルの定義に、上の変換式を代入する
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'_{\mu} & \equiv \eta_{\mu \nu} V'^{\nu}\\
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} V^{\lambda}
+   \end{align}
+
+ここで :math:`V^{\lambda}` を共変ベクトルに変換する
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'_{\mu}
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa} V_{\lambda}
+   \end{align}
+
+この係数部分 :math:`\eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa}` が、
+共変ベクトルのローレンツ変換に対する変換性を表す行列である。
+実はこの部分は、ローレンツ変換 :math:`L^{\mu}_{\nu}` の逆行列になっているので、
+上にバーを付けて :math:`\overline{L^{\mu}_{\nu}}` で表すことにする。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \overline{L^{\kappa}_{\mu}}
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa}
+   \end{align}
+
+上の式の右辺に２回ずつでてくる :math:`\nu, \lambda` はダミー添字なので、左辺では消えている。
+
+また、ここで注目すべきは
+元の **ローレンツ変換の行列を２つのミンコフスキー計量で挟むと逆行列が得られる** こと。
+
+
+ローレンツ変換の逆変換
+==================================================
+
+共変ベクトルの変換性は、ローレンツ変換の逆行列で定義できることが分かった。
+では **ローレンツ変換の逆行列（＝逆変換）** とはどいうことなのか。
+
+ローレンツ変換の逆変換は
+ブーストの方向（慣性系が動く方向）を反対向きにすることに相当する。
+
+:（これまで考えていた）ローレンツ変換: x方向に速度vでブースト
+:その逆変換: x方向に速度-vでブースト
+
+章末問題5.2（教科書 p.79）
+==================================================
+
+.. todo::
+
+   :（１）: ローレンツ変換を表す行列は :math:`(L^{\mu}_{\nu})` である。これを用いて、ローレンツ変換の逆変換を与える行列を表わせ。
+
+   :（２）: ローレンツ変換が :math:`x^{1}` 方向のブーストで与えられるとき、逆変換を具体的に行列で書き表わせ。
+
+
+
+反変ベクトルと共変ベクトルのまとめ
+==================================================
+
+ローレンツ変換 :math:`L^{\mu}_{\nu}` に対する
+反変ベクトル、共変ベクトルはそれぞれ以下のように定義する
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V'^{\mu} & = L^{mu}_{\nu} V^{\nu}\\
+   V'_{\mu} & = \overline{L^{\mu}_{\nu}} V_{\nu}
+   \end{align}
+
+反変ベクトルと共変ベクトルは計量でお互いに変換できる
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V_{\mu} & = \eta_{\mu \nu} V^{\nu}\\
+   V^{\mu} & = \eta^{\mu \nu} V_{\nu}\\
+   \eta_{\mu \nu} & = \eta^{\mu \nu}
+   \end{align}
+
+ローレンツ変換 :math:`L^{\mu}_{\nu}` と
+ローレンツ逆変換 :math:`\overline{L^{\mu}_{\nu}}`は、
+計量を使って変換できる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \overline{L^{kappa}_{\lambda}}
+   & = \eta_{\mu \nu} L^{\nu}_{\lambda} \eta^{\lambda \kappa}
+   \end{align}
+
+
+
+【例5.2】共変ベクトルの例（教科書 p.68）
+==================================================
+
+**反変ベクトルで微分した微分記号** は **共変ベクトル** である。
+ということを、計算して確かめておく。
+
+ある関数 :math:`u` を :math:`x'^{\mu}` で微分する。
+
+微分のルールを使うと以下のようになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial{u} }{ \partial{x'^{\mu}} } & =
+   \frac{ \partial{x^{\nu}} }{ \partial{x'^{\mu}} }
+   \frac{ \partial{u} }{ \partial{x^{\nu}} }
+   \end{align}
+
+
+右辺の係数部分が変換性を表す行列である。
+これが :math:`L^{\mu}_{\nu}` なのか
+:math:`\overline{L^{\mu}_{\nu}}` なのかを確かめればよい。
+
+共変ベクトルの変換性とその微小変分の変換性を考える
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   x^{\mu} &= \overline{L^{\mu}_{\nu}} x'^{\mu}\\
+   \mathrm{d}x^{\mu} &= \overline{L^{\mu}_{\nu}} \mathrm{d}x'^{\mu}
+   \end{align}
+
+
+割り算（のようなこと）をして、
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \mathrm{d}x^{\mu} }{ \mathrm{d}x'^{\mu} } &= \overline{L^{\mu}_{\nu}}\\
+   \Rightarrow \quad
+   \frac{ \partial{x^{\mu}} }{ \partial{x'^{\mu}} } &= \overline{L^{\mu}_{\nu}}
+   \end{align}
+
+
+ということで、係数は :math:`\overline{L^{\mu}_{\nu}}` 、
+つまり **共変ベクトルの変換性と同じ** なことが分かった。
+
+
+.. note::
+
+   数学の先達に聞いたら **微分記号は共変** だが、 **微分して得られた量は元と同じ変換性** らしい。
+   つまり、この場合、関数 u がスカラーなら :math:`\partial u / \partial x'^{\mu}` はスカラーになるということ。
+
+
+テンソルとスカラー／ベクトル
+==================================================
+
+**テンソル** はベクトルやスカラーを一般化した概念。
+添字の数を **テンソルのランク（階）** と呼ぶ。
+
+:スカラー: ランク０のテンソル
+:共変ベクトル: ランク１の共変テンソル
+:反変ベクトル: ランク１の反変テンソル
+
+
+特殊相対性理論とローレンツ共変
+==================================================
+
+特殊相対論では、運動方程式を
+**ローレンツ変換に対して同じランクのテンソル**
+で書かないといけない。
+これを **ローレンツ共変** と呼ぶ。
+
+つまり、ローレンツ共変であれば、
+ローレンツ変換をしても、方程式が同じ形になる。
+つまりつまり、
+**ローレンツ共変＝特殊相対性原理**
+
+
+【例5.3】４元速度（教科書 p.70）
+==================================================
+
+４次元座標の他の４元ベクトルを考えてよう、ということで
+３次元の速度を拡張して４元速度を定義する。
+
+まず、３次元の速度は、距離を時間で割ればいいので、以下のようになる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   v^{i} & = \frac{ \mathrm{d}x^{i} }{ \mathrm{d}t }
+   \end{align}
+
+これを、単純に４次元に拡張、つまり第０成分も含めて書く。
+つまり、 :math:`i \rightarrow \mu` にする。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   v^{\mu} & = \frac{ \mathrm{d}x^{\mu} }{ \mathrm{d}t }\\
+   \end{align}
+
+
+ただし、ローレンツ変換によって分母の :math:`\mathrm{d}t`
+（＝言ってみれば :math:`t` の関数なので）も変換されてしまうため、
+うまくいかない（共変性がなくなる）。
+計算結果は :doc:`第4.4節 【例4.3】<./04-4>` （教科書 p.58）になる。
+
+そこで **ローレンツ不変な時間：固有時間** :math:`\tau` を導入する。
+
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   u^{\mu} & = \frac{ \mathrm{d}x^{\mu} }{ \mathrm{d} \tau }
+   \end{align}

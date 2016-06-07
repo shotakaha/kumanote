@@ -1,0 +1,189 @@
+==================================================
+（共変）微分
+==================================================
+
+節タイトルを勝手に補ってみた。
+この節は通常の微分が適用できない **ベクトル場の微分** をするため、
+**共変微分** という新しい微分を定義する話
+
+
+微分記号の表し方
+==================================================
+
+:doc:`第5.2節 <../sugiyama/05-2>` のローレンツ変換のところ（教科書 p.68）で、スカラー場の微分は共変ベクトルであることを示した。
+その微分記号を以下のように簡略化して書くことにする。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial \phi }{ \partial x^{\mu} } & \equiv \partial_{\mu} \phi \equiv \phi_{, \mu}
+   \end{align}
+
+簡略化した微分記号の添字の位置に注目すると、微分記号は共変ベクトル（＝下付き添字）であることが分かるようになってる。
+ただし、微分をするときには反変ベクトル（＝上付き添字）ですることは覚えておく。
+
+
+ベクトル場
+==================================================
+
+**ベクトル場** とは、天気図で例えると、各地点での風向きを表した図のことである。
+
+ちなみに **スカラー場** は、各地点での気温とか気圧とかを表した図である。
+各地点のスカラー値を結ぶと等高線が引ける（気圧配置とか、登山に使う地図とか）
+
+今度は ベクトル場 :math:`V^{\mu}(x)` の微分を計算する。
+上で定義した簡略記号を早速使ってみると、以下のように書くことができる。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \frac{ \partial V^{\mu} }{ \partial x^{\nu} } & \equiv \partial_{\nu} V^{\mu}
+   \end{align}
+
+
+一般座標変換した後の :math:`\tilde{\partial_{\nu}} \tilde{V^{\mu}}` の変換性を調べてみる。
+必要な要素の一般座標変換を先に計算しておく。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   V^{\mu} \rightarrow \tilde{V}^{\mu} & = \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } V^{\lambda}\\
+   \partial_{\nu} \rightarrow \tilde{\partial}_{\nu} & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \partial_{\kappa}\\
+   \end{align}
+
+
+微分演算子の簡略を積極的に使ったので、教科書（p.120）の計算式と少し形が違うが、やってることは同じ。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \tilde{\partial_{\nu}} \tilde{V^{\mu}}
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \partial_{\kappa} \left( \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } V^{\lambda} \right)\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \partial_{\kappa} \left( \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \right) V^{\lambda}
+     + \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \left( \partial_{\kappa} V^{\lambda} \right)\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \frac{ \partial }{ \partial x^{\kappa} } \left( \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \right) V^{\lambda}
+     + \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \left( \partial_{\kappa} V^{\lambda} \right)\\
+   & = \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \partial_{\kappa} V^{\lambda}
+     + \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \frac{ \partial^{2} \tilde{x}^{\mu} }{ \partial x^{\kappa} \partial x^{\lambda} } V^{\lambda}
+   \end{align}
+
+
+* １行目に、上で計算しておいた要素を代入
+* １行目から２行目では、積の微分をしている
+* ２行目から３行目で、第１項の微分記号を展開
+* ３行目から４行目で、第１項の微分係数をまとめた後、第１項と第２項を入れ替え
+
+
+教科書（p.121）の２行目あたりに「余分なおつり」と書いてあるように、第２項が存在するため **ベクトル場の微分はテンソルにならない**
+
+
+新しい微分の方法：共変微分
+==================================================
+
+ベクトル場の微分はテンソルにならないが、やっぱりテンソルになってくれた方が嬉しい（物理法則の共変性）。
+ということで、ベクトル場の微分がテンソルになるように新しい微分方法を編み出した。
+それが **共変微分** と呼ばれるもの。
+
+まず、共変微分の定義を書いておく。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\nu} V^{\mu} & \equiv \partial_{\nu} V^{\mu} + \Gamma^{\mu}_{\lambda \nu} V^{\lambda}\\
+   \nabla_{\nu} V^{\mu} \rightarrow \tilde{\nabla}_{\nu} \tilde{V}^{\mu} & = \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\lambda} } \frac{ \partial x^{\kappa} }{ \partial \tilde{x}^{\nu} } \nabla_{\kappa} V^{\lambda}
+   \end{align}
+
+
+
+接続の一般座標変換に対する変換性
+==================================================
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \Gamma^{\mu}_{\nu \lambda} \rightarrow \tilde{\Gamma}^{\mu}_{\nu \lambda}
+   & = \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\kappa} } \frac{ \partial x^{\tau} }{ \partial \tilde{x}^{\nu} } \frac{ \partial x^{\eta} }{ \partial \tilde{x}^{\lambda} } \Gamma^{\kappa}_{\lambda \nu}
+     + \frac{ \partial \tilde{x}^{\mu} }{ \partial x^{\kappa} } \frac{ \partial^{2} x^{\kappa} }{ \partial \tilde{x}^{\nu} \partial \tilde{x}^{\lambda} }
+   \end{align}
+
+
+第２項におつりがあるので、テンソルではない。
+
+もともと **テンソルではなかったベクトル場の微分** を **共変微分を使って（むりやり）テンソルにした** 。
+そのしわ寄せが **接続** に押し込まれている、と考えたらそりゃそうか。
+
+本当にこの形になるのかは章末問題9.1をやれば分かる。
+教科書p.196に回答が載ってる。
+
+
+共変微分のまとめ
+==================================================
+
+
+スカラーの共変微分
+--------------------------------------------------
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\mu} \phi & = \partial_{\mu} \phi
+   \end{align}
+
+
+反変ベクトルと共変ベクトルの共変微分
+--------------------------------------------------
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\nu} V^{\mu} & = \partial_{\nu} V^{\mu} + \Gamma^{\mu}_{\lambda \nu} V^{\lambda}\\
+   \nabla_{\nu} V_{\mu} & = \partial_{\nu} V_{\mu} - \Gamma^{\lambda}_{\mu \nu} V_{\lambda}\\
+   \end{align}
+
+
+ランク２のテンソルの共変微分
+--------------------------------------------------
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\eta} T^{\mu \nu} & = \partial_{\eta} T^{\mu \nu} + \Gamma^{\mu}_{\kappa \eta} T^{\kappa \nu} + \Gamma^{\nu}_{\kappa \eta} T^{\mu \kappa}\\
+   \nabla_{\eta} T_{\mu \nu} & = \partial_{\eta} T_{\mu \nu} - \Gamma^{\kappa}_{\mu \eta} T_{\kappa \nu} - \Gamma^{\kappa}_{\nu \eta} T_{\mu \kappa}\\
+   \nabla_{\eta} T^{\mu}_{\nu} & = \partial_{\eta} T^{\mu}_{\nu} + \Gamma^{\mu}_{\kappa \eta} T^{\kappa}_{\nu} - \Gamma^{\kappa}_{\nu \eta} T^{\mu}_{\kappa}
+   \end{align}
+
+ランク３のテンソルの共変微分
+--------------------------------------------------
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\eta} T^{\mu \nu}_{\lambda} & = \partial_{\eta} T^{\mu \nu} + \Gamma^{\mu}_{\kappa \eta} T^{\kappa \nu} + \Gamma^{\nu}_{\kappa \eta} T^{\mu \kappa} - \Gamma^{\kappa}_{\lambda \eta} T^{\mu \nu}_{\kappa}
+   \end{align}
+
+
+共変微分のライプニッツ則
+==================================================
+
+**ライプニッツ則** とは **積の微分の規則** のこと。
+積の共変微分も、高校数学でならった通りの規則でできますよ、ということ。
+
+.. math::
+   :nowrap:
+
+   \begin{align}
+   \nabla_{\lambda} \left( V_{\mu} W^{\nu} \right) & = \left( \nabla_{\lambda} V_{\mu} \right) W^{\nu} + V_{\mu} \left( \nabla_{\lambda} W^{\nu} \right)
+   \end{align}
+
+
+共変微分という新しい微分法を考えたのに、従来の規則をそのまま適用できなんてよく出来てる。

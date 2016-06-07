@@ -21,16 +21,13 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - arjen/hugo-build:
-        version: "HEAD"
-        theme: startbootstrap-clean-blog
-        dev_flags: -D -F
-        prod_branches: master
-
+        version: "0.14"
+        theme: hugo-future-imperfect
 deploy:
   steps:
     - install-packages:
         packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        domain: my.domain
+        domain: kumanote
         basedir: public

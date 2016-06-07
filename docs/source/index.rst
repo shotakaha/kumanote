@@ -18,6 +18,11 @@
    accelerator
    detector
    glossary
+   beast
+   sugiyama/index
+   susyprimer/index
+   nagashima/index
+   dailynote/index
 
 
 
