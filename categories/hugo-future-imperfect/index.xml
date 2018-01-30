@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo Future Imperfect on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/hugo-future-imperfect/</link>
+    <description>Recent content in Hugo Future Imperfect on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 15 May 2016 22:49:16 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/hugo-future-imperfect/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>sidebarの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-sidebar/</link>
+      <pubDate>Sun, 15 May 2016 22:49:16 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-sidebar/</guid>
+      <description>&lt;p&gt;サイドバーのテンプレート&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>share-menuの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-share-menu/</link>
+      <pubDate>Sun, 15 May 2016 22:39:49 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-share-menu/</guid>
+      <description>&lt;p&gt;右上のシェアボタン。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>navbarの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-navbar/</link>
+      <pubDate>Sun, 15 May 2016 21:58:03 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-navbar/</guid>
+      <description>&lt;p&gt;&lt;code&gt;/layouts/partials/navbar.html&lt;/code&gt; を見てみる
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>headerの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-header/</link>
+      <pubDate>Sun, 15 May 2016 21:48:23 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-header/</guid>
+      <description>&lt;p&gt;&lt;code&gt;layouts/partial/header.html&lt;/code&gt;を見てみた
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo Future Imperfectがいい感じ</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect/</link>
+      <pubDate>Tue, 10 May 2016 22:05:32 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect/</guid>
+      <description>&lt;p&gt;Hugoの&lt;a href=&#34;https://discuss.gohugo.io/t/very-nice-new-theme-for-blogging/2956&#34;&gt;Discussion&lt;/a&gt;で紹介されてたので、使ってみることにした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jpescador.com/blog/future-imperfect-theme-release-on-the-go-hugo-static-website-engine/&#34;&gt;作成者のウェブサイト&lt;/a&gt; にも、使い方が書いてあった（ほとんどREADMEに書いてある内容）ので、その通りにテーマをインストールする。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

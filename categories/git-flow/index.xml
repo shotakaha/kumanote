@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git Flow on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/git-flow/</link>
+    <description>Recent content in Git Flow on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 01 Dec 2015 17:17:23 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/git-flow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>magit-gitflowの使い方</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</link>
+      <pubDate>Tue, 01 Dec 2015 17:17:23 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</guid>
+      <description>さて、git-flowを使うことにしたので、それをEmacsのMagitから使える拡張パッケージmagit-gitflowも使うことにする。
+Magit = Emacs + Git Emacsには、元々vcという汎用的なバージョン管理コマンド機能がついているんだけど、汎用的であるがゆえ、個々のバージョン管理コマンドの個性が活かせないデメリットもある。
+Magitは、Gitに特化したパッケージで、Gitでできることがほぼ全てEmacs上でできるようになっている。
+magit-flow = Magit + git-flow magit-gitflowは、その名のとおり、Magitのgit-flow拡張版。 これをいれておけば、git-flowのコマンドを知らなくてもなんとなく操作できるようになる。
+使い方はmagit-statusの画面でC-fするだけ。 magit-gitflowポップアップが表示されるので、あとは普段Magitを使うときみたいにキーを入力するだけ。</description>
+    </item>
+    
+    <item>
+      <title>git-flowを使ってみる</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-config/</link>
+      <pubDate>Tue, 01 Dec 2015 17:15:17 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-config/</guid>
+      <description>Gitでバージョン管理をする際に、頻繁に使う操作をまとめた git-flowというコマンドがあるらしいので、早速使ってみる。
+新規Gitリポジトリの作成 git initの代わりにgit flow initを使えばよい。 マスターブランチ、開発ブランチの名前はどうする？ トピックプランチのプリフィックスはどうする？ とか聞かれるが、RETを押しておいて問題ない。
+$ cd ~/repos/git-flow-test $ git flow init Initialized empty Git repository in /Users/shotakaha/repos/git-flow-test/.git/ No branches exist yet. Base branches must be created now. Branch name for production releases: [master] Branch name for &amp;quot;next release&amp;quot; development: [develop] How to name your supporting branch prefixes? Feature branches? [feature/] Release branches? [release/] Hotfix branches? [hotfix/] Support branches? [support/] Version tag prefix? []  このときGitリポジトリの設定ファイル（=.</description>
+    </item>
+    
+  </channel>
+</rss>

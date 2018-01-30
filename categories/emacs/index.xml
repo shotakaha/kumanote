@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/emacs/</link>
+    <description>Recent content in Emacs on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 01 Dec 2015 17:17:23 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>magit-gitflowの使い方</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</link>
+      <pubDate>Tue, 01 Dec 2015 17:17:23 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</guid>
+      <description>さて、git-flowを使うことにしたので、それをEmacsのMagitから使える拡張パッケージmagit-gitflowも使うことにする。
+Magit = Emacs + Git Emacsには、元々vcという汎用的なバージョン管理コマンド機能がついているんだけど、汎用的であるがゆえ、個々のバージョン管理コマンドの個性が活かせないデメリットもある。
+Magitは、Gitに特化したパッケージで、Gitでできることがほぼ全てEmacs上でできるようになっている。
+magit-flow = Magit + git-flow magit-gitflowは、その名のとおり、Magitのgit-flow拡張版。 これをいれておけば、git-flowのコマンドを知らなくてもなんとなく操作できるようになる。
+使い方はmagit-statusの画面でC-fするだけ。 magit-gitflowポップアップが表示されるので、あとは普段Magitを使うときみたいにキーを入力するだけ。</description>
+    </item>
+    
+  </channel>
+</rss>

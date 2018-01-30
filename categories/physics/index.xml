@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Physics on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/physics/</link>
+    <description>Recent content in Physics on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 30 Mar 2016 11:19:20 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/physics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SUSY Primer</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/susy-primer/</link>
+      <pubDate>Wed, 30 Mar 2016 11:19:20 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/susy-primer/</guid>
+      <description>昨日の友人の「SUSY searches at ATLAS」というセミナーを聞いて、 SUSYのこともちゃんと勉強しようと思い、arXivにも載ってる A Supersymmetry Primerを 読むことにした。
+概要には、 「素粒子の標準理論と場の量子論は知ってて、超対称性は知らない」レベルの読者、 とあるので、素粒子物理の大学院生くらい向けのSUSY入門書といえそう。
+ページ数も多いので、 とりあえず超対称性理論を導入する動機とMSSM（Minimal Supersymmetric Standard Modelの概要を 分かりやすく説明できる程度を目指してみる。</description>
+    </item>
+    
+  </channel>
+</rss>

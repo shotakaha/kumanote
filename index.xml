@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/</link>
+    <description>Recent content on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 06 Jun 2016 15:27:22 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>zを再インストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-z/</link>
+      <pubDate>Mon, 06 Jun 2016 15:27:22 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-z/</guid>
+      <description>z - jump aroundというディレクトリ移動の補助コマンドを、MacPortsからHomebrewに変えます。
+現状確認とdeactivate $ port installed z The following ports are currently installed: z @1.8_0 (active) $ sudo port deactivate z ---&amp;gt; Deactivating z @1.8_0 ---&amp;gt; Cleaning z  再インストール $ brew info z z: stable 1.9, HEAD Tracks most-used directories to make cd smarter https://github.com/rupa/z Not installed From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/z.rb ==&amp;gt; Caveats For Bash or Zsh, put something like this in your $HOME/.bashrc or $HOME/.zshrc: . `brew --prefix`/etc/profile.</description>
+    </item>
+    
+    <item>
+      <title>Homebrewのgoをインストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</link>
+      <pubDate>Sat, 04 Jun 2016 11:47:54 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</guid>
+      <description>インストール済みのhugoパッケージの情報を調べたところ、依存パッケージのgoがインストールされてないことが分かりました。
+というのも、これまでMacPortsをメインで使っていたため、goはMacPortsのパッケージを使っていたからなのですが、今回、これをHomebrewのにすることにしました。
+（hugoはMacPortsにパッケージがないため、Homebrewを入れていました。自分でビルドするのもめんどうだと思ったので）
+現状の確認 まずは現状の確認から。 MacPortsのgoが使われていることを確認します。 記憶にないのですが、go @1.6とgo-1.4が入ってました。
+$ where go /opt/local/bin/go $ port installed | ag go go @1.6.2_0 (active) go-1.4 @1.4.3_0 (active)  まず、MacPortsのgoをdeactivateします。
+$ sudo port deactivate go go-1.4 ---&amp;gt; Deactivating go @1.6.2_0 ---&amp;gt; Cleaning go ---&amp;gt; Deactivating go-1.4 @1.4.3_0 ---&amp;gt; Cleaning go-1.4 $ where go go not found  brew info go 次に、Homebrewのgoパッケージを確認します。
+$ brew info go go: stable 1.6.2 (bottled), HEAD Go programming environment https://golang.</description>
+    </item>
+    
+    <item>
+      <title>Homebrewの使い方</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-help/</link>
+      <pubDate>Fri, 03 Jun 2016 11:14:07 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-help/</guid>
+      <description>さて、昨日、MacPortsからHomebrewへの移行を決意しました。 ということで、brewコマンドの使い方を少し調べてみました。
+ヘルプを表示する brew helpは唯一、覚えるべきコマンドです。 単にbrewだけでもよいです。
+$ brew help $ brew  インストール済みのパッケージ一覧を表示する brew list を使います。 昨日、インストールしたnkfと、過去にインストールしたhugoが表示されました。
+$ brew list hugo nkf  インストールされているパスを知りたい場合は、brew list FORMULAとします。 実行ファイル、Bash補完、マニュアルの場所がリストされます。
+$ brew list hugo /usr/local/Cellar/hugo/0.15/bin/hugo /usr/local/Cellar/hugo/0.15/etc/bash_completion.d/hugo.sh /usr/local/Cellar/hugo/0.15/share/man/ (24 files)  パッケージの情報を知る brew info FORMULAを使います。 試しにhugoの情報を見てみました。
+ホームページはどこなのか、いつ取ってきたのか、とか分かりますし、依存パッケージなども分かります。
+$ brew info hugo hugo: stable 0.15 (bottled), HEAD Configurable static site generator https://gohugo.io/ /usr/local/Cellar/hugo/0.15 (29 files, 15.6M) * Poured from bottle on 2016-02-15 at 10:49:24 From: https://github.</description>
+    </item>
+    
+    <item>
+      <title>MacPortsからHomebrewへ</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/macports-to-homebrew/</link>
+      <pubDate>Thu, 02 Jun 2016 10:50:44 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/macports-to-homebrew/</guid>
+      <description>ROOT6がHomebrewでインストールできるみたいなので、Homebrewを本格的に使ってみようかなと思っています。 ただ、あいにくHomebrewとMacPortsは相性がよくないようで、一緒に使うことは非推奨らしいです。(現在は Hugo のみ Homebrew でインストールしています)
+かといって、これまででMacPorts依存症になってしまっているため、一気に乗り換えるのは不安が。。。 ということで、依存関係の多いパッケージはたぶんめんどくさいことになるので、とりあえず単体のパッケージから始めます。 最初はnkf。
+現状の確認 とりあえずnkfのパスとバージョンを確認しました。 MacPortsのnkf (/opt/local/bin/nkf)が使われていることが分かります。
+$ where nkf /opt/local/bin/nkf $ nkf --version Network Kanji Filter Version 2.1.3 (2013-11-22) Copyright (C) 1987, FUJITSU LTD. (I.Ichikawa). Copyright (C) 1996-2013, The nkf Project.  Homebrewでパッケージ検索＆インストール Homebrewにnkfがあるか探します。 ありました。
+$ brew search nkf nkf  brew installコマンドを使ってnkfをインストールします。
+$ brew install nkf ==&amp;gt; Downloading https://homebrew.bintray.com/bottles/nkf-2.1.4.el_capitan.bottle.tar.gz ######################################################################## 100.0% ==&amp;gt; Pouring nkf-2.1.4.el_capitan.bottle.tar.gz 🍺 /usr/local/Cellar/nkf/2.1.4: 4 files, 342.5K  パスを確認すると/usr/local/bin/nkfが追加されてます。</description>
+    </item>
+    
+    <item>
+      <title>Permalink と RelPermalink</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/</link>
+      <pubDate>Wed, 18 May 2016 12:10:56 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/</guid>
+      <description>テンプレートで使える変数 に、.Permalinkと.RelPermalinkがある。 これらがどのように違うのか確認してみた。
+以下のように、記事の見出し部分に.Permalinkを使っているので、そこに.RelPermalinkも併記してみた。 canonifyurlsによって違いが出るはずなのでtrue/falseの場合で比較した。
+&amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;{{ .Permalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  canonifyurls = true のとき baseurl = &amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/&amp;quot; canonifyurls = true  &amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  content/ の部分が baseurl に置換され、Permalink も RelPermalink も差がない
+canonifyurls = false のとき baseurl = &amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/&amp;quot; canonifyurls = false  &amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  RelPermalinkでは、baseurlのトップドメインがなくなっている。 baseurlの部分が丸々なくなると思っていたので、意外。 そしてなんだか中途半端な印象。どこで使うんだろう。</description>
+    </item>
+    
+    <item>
+      <title>hugo server watch してる時に、ロックファイルを無視する設定</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-server-ignorefiles/</link>
+      <pubDate>Tue, 17 May 2016 07:18:02 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-server-ignorefiles/</guid>
+      <description>hugo server --watchを使っているときに、以下のようなエラーが出てくる時の対処法。
+... ERROR: 2016/05/17 Cannot read symbolic link &#39;.../kumanote/content/post/.#hugo-ignorefiles.md&#39;, error was: lstat .../kumanote/content/post/... : no such file or directory ...  Hugo community の hugo server watch should ignore emacs lock filesや、そこで参照されている issue1189 を参照すると、config.tomlにignoreFiles=[無視したいファイルの正規表現]を書けばよいらしい。
+上記エラーでは、Emacsを編集してるときの中間ファイルである.#で始まるファイルが原因なので、以下のように書いてみた。
+ignoreFiles = [&amp;quot;.#&amp;quot;]  あれ？前はこの方法でできてた気がするんだけど、うまくいってないみたい？</description>
+    </item>
+    
+    <item>
+      <title>sidebarの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-sidebar/</link>
+      <pubDate>Sun, 15 May 2016 22:49:16 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-sidebar/</guid>
+      <description>&lt;p&gt;サイドバーのテンプレート&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>share-menuの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-share-menu/</link>
+      <pubDate>Sun, 15 May 2016 22:39:49 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-share-menu/</guid>
+      <description>&lt;p&gt;右上のシェアボタン。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>navbarの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-navbar/</link>
+      <pubDate>Sun, 15 May 2016 21:58:03 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-navbar/</guid>
+      <description>&lt;p&gt;&lt;code&gt;/layouts/partials/navbar.html&lt;/code&gt; を見てみる
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>headerの部分テンプレート</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-header/</link>
+      <pubDate>Sun, 15 May 2016 21:48:23 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect-partials-header/</guid>
+      <description>&lt;p&gt;&lt;code&gt;layouts/partial/header.html&lt;/code&gt;を見てみた
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo Future Imperfectがいい感じ</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect/</link>
+      <pubDate>Tue, 10 May 2016 22:05:32 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-future-imperfect/</guid>
+      <description>&lt;p&gt;Hugoの&lt;a href=&#34;https://discuss.gohugo.io/t/very-nice-new-theme-for-blogging/2956&#34;&gt;Discussion&lt;/a&gt;で紹介されてたので、使ってみることにした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jpescador.com/blog/future-imperfect-theme-release-on-the-go-hugo-static-website-engine/&#34;&gt;作成者のウェブサイト&lt;/a&gt; にも、使い方が書いてあった（ほとんどREADMEに書いてある内容）ので、その通りにテーマをインストールする。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SUSY Primer</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/susy-primer/</link>
+      <pubDate>Wed, 30 Mar 2016 11:19:20 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/susy-primer/</guid>
+      <description>昨日の友人の「SUSY searches at ATLAS」というセミナーを聞いて、 SUSYのこともちゃんと勉強しようと思い、arXivにも載ってる A Supersymmetry Primerを 読むことにした。
+概要には、 「素粒子の標準理論と場の量子論は知ってて、超対称性は知らない」レベルの読者、 とあるので、素粒子物理の大学院生くらい向けのSUSY入門書といえそう。
+ページ数も多いので、 とりあえず超対称性理論を導入する動機とMSSM（Minimal Supersymmetric Standard Modelの概要を 分かりやすく説明できる程度を目指してみる。</description>
+    </item>
+    
+    <item>
+      <title>素粒子一覧</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/particle/</link>
+      <pubDate>Wed, 16 Mar 2016 18:02:14 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/particle/</guid>
+      <description>現在見つかっている素粒子は全部で17種類ある。 また、これらの反粒子も素粒子と考えられている。 これら全ての性質は素粒子の標準理論というモデルによって説明されている。
+標準理論の素粒子 以下に標準理論に登場する素粒子の一覧図を載せてみた。
+この図を眺めるポイントは以下のとおり
+ 物質を構成する粒子（フェルミオン） と 力を媒介する粒子（ボソン） がある フェルミオンは クォーク と レプトン に分かれ、それぞれ６種類ずつある ボソンは３種類あり、これは自然の４つの力（ただし重力は除く）と対応している ヒッグス粒子は物質の質量を生成するボソンだと考えられている  クォーク レプトン 電子 ミューオン タウ ボソン 光子 ウィークボソン グルーオン グラビトン ヒッグス 中間子など パイ中間子 K中間子 B中間子 ウプシロン(4S)  10579.4 MeV  | 粒子の種類 | 記号 | 質量 | 寿命 | ct | |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;ndash;| | 電子 | e | 0.51 MeV | - | - | | ミューオン | μ | 105.6 MeV | 2.</description>
+    </item>
+    
+    <item>
+      <title>ファインマン図</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/feynman-diagram/</link>
+      <pubDate>Tue, 15 Mar 2016 17:22:08 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/feynman-diagram/</guid>
+      <description>ファインマン図は、素粒子反応が起きる確率の計算を図に落とし込んだもので、 素粒子反応を考える際には必須のツールである。
+素粒子反応の確率計算には摂動展開を使うが、この計算式は非常にややこしい。 ファインマンはこの摂動展開で得られる式の各項と実際の反応で飛び交う粒子の対応を 法則化し、簡単に立式できるようにした（計算はやっぱり煩雑）。
+ファインマン図の要素 ファインマン図は頂点、 線、 そして時間軸で構成される。 頂点は相互作用が起きる点、つまり反応点を表し、 線は、その種類や矢印の向きなどによって粒子を表す。
+以下に、電子と陽電子が対消滅して光子になる反応のファインマン図を書いてみた。 電子は粒子なので順方向の矢印、陽電子は反粒子なので逆方向の矢印で書いてある。 また光子はボソン（力を媒介する粒子）なので波線で書いてある。
+次に電子と電子の散乱のファインマン図を書いてみた。 左方向から飛んできた２つの電子が、光子のやり取りをして、散乱している様子を表している。 先ほどと同じように電子は粒子なので順方向の矢印、光子はボソンなので波線で書いてある。 ただし、この場合の光子は仮想光子と呼ばれ、実際に測定できる光子ではない。
+  最後にニュートリノ反応のファインマン図を書いてみた。 ニュートリノ反応の場合、光子ではなくWボソン（ウィークボソン）が力を媒介する。 光子と同じく波線で書くのだがWを併記して、分かりやすくしている。
+ファインマン図と摂動展開 摂動展開は、複数の粒子の反応などで相互作用が厳密に計算できない場合に用いる近似計算の手法のひとつである。 ファインマン図は、この摂動展開を図の形に落とし込んだものであるが、 どう対応づいているかを以下に書いてみた。
+ファインマン則 ファインマン図の要素と摂動展開の各項を対応付けるルールをファインマン則と呼ぶ。 （あとで調べて書く。図or表にする）</description>
+    </item>
+    
+    <item>
+      <title>座標回転とベクトル</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/coordinate-rotation/</link>
+      <pubDate>Mon, 14 Mar 2016 19:08:50 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/coordinate-rotation/</guid>
+      <description>座標回転 座標回転は座標軸をある方向に回転させる座標変換である。 ポイントとしては、ある点の座標を回転させるのではなく、 座標軸、つまりその方向の単位ベクトルを回転させることである。
+座標回転に対するベクトルの定義 座標回転の回転行列を使ってベクトルを定義すると、 次のような式になる。
+$$ 1a = a $$
+ベクトル というと 矢印 なイメージがあるが、 この式を眺めていてもそうは見えない。 以下では、この定義式と矢印のイメージが どこで繋がっているかをふんわりと説明してみたい。
+ベクトル＝矢印？ ベクトルは、アルファベットの上に矢印記号を書いて表す。 また、ベクトルの計算は矢印のままではやりにくいので、 直交座標系の上に置いて、その座標値を使って計算することが多い。</description>
+    </item>
+    
+    <item>
+      <title>Hugoドキュメントの基本</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-basic-structure/</link>
+      <pubDate>Wed, 02 Dec 2015 20:21:59 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-basic-structure/</guid>
+      <description>Hugoドキュメントを読んでいて Contents の部分を理解しておくことは大事な気がしたので、そのメモである。 キーワードは Front Matter、Section、Type、Archetypes の４つ。
+1. Front Matter Front Matterはhugo new でファイルを作成した時にページ上部に自動生成される+++（TOMLの場合）で囲まれた部分のこと。 ここにはページ毎のメタ情報を書き込むことができる。 デフォルトでは date、draft、titleの３つだが、Template Variablesにある変数（全部小文字でOK）や、独自の変数（自分で設定する必要がある）を追記することができる。
+2. Section Sectionはそのコンテンツのパスの一番上のディレクトリ部分のこと。 たとえば、この記事（パスは/post/hugo-basic/structure/index.htmlになってるはず）だと post の部分になる。
+3. Type TypeはデフォルトだとSectionと同じになるが、Front Matterのところにtype = photoと書けばphotoタイプに変更できる。 このTypeに応じてカスタマイズしたテンプレートを用意することができる。 この記事では.mdのFront Matterで何も指定していないので、上と同じpostである。
+4. Archetypes ArchetypesはFront Matterのテンプレート的なものである。 先に述べたようにFront Matterは自由に追記可能だが、毎回入力する内容はテンプレートにしておくとよい。 テンプレートのファイル名はTypeと同じにする。 つまりpostタイプのコンテンツのテンプレートは/archetypes/post.md。 Typeの一致するファイルがない場合は/archetypes/default.mdが使われる。
+全体設定でthemes = THEMENAMEを設定している場合はTHEMENAME/archetype/TYPE.md、THEMENAME/archetype/default.mdの順番に使われる。</description>
+    </item>
+    
+    <item>
+      <title>magit-gitflowの使い方</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</link>
+      <pubDate>Tue, 01 Dec 2015 17:17:23 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-magit/</guid>
+      <description>さて、git-flowを使うことにしたので、それをEmacsのMagitから使える拡張パッケージmagit-gitflowも使うことにする。
+Magit = Emacs + Git Emacsには、元々vcという汎用的なバージョン管理コマンド機能がついているんだけど、汎用的であるがゆえ、個々のバージョン管理コマンドの個性が活かせないデメリットもある。
+Magitは、Gitに特化したパッケージで、Gitでできることがほぼ全てEmacs上でできるようになっている。
+magit-flow = Magit + git-flow magit-gitflowは、その名のとおり、Magitのgit-flow拡張版。 これをいれておけば、git-flowのコマンドを知らなくてもなんとなく操作できるようになる。
+使い方はmagit-statusの画面でC-fするだけ。 magit-gitflowポップアップが表示されるので、あとは普段Magitを使うときみたいにキーを入力するだけ。</description>
+    </item>
+    
+    <item>
+      <title>git-flowを使ってみる</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-config/</link>
+      <pubDate>Tue, 01 Dec 2015 17:15:17 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/git-flow-config/</guid>
+      <description>Gitでバージョン管理をする際に、頻繁に使う操作をまとめた git-flowというコマンドがあるらしいので、早速使ってみる。
+新規Gitリポジトリの作成 git initの代わりにgit flow initを使えばよい。 マスターブランチ、開発ブランチの名前はどうする？ トピックプランチのプリフィックスはどうする？ とか聞かれるが、RETを押しておいて問題ない。
+$ cd ~/repos/git-flow-test $ git flow init Initialized empty Git repository in /Users/shotakaha/repos/git-flow-test/.git/ No branches exist yet. Base branches must be created now. Branch name for production releases: [master] Branch name for &amp;quot;next release&amp;quot; development: [develop] How to name your supporting branch prefixes? Feature branches? [feature/] Release branches? [release/] Hotfix branches? [hotfix/] Support branches? [support/] Version tag prefix? []  このときGitリポジトリの設定ファイル（=.</description>
+    </item>
+    
+    <item>
+      <title>Hugoで新規ページを作成する方法</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-create-new-post/</link>
+      <pubDate>Mon, 30 Nov 2015 12:12:20 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-create-new-post/</guid>
+      <description>新しいページを作成するときは、 hugo new コマンドを使う。
+$ hugo new post/hugo-create-new-post.md  上記コマンドにより、content/post/hugo-create-new-post.md が作成されるので、エディタで開く。 何かしら Front Matter （+++で囲まれた部分）が挿入済みになっているはず。
+$ emacs content/post/hugo/create-new-post.md  +++ date = &amp;quot;2015-11-29T12:12:20+09:00&amp;quot; title = &amp;quot;hugo create new post&amp;quot; draft = true +++ （ここからMarkdownで書いていく）  Front Matter に自動挿入する値は archetypes/default.md で設定できる。</description>
+    </item>
+    
+    <item>
+      <title>Hugoのテーマの選び方とインストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-select-theme/</link>
+      <pubDate>Sun, 29 Nov 2015 12:22:14 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-select-theme/</guid>
+      <description>Hugoを使ってウェブサイトを作成する場合、まずテーマを選ぶとよい。 テーマはHugo - Site Showcaseや、 Hugo Themes Siteを見て選ぶ。
+インストールは Hugo - Installing Themes の通りにやればOK。
+テーマ（startbootstrap-clean-blog）の設定 ブログ用に良さそうだったのでstartbootstrap-clean-blogをインストールすることにした。
+まず、GitHubにあるリポジトリをクローンし、.git/ディレクトリを削除する。 このディレクトリが残ってると、自分のGit管理下におけないため。
+$ cd $KUMANOTE/themes $ git clone https://github.com/humboldtux/startbootstrap-clean-blog.git $ rm -rf startbootstrap-clean-blog/.git/  次に、config.tomlを開き、themeを追記、もしくは編集する。 とりあえずこれでおしまい。
+$ cd $KUMANOTE $ emacs config.toml  theme = &amp;quot;startbootstrap-clean-blog&amp;quot;  各テーマにはexampleSite/というデモ用ファイルが入ってるディレクトリが必ずある（自作テーマ登録の条件）。 なので、細かい設定はexampleSite/config.tomlを参照すること。</description>
+    </item>
+    
+    <item>
+      <title>Hugoを使い始めてみた感想</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-start/</link>
+      <pubDate>Sat, 28 Nov 2015 02:38:13 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-start/</guid>
+      <description>静的ウェブサイトジェネレータ Hugoを使ってみることにした。
+実はHugoのことは３ヶ月くらい前に一度調べたことがあって、全く記憶にないのだけれど、その時に hugo コマンドはインストールしていたみたい。
+（たぶん、GoをMacPortsでインストールし、Homebrewをインストールしてからの、Hugoのインストールをしたのだと思われる）
+Hugo Quickstart Guid とりあえず、Quickstart にしたがって入力。 あっさりと、それっぽい感じのウェブページが作成できてしまった。 しかも、スタイルなど余計なことを考えず、コンテンツとなる文書をひたすら書けばいいだけなのでこれはなかなか楽しい。
+Markdown or ReST コンテンツはMarkdownで書くことになっている。 しかし、Front Matterのドキュメント を読むと Hugo v0.14 から reStructuredText もexperimentalにサポートしているらしい。
+Sphinxドキュメントの作成でReSTを覚えたので、使えたら楽ちんなのだけど、別途rst2htmlが必要。 郷に入っては郷に従うことにしよう。
+とりあえず毎日１本ずつ使ってみた感想や内容を書いていくのが当面の目標。</description>
+    </item>
+    
+  </channel>
+</rss>

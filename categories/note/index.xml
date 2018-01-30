@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/note/</link>
+    <description>Recent content in Note on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 16 Mar 2016 18:02:14 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>素粒子一覧</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/particle/</link>
+      <pubDate>Wed, 16 Mar 2016 18:02:14 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/particle/</guid>
+      <description>現在見つかっている素粒子は全部で17種類ある。 また、これらの反粒子も素粒子と考えられている。 これら全ての性質は素粒子の標準理論というモデルによって説明されている。
+標準理論の素粒子 以下に標準理論に登場する素粒子の一覧図を載せてみた。
+この図を眺めるポイントは以下のとおり
+ 物質を構成する粒子（フェルミオン） と 力を媒介する粒子（ボソン） がある フェルミオンは クォーク と レプトン に分かれ、それぞれ６種類ずつある ボソンは３種類あり、これは自然の４つの力（ただし重力は除く）と対応している ヒッグス粒子は物質の質量を生成するボソンだと考えられている  クォーク レプトン 電子 ミューオン タウ ボソン 光子 ウィークボソン グルーオン グラビトン ヒッグス 中間子など パイ中間子 K中間子 B中間子 ウプシロン(4S)  10579.4 MeV  | 粒子の種類 | 記号 | 質量 | 寿命 | ct | |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;mdash;-+&amp;mdash;&amp;mdash;&amp;ndash;| | 電子 | e | 0.51 MeV | - | - | | ミューオン | μ | 105.6 MeV | 2.</description>
+    </item>
+    
+    <item>
+      <title>ファインマン図</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/feynman-diagram/</link>
+      <pubDate>Tue, 15 Mar 2016 17:22:08 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/feynman-diagram/</guid>
+      <description>ファインマン図は、素粒子反応が起きる確率の計算を図に落とし込んだもので、 素粒子反応を考える際には必須のツールである。
+素粒子反応の確率計算には摂動展開を使うが、この計算式は非常にややこしい。 ファインマンはこの摂動展開で得られる式の各項と実際の反応で飛び交う粒子の対応を 法則化し、簡単に立式できるようにした（計算はやっぱり煩雑）。
+ファインマン図の要素 ファインマン図は頂点、 線、 そして時間軸で構成される。 頂点は相互作用が起きる点、つまり反応点を表し、 線は、その種類や矢印の向きなどによって粒子を表す。
+以下に、電子と陽電子が対消滅して光子になる反応のファインマン図を書いてみた。 電子は粒子なので順方向の矢印、陽電子は反粒子なので逆方向の矢印で書いてある。 また光子はボソン（力を媒介する粒子）なので波線で書いてある。
+次に電子と電子の散乱のファインマン図を書いてみた。 左方向から飛んできた２つの電子が、光子のやり取りをして、散乱している様子を表している。 先ほどと同じように電子は粒子なので順方向の矢印、光子はボソンなので波線で書いてある。 ただし、この場合の光子は仮想光子と呼ばれ、実際に測定できる光子ではない。
+  最後にニュートリノ反応のファインマン図を書いてみた。 ニュートリノ反応の場合、光子ではなくWボソン（ウィークボソン）が力を媒介する。 光子と同じく波線で書くのだがWを併記して、分かりやすくしている。
+ファインマン図と摂動展開 摂動展開は、複数の粒子の反応などで相互作用が厳密に計算できない場合に用いる近似計算の手法のひとつである。 ファインマン図は、この摂動展開を図の形に落とし込んだものであるが、 どう対応づいているかを以下に書いてみた。
+ファインマン則 ファインマン図の要素と摂動展開の各項を対応付けるルールをファインマン則と呼ぶ。 （あとで調べて書く。図or表にする）</description>
+    </item>
+    
+    <item>
+      <title>座標回転とベクトル</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/coordinate-rotation/</link>
+      <pubDate>Mon, 14 Mar 2016 19:08:50 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/coordinate-rotation/</guid>
+      <description>座標回転 座標回転は座標軸をある方向に回転させる座標変換である。 ポイントとしては、ある点の座標を回転させるのではなく、 座標軸、つまりその方向の単位ベクトルを回転させることである。
+座標回転に対するベクトルの定義 座標回転の回転行列を使ってベクトルを定義すると、 次のような式になる。
+$$ 1a = a $$
+ベクトル というと 矢印 なイメージがあるが、 この式を眺めていてもそうは見えない。 以下では、この定義式と矢印のイメージが どこで繋がっているかをふんわりと説明してみたい。
+ベクトル＝矢印？ ベクトルは、アルファベットの上に矢印記号を書いて表す。 また、ベクトルの計算は矢印のままではやりにくいので、 直交座標系の上に置いて、その座標値を使って計算することが多い。</description>
+    </item>
+    
+  </channel>
+</rss>

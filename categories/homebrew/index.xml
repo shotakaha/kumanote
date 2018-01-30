@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homebrew on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/homebrew/</link>
+    <description>Recent content in Homebrew on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 06 Jun 2016 15:27:22 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>zを再インストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-z/</link>
+      <pubDate>Mon, 06 Jun 2016 15:27:22 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-z/</guid>
+      <description>z - jump aroundというディレクトリ移動の補助コマンドを、MacPortsからHomebrewに変えます。
+現状確認とdeactivate $ port installed z The following ports are currently installed: z @1.8_0 (active) $ sudo port deactivate z ---&amp;gt; Deactivating z @1.8_0 ---&amp;gt; Cleaning z  再インストール $ brew info z z: stable 1.9, HEAD Tracks most-used directories to make cd smarter https://github.com/rupa/z Not installed From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/z.rb ==&amp;gt; Caveats For Bash or Zsh, put something like this in your $HOME/.bashrc or $HOME/.zshrc: . `brew --prefix`/etc/profile.</description>
+    </item>
+    
+    <item>
+      <title>Homebrewのgoをインストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</link>
+      <pubDate>Sat, 04 Jun 2016 11:47:54 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</guid>
+      <description>インストール済みのhugoパッケージの情報を調べたところ、依存パッケージのgoがインストールされてないことが分かりました。
+というのも、これまでMacPortsをメインで使っていたため、goはMacPortsのパッケージを使っていたからなのですが、今回、これをHomebrewのにすることにしました。
+（hugoはMacPortsにパッケージがないため、Homebrewを入れていました。自分でビルドするのもめんどうだと思ったので）
+現状の確認 まずは現状の確認から。 MacPortsのgoが使われていることを確認します。 記憶にないのですが、go @1.6とgo-1.4が入ってました。
+$ where go /opt/local/bin/go $ port installed | ag go go @1.6.2_0 (active) go-1.4 @1.4.3_0 (active)  まず、MacPortsのgoをdeactivateします。
+$ sudo port deactivate go go-1.4 ---&amp;gt; Deactivating go @1.6.2_0 ---&amp;gt; Cleaning go ---&amp;gt; Deactivating go-1.4 @1.4.3_0 ---&amp;gt; Cleaning go-1.4 $ where go go not found  brew info go 次に、Homebrewのgoパッケージを確認します。
+$ brew info go go: stable 1.6.2 (bottled), HEAD Go programming environment https://golang.</description>
+    </item>
+    
+    <item>
+      <title>Homebrewの使い方</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-help/</link>
+      <pubDate>Fri, 03 Jun 2016 11:14:07 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-help/</guid>
+      <description>さて、昨日、MacPortsからHomebrewへの移行を決意しました。 ということで、brewコマンドの使い方を少し調べてみました。
+ヘルプを表示する brew helpは唯一、覚えるべきコマンドです。 単にbrewだけでもよいです。
+$ brew help $ brew  インストール済みのパッケージ一覧を表示する brew list を使います。 昨日、インストールしたnkfと、過去にインストールしたhugoが表示されました。
+$ brew list hugo nkf  インストールされているパスを知りたい場合は、brew list FORMULAとします。 実行ファイル、Bash補完、マニュアルの場所がリストされます。
+$ brew list hugo /usr/local/Cellar/hugo/0.15/bin/hugo /usr/local/Cellar/hugo/0.15/etc/bash_completion.d/hugo.sh /usr/local/Cellar/hugo/0.15/share/man/ (24 files)  パッケージの情報を知る brew info FORMULAを使います。 試しにhugoの情報を見てみました。
+ホームページはどこなのか、いつ取ってきたのか、とか分かりますし、依存パッケージなども分かります。
+$ brew info hugo hugo: stable 0.15 (bottled), HEAD Configurable static site generator https://gohugo.io/ /usr/local/Cellar/hugo/0.15 (29 files, 15.6M) * Poured from bottle on 2016-02-15 at 10:49:24 From: https://github.</description>
+    </item>
+    
+    <item>
+      <title>MacPortsからHomebrewへ</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/macports-to-homebrew/</link>
+      <pubDate>Thu, 02 Jun 2016 10:50:44 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/macports-to-homebrew/</guid>
+      <description>ROOT6がHomebrewでインストールできるみたいなので、Homebrewを本格的に使ってみようかなと思っています。 ただ、あいにくHomebrewとMacPortsは相性がよくないようで、一緒に使うことは非推奨らしいです。(現在は Hugo のみ Homebrew でインストールしています)
+かといって、これまででMacPorts依存症になってしまっているため、一気に乗り換えるのは不安が。。。 ということで、依存関係の多いパッケージはたぶんめんどくさいことになるので、とりあえず単体のパッケージから始めます。 最初はnkf。
+現状の確認 とりあえずnkfのパスとバージョンを確認しました。 MacPortsのnkf (/opt/local/bin/nkf)が使われていることが分かります。
+$ where nkf /opt/local/bin/nkf $ nkf --version Network Kanji Filter Version 2.1.3 (2013-11-22) Copyright (C) 1987, FUJITSU LTD. (I.Ichikawa). Copyright (C) 1996-2013, The nkf Project.  Homebrewでパッケージ検索＆インストール Homebrewにnkfがあるか探します。 ありました。
+$ brew search nkf nkf  brew installコマンドを使ってnkfをインストールします。
+$ brew install nkf ==&amp;gt; Downloading https://homebrew.bintray.com/bottles/nkf-2.1.4.el_capitan.bottle.tar.gz ######################################################################## 100.0% ==&amp;gt; Pouring nkf-2.1.4.el_capitan.bottle.tar.gz 🍺 /usr/local/Cellar/nkf/2.1.4: 4 files, 342.5K  パスを確認すると/usr/local/bin/nkfが追加されてます。</description>
+    </item>
+    
+  </channel>
+</rss>

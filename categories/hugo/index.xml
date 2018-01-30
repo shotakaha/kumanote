@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on KumaNOTE</title>
+    <link>http://kuma.kek.jp/~shotakaha/kumanote/categories/hugo/</link>
+    <description>Recent content in Hugo on KumaNOTE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 04 Jun 2016 11:47:54 +0900</lastBuildDate>
+    
+	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homebrewのgoをインストール</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</link>
+      <pubDate>Sat, 04 Jun 2016 11:47:54 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/homebrew-go/</guid>
+      <description>インストール済みのhugoパッケージの情報を調べたところ、依存パッケージのgoがインストールされてないことが分かりました。
+というのも、これまでMacPortsをメインで使っていたため、goはMacPortsのパッケージを使っていたからなのですが、今回、これをHomebrewのにすることにしました。
+（hugoはMacPortsにパッケージがないため、Homebrewを入れていました。自分でビルドするのもめんどうだと思ったので）
+現状の確認 まずは現状の確認から。 MacPortsのgoが使われていることを確認します。 記憶にないのですが、go @1.6とgo-1.4が入ってました。
+$ where go /opt/local/bin/go $ port installed | ag go go @1.6.2_0 (active) go-1.4 @1.4.3_0 (active)  まず、MacPortsのgoをdeactivateします。
+$ sudo port deactivate go go-1.4 ---&amp;gt; Deactivating go @1.6.2_0 ---&amp;gt; Cleaning go ---&amp;gt; Deactivating go-1.4 @1.4.3_0 ---&amp;gt; Cleaning go-1.4 $ where go go not found  brew info go 次に、Homebrewのgoパッケージを確認します。
+$ brew info go go: stable 1.6.2 (bottled), HEAD Go programming environment https://golang.</description>
+    </item>
+    
+    <item>
+      <title>Permalink と RelPermalink</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/</link>
+      <pubDate>Wed, 18 May 2016 12:10:56 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/</guid>
+      <description>テンプレートで使える変数 に、.Permalinkと.RelPermalinkがある。 これらがどのように違うのか確認してみた。
+以下のように、記事の見出し部分に.Permalinkを使っているので、そこに.RelPermalinkも併記してみた。 canonifyurlsによって違いが出るはずなのでtrue/falseの場合で比較した。
+&amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;{{ .Permalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  canonifyurls = true のとき baseurl = &amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/&amp;quot; canonifyurls = true  &amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  content/ の部分が baseurl に置換され、Permalink も RelPermalink も差がない
+canonifyurls = false のとき baseurl = &amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/&amp;quot; canonifyurls = false  &amp;lt;h3&amp;gt;Permalink : &amp;lt;a href=&amp;quot;http://kuma.kek.jp/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;RelPermalink: &amp;lt;a href=&amp;quot;/~shotakaha/kumanote/post/permalink-and-relpermalink/&amp;quot;&amp;gt;Permalink と RelPermalink&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  RelPermalinkでは、baseurlのトップドメインがなくなっている。 baseurlの部分が丸々なくなると思っていたので、意外。 そしてなんだか中途半端な印象。どこで使うんだろう。</description>
+    </item>
+    
+    <item>
+      <title>hugo server watch してる時に、ロックファイルを無視する設定</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-server-ignorefiles/</link>
+      <pubDate>Tue, 17 May 2016 07:18:02 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-server-ignorefiles/</guid>
+      <description>hugo server --watchを使っているときに、以下のようなエラーが出てくる時の対処法。
+... ERROR: 2016/05/17 Cannot read symbolic link &#39;.../kumanote/content/post/.#hugo-ignorefiles.md&#39;, error was: lstat .../kumanote/content/post/... : no such file or directory ...  Hugo community の hugo server watch should ignore emacs lock filesや、そこで参照されている issue1189 を参照すると、config.tomlにignoreFiles=[無視したいファイルの正規表現]を書けばよいらしい。
+上記エラーでは、Emacsを編集してるときの中間ファイルである.#で始まるファイルが原因なので、以下のように書いてみた。
+ignoreFiles = [&amp;quot;.#&amp;quot;]  あれ？前はこの方法でできてた気がするんだけど、うまくいってないみたい？</description>
+    </item>
+    
+    <item>
+      <title>Hugoドキュメントの基本</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-basic-structure/</link>
+      <pubDate>Wed, 02 Dec 2015 20:21:59 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-basic-structure/</guid>
+      <description>Hugoドキュメントを読んでいて Contents の部分を理解しておくことは大事な気がしたので、そのメモである。 キーワードは Front Matter、Section、Type、Archetypes の４つ。
+1. Front Matter Front Matterはhugo new でファイルを作成した時にページ上部に自動生成される+++（TOMLの場合）で囲まれた部分のこと。 ここにはページ毎のメタ情報を書き込むことができる。 デフォルトでは date、draft、titleの３つだが、Template Variablesにある変数（全部小文字でOK）や、独自の変数（自分で設定する必要がある）を追記することができる。
+2. Section Sectionはそのコンテンツのパスの一番上のディレクトリ部分のこと。 たとえば、この記事（パスは/post/hugo-basic/structure/index.htmlになってるはず）だと post の部分になる。
+3. Type TypeはデフォルトだとSectionと同じになるが、Front Matterのところにtype = photoと書けばphotoタイプに変更できる。 このTypeに応じてカスタマイズしたテンプレートを用意することができる。 この記事では.mdのFront Matterで何も指定していないので、上と同じpostである。
+4. Archetypes ArchetypesはFront Matterのテンプレート的なものである。 先に述べたようにFront Matterは自由に追記可能だが、毎回入力する内容はテンプレートにしておくとよい。 テンプレートのファイル名はTypeと同じにする。 つまりpostタイプのコンテンツのテンプレートは/archetypes/post.md。 Typeの一致するファイルがない場合は/archetypes/default.mdが使われる。
+全体設定でthemes = THEMENAMEを設定している場合はTHEMENAME/archetype/TYPE.md、THEMENAME/archetype/default.mdの順番に使われる。</description>
+    </item>
+    
+    <item>
+      <title>Hugoを使い始めてみた感想</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-start/</link>
+      <pubDate>Sat, 28 Nov 2015 02:38:13 +0900</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/hugo-start/</guid>
+      <description>静的ウェブサイトジェネレータ Hugoを使ってみることにした。
+実はHugoのことは３ヶ月くらい前に一度調べたことがあって、全く記憶にないのだけれど、その時に hugo コマンドはインストールしていたみたい。
+（たぶん、GoをMacPortsでインストールし、Homebrewをインストールしてからの、Hugoのインストールをしたのだと思われる）
+Hugo Quickstart Guid とりあえず、Quickstart にしたがって入力。 あっさりと、それっぽい感じのウェブページが作成できてしまった。 しかも、スタイルなど余計なことを考えず、コンテンツとなる文書をひたすら書けばいいだけなのでこれはなかなか楽しい。
+Markdown or ReST コンテンツはMarkdownで書くことになっている。 しかし、Front Matterのドキュメント を読むと Hugo v0.14 から reStructuredText もexperimentalにサポートしているらしい。
+Sphinxドキュメントの作成でReSTを覚えたので、使えたら楽ちんなのだけど、別途rst2htmlが必要。 郷に入っては郷に従うことにしよう。
+とりあえず毎日１本ずつ使ってみた感想や内容を書いていくのが当面の目標。</description>
+    </item>
+    
+  </channel>
+</rss>
