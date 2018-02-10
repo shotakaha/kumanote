@@ -6,10 +6,22 @@
     <description>Recent content in Posts on KumaNOTE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 06 Jun 2016 15:27:22 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2018 15:37:21 +0000</lastBuildDate>
     
 	<atom:link href="http://kuma.kek.jp/~shotakaha/kumanote/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jupyter Notebookを使いはじめた</title>
+      <link>http://kuma.kek.jp/~shotakaha/kumanote/post/starting-jupyter-notebook/</link>
+      <pubDate>Tue, 30 Jan 2018 15:37:21 +0000</pubDate>
+      
+      <guid>http://kuma.kek.jp/~shotakaha/kumanote/post/starting-jupyter-notebook/</guid>
+      <description>ウェブサイトのアクセス解析をするためにJupyterを使うことにした。
+インストール $ pip3 install jupyter $ cd ~/repos/analysis/ $ jupyter notebook --port=18888  公式ウェブサイトにはAnacondaを使ったほうがよいとかいてあるがあ、インストールにはpip3コマンドを使った。
+解析用のディレクトリに移動後、jupyter notebookと打ち込むとjupyterサーバが起動する。 デフォルトでlocalhost:8888に起動するのでMAMPを使っているとポート番号が重なり使えない。 だから--port=18888オプションを使って別のポートで起動している。
+キーボードショートカット ショートカット一覧はhキーで表示することができる。 viみたいに、コマンドモードと編集モードがあり、それぞれをESCキーとEnterキーで変更できることさえ頭に入れておけば、コーディングを開始することができる。</description>
+    </item>
     
     <item>
       <title>zを再インストール</title>
